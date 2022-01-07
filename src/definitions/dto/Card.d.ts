@@ -1,3 +1,5 @@
+import Rarity from "./Rarity";
+
 type CardPart = {
     object: string,
     id: string,
@@ -86,7 +88,7 @@ type Card = {
     prints_search_uri: string,
     collector_number: string,
     digital: boolean,
-    rarity: 'common' | 'uncommon' | 'rare' | 'mythic',
+    rarity: Rarity,
     card_back_id: string,
     artist: string,
     artist_ids: string[],
