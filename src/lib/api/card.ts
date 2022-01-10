@@ -9,7 +9,7 @@ export const getCommander = async (colors: string[]): Promise<CardResponse> => {
 };
 
 export const getCards = async (colors: string[], query?: string): Promise<CardResponse> => {
-    const cardQuery = `id=${colors.join('+')}+f:brawl`;
+    const cardQuery = `id<=${colors.join('+')}+f:brawl`;
 
     const response = await axios.get(`https://api.scryfall.com/cards/search?${cardQuery}`);
     return response.data;
