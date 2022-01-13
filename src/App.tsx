@@ -1,23 +1,24 @@
 import React from 'react';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import IdentitySelector from './components/IdentitySelector';
+import CommanderSelector from './components/CommanderSelector';
+import SpellSelector from './components/SpellSelector';
+import LandSelector from './components/LandSelector';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <header>
+                <Header />
+                <IdentitySelector />
+                <CommanderSelector />
+                <SpellSelector />
+                <LandSelector />
+                <Footer />
+            </header>
+        </div>
+    );
 }
 
 export default App;
