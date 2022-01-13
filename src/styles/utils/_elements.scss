@@ -3,9 +3,11 @@ html {
     font-size: 62.5%;
     font-family: $font-body;
     background-color: $color-white;
+    min-height: 100%;
 }
 
 body {
     font-size: 1.6rem;
     color: $color-primary;
+    min-height: 100%;
 }
