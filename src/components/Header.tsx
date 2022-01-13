@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../assets/images/logo.svg';
 
 const Header: React.FC = () => {
     return (
@@ -6,10 +7,10 @@ const Header: React.FC = () => {
             <div className="o-split o-split--v-center">
                 <div className="c-logo-lockup">
                     <div className="c-logo-lockup--logo">
-                        logo!
+                        <img src={logo} width="66" height="77" alt="A badly shuffled pile of cards" />
                     </div>
                     <div className="c-logo-lockup--title">
-                        <h1 className="u-txt--letter-spacing-2 u-txt--heading u-txt--weight-black u-txt--50 u-txt--color-white">
+                        <h1 className="u-txt--letter-spacing-1 u-txt--heading u-txt--weight-black u-txt--50 u-txt--color-white">
                             jankpile
                         </h1>
                     </div>
