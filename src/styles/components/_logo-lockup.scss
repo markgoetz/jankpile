@@ -1,0 +1,20 @@
+.c-logo-lockup {
+    display: grid;
+    column-gap: 1.6rem;
+    row-gap: 0;
+
+    grid-template-areas: 'logo title' 'logo subheading';
+}
+
+.c-logo-lockup--logo {
+    grid-area: logo;
+    align-self: center;
+}
+
+.c-logo-lockup--title {
+    grid-area: title;
+}
+
+.c-logo-lockup--subheading {
+    grid-area: subheading;
+}

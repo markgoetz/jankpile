@@ -9,14 +9,14 @@ import LandSelector from './components/LandSelector';
 function App() {
     return (
         <div className="App">
-            <header>
-                <Header />
-                <IdentitySelector />
-                <CommanderSelector />
-                <SpellSelector />
-                <LandSelector />
-                <Footer />
-            </header>
+            <header><Header /></header>
+            <main>
+                <section><IdentitySelector /></section>
+                <section><CommanderSelector /></section>
+                <section><SpellSelector /></section>
+                <section><LandSelector /></section>
+            </main>
+            <footer><Footer /></footer>
         </div>
     );
 }
