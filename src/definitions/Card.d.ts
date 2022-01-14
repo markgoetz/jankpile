@@ -6,6 +6,7 @@ type Card = {
     imageUrl: string,
     setCode: string,
     cardNumber: string,
+    manaValue: number,
 };
 
 export default Card;
