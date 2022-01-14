@@ -1,10 +1,10 @@
-import Card from './Card';
+import FullCard from './FullCard';
 
 type CardResponse = {
     object: string,
     total_cards: number,
     has_more: boolean,
-    data: Card[],
+    data: FullCard[],
 };
 
 export default CardResponse;

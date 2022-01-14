@@ -13,7 +13,7 @@ type Legality = 'legal' | 'not_legal';
 
 type Game = 'arena' | 'paper' | 'mtgo';
 
-type Card = {
+type FullCard = {
     object: string,
     id: string,
     oracle_id: string,
@@ -112,4 +112,4 @@ type Card = {
     purchase_uris: Record<string, string>,
 };
 
-export default Card;
+export default FullCard;
