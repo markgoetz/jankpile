@@ -1,6 +1,7 @@
 import CardType from "./CardType";
 
 type Card = {
+    id: number,
     name: string,
     type: CardType,
     imageUrl: string,
@@ -11,10 +12,10 @@ type Card = {
 
 export default Card;
 
-export type Spell = Card & {
+export type SpellCard = Card & {
     type: Omit<CardType, 'land'>;
 };
 
-export type Commander = Card & {
+export type CommanderCard = Card & {
     type: 'creature' | 'planeswalker';
 };

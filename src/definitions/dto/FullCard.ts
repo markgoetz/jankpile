@@ -1,4 +1,4 @@
-import Rarity from "./Rarity";
+import Rarity from './Rarity';
 
 type CardPart = {
     object: string,
