@@ -25,10 +25,11 @@ const commanderSlice = createSlice({
             state.commander = action.payload;
         },
         clearCommander: (state) => {
-            // TODO: Must clear out lands and spells 
             state.commander = null;
         },
     },
 });
+
+// TODO: Thunks for loading commander
 
 export default commanderSlice;
