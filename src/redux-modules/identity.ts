@@ -36,5 +36,5 @@ export const isColorSelected = (state: RootState, color: Color) => state.identit
 export const selectColors = (state: RootState) => {
     return Object.entries(state.identity.colors)
         .filter(entry => entry[1] === true)
-        .map(entry => entry[0]);
+        .map(entry => entry[0] as Color);
 };
