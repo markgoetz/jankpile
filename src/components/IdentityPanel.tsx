@@ -4,7 +4,7 @@ import Color from '../definitions/Color';
 import { setFormat, selectFormat, toggleColor, selectColors } from '../redux-modules/identity';
 import { fetchCommanders  } from '../redux-modules/commander';
 
-const IdentitySelector: React.FC = () => {
+const IdentityPanel: React.FC = () => {
     const colors = useSelector(selectColors);
     const format = useSelector(selectFormat);
     const dispatch = useDispatch();
@@ -52,4 +52,4 @@ const IdentitySelector: React.FC = () => {
     );
 };
 
-export default IdentitySelector;
+export default IdentityPanel;
