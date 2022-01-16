@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SpellCard } from '../definitions/Card';
+import Card from '../definitions/Card';
 import NetworkStatus from '../definitions/NetworkStatus';
 
 export type SpellState = {
-    options: SpellCard[],
+    options: Card[],
     page: number,
-    spells: SpellCard[],
+    spells: Card[],
     status: NetworkStatus,
 };
 
@@ -23,10 +23,10 @@ const spellSlice = createSlice({
         setStatus: (state, action: PayloadAction<NetworkStatus>) => {
             state.status = action.payload;
         },
-        setOptions: (state, action: PayloadAction<SpellCard[]>) => {
+        setOptions: (state, action: PayloadAction<Card[]>) => {
             state.options = action.payload;
         },
-        toggleCard: (state, action: PayloadAction<SpellCard>) => {
+        toggleCard: (state, action: PayloadAction<Card>) => {
             if (state.spells.find(spell => spell.id === action.payload.id)) {
                 state.spells = state.spells.filter(spell => spell.id !== action.payload.id);
             } else {

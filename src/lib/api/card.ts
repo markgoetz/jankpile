@@ -9,7 +9,7 @@ const getApiFormat = (format: Format) => (format === 'historic') ? 'historicbraw
 export const getCommander = async (format: Format, colors: Color[]): Promise<CardResponse> => {
     const apiFormat = getApiFormat(format);
 
-    const cardQuery = `id:${colors.join('+')}+f:${apiFormat}+is:commander+game:arena`;
+    const cardQuery = `id=${colors.join('')}+f:${apiFormat}+is:commander+game:arena`;
 
     const response = await axios.get(`https://api.scryfall.com/cards/search?q=${cardQuery}`);
     return response.data;

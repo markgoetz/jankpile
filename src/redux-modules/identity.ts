@@ -31,6 +31,7 @@ const identitySlice = createSlice({
 
 export const { setFormat, toggleColor } = identitySlice.actions;
 export default identitySlice;
+
 export const selectFormat = (state: RootState) => state.identity.format;
 export const isColorSelected = (state: RootState, color: Color) => state.identity.colors[color];
 export const selectColors = (state: RootState) => {

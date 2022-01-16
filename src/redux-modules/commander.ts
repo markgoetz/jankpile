@@ -1,13 +1,15 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CommanderCard } from '../definitions/Card';
+import Card from '../definitions/Card';
 import Color from '../definitions/Color';
 import Format from '../definitions/Format';
 import NetworkStatus from '../definitions/NetworkStatus';
 import { getCommander } from '../lib/api/card';
+import { fullCardToCommander } from '../lib/translation/cardTranslations';
+import { RootState } from './store';
 
 export type CommanderState = {
-    options: CommanderCard[],
-    commander: CommanderCard | null,
+    options: Card[],
+    commander: Card | null,
     status: NetworkStatus,
 };
 
@@ -36,7 +38,7 @@ const commanderSlice = createSlice({
     name: 'commander',
     initialState,
     reducers: {
-        setCommander: (state, action: PayloadAction<CommanderCard>) => {
+        setCommander: (state, action: PayloadAction<Card>) => {
             state.commander = action.payload;
         },
     },
@@ -46,11 +48,15 @@ const commanderSlice = createSlice({
             state.commander = null;
             state.status = 'loading';
         }).addCase(fetchCommanders.fulfilled, (state, action) => {
-            console.log(action.payload);
+            state.options = action.payload.data.map(fullCardToCommander);
+            console.log(state.options);
             state.status = 'idle';
         })
     },
 });
 
+export const selectOptions = (state: RootState) => state.commander.options;
+export const selectCommander = (state: RootState) => state.commander.commander;
+export const selectStatus = (state: RootState) => state.commander.status;
 
 export default commanderSlice;
