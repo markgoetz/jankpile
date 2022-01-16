@@ -59,4 +59,6 @@ export const selectOptions = (state: RootState) => state.commander.options;
 export const selectCommander = (state: RootState) => state.commander.commander;
 export const selectStatus = (state: RootState) => state.commander.status;
 
+export const { setCommander } = commanderSlice.actions;
+
 export default commanderSlice;
