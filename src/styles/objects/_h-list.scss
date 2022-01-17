@@ -1,0 +1,8 @@
+.o-h-list {
+    display: flex;
+}
+
+.o-h-list > * + * {
+    margin-left: $base-grid-size;
+}
+
