@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../definitions/Card';
 import { selectCommander, selectOptions, setCommander } from '../redux-modules/commander';
+import CommanderOption from './CommanderOption';
 import Heading from './Heading';
 import PanelHeading from './PanelHeading';
 
@@ -31,8 +32,11 @@ const CommanderPanel: React.FC = () => {
             <ul>
                 {options.map(option => (
                     <li key={option.id}>
-                        <button type="button" onClick={() => onCommanderClick(option)}>{option.name}</button>
-                        {commander?.id === option.id && 'this one!'}
+                        <CommanderOption
+                            card={option}
+                            isSelected={option.id === commander?.id}
+                            onSelect={() => onCommanderClick(option)}
+                        />
                     </li>
                 ))}
             </ul>

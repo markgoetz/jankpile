@@ -26,9 +26,12 @@ export const fullCardToCommander = (card: FullCard): Card => {
 
     const imageUris = getImageUris(card);
 
+    const name = card.card_faces ? card.card_faces[0].name : card.name;
+
     return {
         id: card.id,
-        name: card.name,
+        name,
+        artist: card.artist ?? 'Unknown',
         fullImageUri: imageUris.small,
         artImageUri: imageUris.art_crop,
         setCode: card.set,
