@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PanelHeading: React.FC = ({ children }) => {
-    return <div>{children}</div>;
+    return <div className="c-panel__hd">{children}</div>;
 };
 
 export default PanelHeading;

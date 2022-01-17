@@ -6,3 +6,12 @@
     margin-left: $base-grid-size;
 }
 
+.o-h-list--baseline {
+    align-items: baseline;
+}
+
+@for $i from 2 through 4 {
+    .o-h-list--x#{$i} > * + * {
+        margin-left: $base-grid-size * $i;
+    }
+};
