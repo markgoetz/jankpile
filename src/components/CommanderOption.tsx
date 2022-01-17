@@ -12,9 +12,9 @@ const CommanderOption: React.FC<Props> = ({ card, isSelected, onSelect }) => {
         <button type="button" onClick={onSelect}>
             <span>
                 <img src={card.artImageUri} alt={card.name} width={207} height={151} />
+                <span>{card.name}</span>
                 <span>art by {card.artist}</span>
             </span>
-            {card.name}
         </button>
     );
 };
