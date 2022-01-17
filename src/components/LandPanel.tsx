@@ -1,7 +1,13 @@
 import React from 'react';
+import Heading from './Heading';
+import PanelHeading from './PanelHeading';
 
-const Panel: React.FC = () => {
-    return <div>LandPanel</div>;
+const LandPanel: React.FC = () => {
+    return (
+        <PanelHeading>
+            <Heading size="normal"><h2>Lands</h2></Heading>
+        </PanelHeading>
+    );
 };
 
-export default Panel;
+export default LandPanel;
