@@ -5,6 +5,7 @@ import { setFormat, selectFormat, toggleColor, selectColors } from '../redux-mod
 import { fetchCommanders  } from '../redux-modules/commander';
 import PanelHeading from './PanelHeading';
 import Heading from './Heading';
+import { fetchSpells } from '../redux-modules/spells';
 
 const IdentityPanel: React.FC = () => {
     const colors = useSelector(selectColors);
@@ -14,6 +15,7 @@ const IdentityPanel: React.FC = () => {
     const onSearchClick = useCallback(
         () => {
             dispatch(fetchCommanders({ colors, format }));
+            dispatch(fetchSpells({ colors, format }));
         },
         [dispatch, colors, format],
     );

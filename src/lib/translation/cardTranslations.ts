@@ -31,7 +31,7 @@ export const fullCardToCommander = (card: FullCard): Card => {
     return {
         id: card.id,
         name,
-        artist: card.artist ?? 'Unknown',
+        artist: card.artist || 'Unknown',
         fullImageUri: imageUris.small,
         artImageUri: imageUris.art_crop,
         setCode: card.set,

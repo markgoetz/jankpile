@@ -1,6 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Card from '../definitions/Card';
+import Identity from '../definitions/Identity';
 import NetworkStatus from '../definitions/NetworkStatus';
+import { getSpells } from '../lib/api/card';
+import { fetchCommanders } from './commander';
 
 export type SpellState = {
     options: Card[],
@@ -16,26 +19,41 @@ const initialState: SpellState = {
     status: 'idle',
 };
 
+// TODO: Add query and page
+export const fetchSpells = createAsyncThunk(
+    'spells/fetchSpells',
+    async (identity: Identity) => {
+        const response = await getSpells(identity);
+        return response;
+    }
+);
+
 const spellSlice = createSlice({
     name: 'spells',
     initialState,
     reducers: {
-        setStatus: (state, action: PayloadAction<NetworkStatus>) => {
-            state.status = action.payload;
-        },
-        setOptions: (state, action: PayloadAction<Card[]>) => {
-            state.options = action.payload;
-        },
-        toggleCard: (state, action: PayloadAction<Card>) => {
-            if (state.spells.find(spell => spell.id === action.payload.id)) {
-                state.spells = state.spells.filter(spell => spell.id !== action.payload.id);
+        toggleSpell: (state, action: PayloadAction<Card>) => {
+            const spell = action.payload;
+            if (state.spells.find(s => s.id === spell.id)) {
+                state.spells = state.spells.filter(s => s.id !== spell.id);
             } else {
-                state.spells.push(action.payload);
+                state.spells.push(spell);
             }
         },
     },
-    extraReducers: {
-        // TODO: clear out spells when new search happens
+    extraReducers: (builder) => {
+        builder.addCase(fetchCommanders.pending, (state) => {
+            state.options = [];
+            state.spells = [];
+            state.page = 0;
+        }).addCase(fetchSpells.pending, (state) => {
+            state.options = [];
+            state.status = 'loading';
+            state.spells = [];
+            state.page = 0;
+        }).addCase(fetchSpells.fulfilled, (state, action) => {
+            console.log(action.payload.data);
+        });
     }
 });
 
