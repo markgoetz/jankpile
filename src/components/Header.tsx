@@ -22,7 +22,7 @@ const Header: React.FC = () => {
                 </div>
                 <div className="u-txt--20 u-txt--heading u-txt--color-highlight">
                     <p>by Mark Goetz, © {new Date().getFullYear()}</p>
-                    <p>All art © {new Date().getFullYear()} Wizards of the Coast</p>
+                    <p>All card art © {new Date().getFullYear()} Wizards of the Coast</p>
                 </div>
             </div>
         </div>
