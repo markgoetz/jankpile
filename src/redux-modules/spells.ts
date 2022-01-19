@@ -63,4 +63,6 @@ const spellSlice = createSlice({
 export const selectSpellOptions = (state: RootState) => state.spells.options;
 export const selectSpellStatus = (state: RootState) => state.spells.status;
 
+export const { toggleSpell } = spellSlice.actions;
+
 export default spellSlice;

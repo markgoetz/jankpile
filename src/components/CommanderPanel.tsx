@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../definitions/Card';
 import { selectCommander, selectCommanderOptions, setCommander } from '../redux-modules/commander';
+import { jumpToCommander, nextStep, selectIsCommander } from '../redux-modules/steps';
 import CommanderOption from './CommanderOption';
 import Heading from './Heading';
 import PanelHeading from './PanelHeading';
@@ -9,6 +10,7 @@ import PanelHeading from './PanelHeading';
 const CommanderPanel: React.FC = () => {
     const options = useSelector(selectCommanderOptions);
     const commander = useSelector(selectCommander);
+    const isPanelOpen = useSelector(selectIsCommander);
     const dispatch = useDispatch();
 
     const onCommanderClick = useCallback(
@@ -18,6 +20,14 @@ const CommanderPanel: React.FC = () => {
         [dispatch]
     );
 
+    const onEditClick = () => {
+        dispatch(jumpToCommander());
+    };
+
+    const onConfirmClick = () => {
+        dispatch(nextStep());
+    };
+
     return (
         <>
             <PanelHeading>
@@ -26,20 +36,27 @@ const CommanderPanel: React.FC = () => {
                         <Heading size="normal"><h2>Commander</h2></Heading>
                         {(commander != null && <Heading size="small"><span>{commander.name}</span></Heading>)}
                     </div>
-                    {(commander != null && <button type="button">Edit</button>)}
+                    {(commander != null && <button type="button" onClick={onEditClick}>Edit</button>)}
                 </div>
             </PanelHeading>
-            <ul>
-                {options.map(option => (
-                    <li key={option.id}>
-                        <CommanderOption
-                            card={option}
-                            isSelected={option.id === commander?.id}
-                            onSelect={() => onCommanderClick(option)}
-                        />
-                    </li>
-                ))}
-            </ul>
+            {isPanelOpen && (
+                <>
+                    <ul>
+                        {options.map(option => (
+                            <li key={option.id}>
+                                <CommanderOption
+                                    card={option}
+                                    isSelected={option.id === commander?.id}
+                                    onSelect={() => onCommanderClick(option)}
+                                />
+                            </li>
+                        ))}
+                    </ul>
+                    <button type="button" disabled={commander == null} onClick={onConfirmClick}>
+                        Confirm
+                    </button>
+                </>
+            )}
         </>
     );
 };
