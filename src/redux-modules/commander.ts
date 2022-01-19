@@ -46,9 +46,9 @@ const commanderSlice = createSlice({
     },
 });
 
-export const selectOptions = (state: RootState) => state.commander.options;
+export const selectCommanderOptions = (state: RootState) => state.commander.options;
 export const selectCommander = (state: RootState) => state.commander.commander;
-export const selectStatus = (state: RootState) => state.commander.status;
+export const selectCommanderStatus = (state: RootState) => state.commander.status;
 
 export const { setCommander } = commanderSlice.actions;
 

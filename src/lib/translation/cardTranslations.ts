@@ -39,3 +39,24 @@ export const fullCardToCommander = (card: FullCard): Card => {
         manaValue: card.cmc,
     };
 };
+
+export const fullCardToSpell = (card: FullCard): Card => {
+    if (card.type_line.toLowerCase().includes('land')) {
+        throw new Error(`fullCardToSpell is not compatible with type line ${card.type_line}`);
+    }
+
+    const imageUris = getImageUris(card);
+
+    const name = card.card_faces ? card.card_faces[0].name : card.name;
+
+    return {
+        id: card.id,
+        name,
+        artist: card.artist || 'Unknown',
+        fullImageUri: imageUris.small,
+        artImageUri: imageUris.art_crop,
+        setCode: card.set,
+        cardNumber: card.collector_number,
+        manaValue: card.cmc,
+    };
+};

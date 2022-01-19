@@ -3,7 +3,9 @@ import Card from '../definitions/Card';
 import Identity from '../definitions/Identity';
 import NetworkStatus from '../definitions/NetworkStatus';
 import { getSpells } from '../lib/api/card';
+import { fullCardToSpell } from '../lib/translation/cardTranslations';
 import { fetchCommanders } from './commander';
+import { RootState } from './store';
 
 export type SpellState = {
     options: Card[],
@@ -52,9 +54,13 @@ const spellSlice = createSlice({
             state.spells = [];
             state.page = 0;
         }).addCase(fetchSpells.fulfilled, (state, action) => {
-            console.log(action.payload.data);
+            state.options = action.payload.data.map(fullCardToSpell);
+            state.status = 'idle';
         });
     }
 });
+
+export const selectSpellOptions = (state: RootState) => state.spells.options;
+export const selectSpellStatus = (state: RootState) => state.spells.status;
 
 export default spellSlice;

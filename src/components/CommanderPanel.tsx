@@ -1,13 +1,13 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../definitions/Card';
-import { selectCommander, selectOptions, setCommander } from '../redux-modules/commander';
+import { selectCommander, selectCommanderOptions, setCommander } from '../redux-modules/commander';
 import CommanderOption from './CommanderOption';
 import Heading from './Heading';
 import PanelHeading from './PanelHeading';
 
 const CommanderPanel: React.FC = () => {
-    const options = useSelector(selectOptions);
+    const options = useSelector(selectCommanderOptions);
     const commander = useSelector(selectCommander);
     const dispatch = useDispatch();
 
