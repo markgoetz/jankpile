@@ -20,9 +20,10 @@ const Header: React.FC = () => {
                         </p>
                     </div>
                 </div>
-                <p className="u-txt--20 u-txt--heading u-txt--color-highlight">
-                    by Mark Goetz, © {new Date().getFullYear()}
-                </p>
+                <div className="u-txt--20 u-txt--heading u-txt--color-highlight">
+                    <p>by Mark Goetz, © {new Date().getFullYear()}</p>
+                    <p>All art © {new Date().getFullYear()} Wizards of the Coast</p>
+                </div>
             </div>
         </div>
     );
