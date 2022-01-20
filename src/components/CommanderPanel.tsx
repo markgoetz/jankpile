@@ -22,7 +22,7 @@ const CommanderPanel: React.FC = () => {
     );
 
     const onEditClick = () => {
-        dispatch(jumpToCommander);
+        dispatch(jumpToCommander());
     };
 
     const onConfirmClick = () => {
