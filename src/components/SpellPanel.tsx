@@ -30,13 +30,21 @@ const SpellPanel: React.FC = () => {
             </PanelHeading>
             {isPanelOpen && (
                 <div className="c-panel__bd">
-                    <ul className="o-full-grid">
-                        {options.map(option => (
-                            <li key={option.id}>
-                                <SpellOption option={option} onToggle={() => onToggleOption(option)} />
-                            </li>
-                        ))}
-                    </ul>
+                    <div className="o-sidebar-layout">
+                        <ul className="o-full-grid">
+                            {options.map(option => (
+                                <li key={option.id}>
+                                    <SpellOption option={option} onToggle={() => onToggleOption(option)} />
+                                </li>
+                            ))}
+                        </ul>
+                        <ul>
+                            <Heading size="small"><h3>Current Deck</h3></Heading>
+                            {spells.map(spell => (
+                                <li key={spell.id}>{spell.name}</li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             )}
         </div>

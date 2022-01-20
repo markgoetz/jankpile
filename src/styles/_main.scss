@@ -1,13 +1,14 @@
-@import './utils/_reset.scss';
-@import './utils/_variables.scss';
-@import './utils/_fonts.scss';
-@import './utils/_elements.scss';
-@import './utils/_txt.scss';
+@import './utils/reset';
+@import './utils/variables';
+@import './utils/fonts';
+@import './utils/elements';
+@import './utils/txt';
 
 @import './objects/full-grid';
-@import './objects/_h-list.scss';
-@import './objects/_split.scss';
+@import './objects/h-list';
+@import './objects/sidebar-layout';
+@import './objects/split';
 
-@import './components/_header.scss';
-@import './components/_logo-lockup.scss';
+@import './components/header';
+@import './components/logo-lockup';
 @import './components/panel';
