@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from '../definitions/Card';
-import { selectSpellOptions, toggleSpell } from '../redux-modules/spells';
+import { selectSpellList, selectSpellOptions, toggleSpell } from '../redux-modules/spells';
 import { selectIsSpells } from '../redux-modules/steps';
 import Heading from './Heading';
 import PanelHeading from './PanelHeading';
@@ -10,6 +10,7 @@ import SpellOption from './SpellOption';
 const SpellPanel: React.FC = () => {
     const dispatch = useDispatch();
     const options = useSelector(selectSpellOptions);
+    const spells = useSelector(selectSpellList);
     const isPanelOpen = useSelector(selectIsSpells);
 
     const onToggleOption = useCallback(
@@ -22,7 +23,10 @@ const SpellPanel: React.FC = () => {
     return (
         <div className="c-panel">
             <PanelHeading>
-                <Heading size="normal"><h2>Spells</h2></Heading>
+                <div className="o-h-list o-h-list--baseline">
+                    <Heading size="normal"><h2>Spells</h2></Heading>
+                    {(spells.length > 0 && <Heading size="small"><span>({spells.length})</span></Heading>)}
+                </div>
             </PanelHeading>
             {isPanelOpen && (
                 <div className="c-panel__bd">
