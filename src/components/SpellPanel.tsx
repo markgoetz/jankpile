@@ -38,12 +38,14 @@ const SpellPanel: React.FC = () => {
                                 </li>
                             ))}
                         </ul>
-                        <ul>
+                        <aside>
                             <Heading size="small"><h3>Current Deck</h3></Heading>
-                            {spells.map(spell => (
-                                <li key={spell.id}>{spell.name}</li>
-                            ))}
-                        </ul>
+                            <ul>
+                                {spells.map(spell => (
+                                    <li key={spell.id}>{spell.name}</li>
+                                ))}
+                            </ul>
+                        </aside>
                     </div>
                 </div>
             )}
