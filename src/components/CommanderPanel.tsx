@@ -30,7 +30,7 @@ const CommanderPanel: React.FC = () => {
     };
 
     return (
-        <>
+        <div className="c-panel">
             <PanelHeading>
                 <div className="o-split">
                     <div className="o-h-list o-h-list--baseline">
@@ -41,7 +41,7 @@ const CommanderPanel: React.FC = () => {
                 </div>
             </PanelHeading>
             {isPanelOpen && (
-                <>
+                <div className="c-panel__bd">
                     <ul>
                         {options.map(option => (
                             <li key={option.id}>
@@ -56,9 +56,9 @@ const CommanderPanel: React.FC = () => {
                     <button type="button" disabled={commander == null} onClick={onConfirmClick}>
                         Confirm
                     </button>
-                </>
+                </div>
             )}
-        </>
+        </div>
     );
 };
 

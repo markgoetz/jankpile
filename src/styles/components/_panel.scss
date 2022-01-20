@@ -2,3 +2,7 @@
     padding: $base-grid-size * 2;
     background-image: linear-gradient($color-mid-start, $color-mid-end);
 }
+
+.c-panel__bd {
+    padding: $base-grid-size;
+}
