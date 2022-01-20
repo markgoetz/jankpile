@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../definitions/Card';
 import { selectCommander, selectCommanderOptions, setCommander } from '../redux-modules/commander';
-import { jumpToCommander, nextStep, selectIsCommander } from '../redux-modules/steps';
+import { jumpToCommander, nextStep, selectIsCommander, selectIsAfterCommander } from '../redux-modules/steps';
 import CommanderOption from './CommanderOption';
 import Heading from './Heading';
 import PanelHeading from './PanelHeading';
@@ -11,17 +11,18 @@ const CommanderPanel: React.FC = () => {
     const options = useSelector(selectCommanderOptions);
     const commander = useSelector(selectCommander);
     const isPanelOpen = useSelector(selectIsCommander);
+    const isEditVisible = useSelector(selectIsAfterCommander);
     const dispatch = useDispatch();
 
     const onCommanderClick = useCallback(
         (option: Card) => {
-            dispatch(setCommander(option))
+            dispatch(setCommander(option));
         },
         [dispatch]
     );
 
     const onEditClick = () => {
-        dispatch(jumpToCommander());
+        dispatch(jumpToCommander);
     };
 
     const onConfirmClick = () => {
@@ -36,7 +37,7 @@ const CommanderPanel: React.FC = () => {
                         <Heading size="normal"><h2>Commander</h2></Heading>
                         {(commander != null && <Heading size="small"><span>{commander.name}</span></Heading>)}
                     </div>
-                    {(commander != null && <button type="button" onClick={onEditClick}>Edit</button>)}
+                    {(isEditVisible && <button type="button" onClick={onEditClick}>Edit</button>)}
                 </div>
             </PanelHeading>
             {isPanelOpen && (

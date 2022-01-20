@@ -41,6 +41,9 @@ export const selectIsCommander = (state: RootState) => state.steps.step === Step
 export const selectIsSpells = (state: RootState) => state.steps.step === Step.SPELLS;
 export const selectIsLands = (state: RootState) => state.steps.step === Step.LANDS;
 
+export const selectIsAfterCommander = (state: RootState) => state.steps.step > Step.COMMANDER;
+export const selectIsAfterSpells = (state: RootState) => state.steps.step > Step.SPELLS;
+
 export const { nextStep, jumpToCommander, jumpToSpells } = stepSlice.actions;
 
 export default stepSlice;
