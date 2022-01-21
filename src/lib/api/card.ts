@@ -42,7 +42,7 @@ export const getNonBasicLands = async (colors: Color[], format: Format): Promise
     const colorString = getColorString(colors);
     const apiFormat = getApiFormat(format);
 
-    const cardQuery = `id<=${colorString}+f:${apiFormat}+t:land+game:arena`;
+    const cardQuery = `id<=${colorString}+f:${apiFormat}+t:land+-t:basic+game:arena`;
 
     const response = await axios.get(`${ENDPOINT}${cardQuery}`);
     return response.data;
