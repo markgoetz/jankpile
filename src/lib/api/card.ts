@@ -31,17 +31,18 @@ export const getSpells = async (identity: Identity, query?: string): Promise<Car
     return response.data;
 };
 
-export const getBasicLands = async (color: Color): Promise<CardResponse> => {
+export const getBasicLandArt = async (color: Color): Promise<CardResponse> => {
     const cardQuery = `id=${color}+f:brawl+t:land+t:basic+game:arena&unique=art`;
 
     const response = await axios.get(`${ENDPOINT}${cardQuery}`);
     return response.data;
 };
 
-export const getNonBasicLands = async (colors: Color[]): Promise<CardResponse> => {
+export const getNonBasicLands = async (colors: Color[], format: Format): Promise<CardResponse> => {
     const colorString = getColorString(colors);
+    const apiFormat = getApiFormat(format);
 
-    const cardQuery = `id<=${colorString}+f:brawl+t:land+game:arena`;
+    const cardQuery = `id<=${colorString}+f:${apiFormat}+t:land+game:arena`;
 
     const response = await axios.get(`${ENDPOINT}${cardQuery}`);
     return response.data;

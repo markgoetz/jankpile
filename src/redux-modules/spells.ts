@@ -51,7 +51,6 @@ const spellSlice = createSlice({
         }).addCase(fetchSpells.pending, (state) => {
             state.options = [];
             state.status = 'loading';
-            state.spells = [];
             state.page = 0;
         }).addCase(fetchSpells.fulfilled, (state, action) => {
             state.options = action.payload.data.map(fullCardToSpell);

@@ -7,6 +7,7 @@ import PanelHeading from './PanelHeading';
 import Heading from './Heading';
 import { fetchSpells } from '../redux-modules/spells';
 import { jumpToCommander } from '../redux-modules/steps';
+import { fetchNonBasicLands } from '../redux-modules/lands';
 
 const IdentityPanel: React.FC = () => {
     const colors = useSelector(selectColors);
@@ -17,6 +18,7 @@ const IdentityPanel: React.FC = () => {
         () => {
             dispatch(fetchCommanders({ colors, format }));
             dispatch(fetchSpells({ colors, format }));
+            dispatch(fetchNonBasicLands({ colors, format }));
             dispatch(jumpToCommander());
         },
         [dispatch, colors, format],
