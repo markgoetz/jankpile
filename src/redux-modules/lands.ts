@@ -39,10 +39,16 @@ const initialState: LandState = {
     nonbasicStatus: 'idle',
 };
 
+type FetchBasicLandArtParams = {
+    color: Color,
+    isSnow: boolean,
+};
+
 export const fetchBasicLandArt = createAsyncThunk(
     'spells/fetchBasicLandArt',
-    async (color: Color) => {
-        const response = await getBasicLandArt(color);
+    async (params: FetchBasicLandArtParams) => {
+        const { color, isSnow } = params;
+        const response = await getBasicLandArt(color, isSnow);
         return { color, response };
     }
 );

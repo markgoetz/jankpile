@@ -31,8 +31,9 @@ export const getSpells = async (identity: Identity, query?: string): Promise<Car
     return response.data;
 };
 
-export const getBasicLandArt = async (color: Color): Promise<CardResponse> => {
-    const cardQuery = `id=${color}+f:brawl+t:land+t:basic+game:arena&unique=art`;
+export const getBasicLandArt = async (color: Color, isSnow: Boolean): Promise<CardResponse> => {
+    const snowQuery = isSnow ? 't:snow' : '-t:snow';
+    const cardQuery = `id=${color}+f:brawl+t:land+${snowQuery}+t:basic+game:arena&unique=art`;
 
     const response = await axios.get(`${ENDPOINT}${cardQuery}`);
     return response.data;
