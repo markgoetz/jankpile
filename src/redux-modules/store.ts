@@ -21,9 +21,11 @@ export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
 
 export const selectTotalCardCount = (state: RootState) => {
-    const commanderCount = state.commander != null ? 1 : 0;
+    const commanderCount = state.commander.commander != null ? 1 : 0;
+    console.log(commanderCount, state.commander.commander);
+
     const spellCount = state.spells.spells.length;
-    const nonBasicLandsCount = state.lands.options.length;
+    const nonBasicLandsCount = state.lands.nonbasics.length;
     const basicLandsCount = Object.values(state.lands.basics).reduce((prev, current) => prev + current, 0);
 
     return commanderCount + spellCount + nonBasicLandsCount + basicLandsCount;
