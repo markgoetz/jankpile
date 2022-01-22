@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from '../definitions/Card';
 import { selectSpellList, selectSpellOptions, toggleSpell } from '../redux-modules/spells';
-import { selectIsSpells } from '../redux-modules/steps';
+import { jumpToSpells, nextStep, selectIsAfterSpells, selectIsSpells } from '../redux-modules/steps';
 import Heading from './Heading';
 import PanelHeading from './PanelHeading';
 import SpellOption from './SpellOption';
@@ -12,6 +12,7 @@ const SpellPanel: React.FC = () => {
     const options = useSelector(selectSpellOptions);
     const spells = useSelector(selectSpellList);
     const isPanelOpen = useSelector(selectIsSpells);
+    const isEditVisible = useSelector(selectIsAfterSpells);
 
     const onToggleOption = useCallback(
         (option: Card) => {
@@ -20,24 +21,41 @@ const SpellPanel: React.FC = () => {
         [dispatch],
     );
 
+    const onEditClick = () => {
+        dispatch(jumpToSpells());
+    };
+
+    const onConfirmClick = useCallback(
+        () => {
+            dispatch(nextStep());
+        },
+        [dispatch],
+    );
+
     return (
         <div className="c-panel">
             <PanelHeading>
-                <div className="o-h-list o-h-list--baseline">
-                    <Heading size="normal"><h2>Spells</h2></Heading>
-                    {(spells.length > 0 && <Heading size="small"><span>({spells.length})</span></Heading>)}
+                <div className="o-split">
+                    <div className="o-h-list o-h-list--baseline">
+                        <Heading size="normal"><h2>Spells</h2></Heading>
+                        {(spells.length > 0 && <Heading size="small"><span>({spells.length})</span></Heading>)}
+                    </div>
+                    {(isEditVisible && <button type="button" onClick={onEditClick}>Edit</button>)}
                 </div>
             </PanelHeading>
             {isPanelOpen && (
                 <div className="c-panel__bd">
                     <div className="o-sidebar-layout">
-                        <ul className="o-full-grid">
-                            {options.map(option => (
-                                <li key={option.id}>
-                                    <SpellOption option={option} onToggle={() => onToggleOption(option)} />
-                                </li>
-                            ))}
-                        </ul>
+                        <div>
+                            <ul className="o-full-grid">
+                                {options.map(option => (
+                                    <li key={option.id}>
+                                        <SpellOption option={option} onToggle={() => onToggleOption(option)} />
+                                    </li>
+                                ))}
+                            </ul>
+                            <button type="button" onClick={onConfirmClick}>Confirm</button>
+                        </div>
                         <aside>
                             <Heading size="small"><h3>Current Deck</h3></Heading>
                             <ul>
