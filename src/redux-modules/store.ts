@@ -1,5 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { CARD_COUNT_BY_FORMAT } from '../lib/consts';
 import commanderSlice from './commander';
 import identitySlice from './identity';
 import landSlice from './lands';
@@ -28,11 +27,4 @@ export const selectTotalCardCount = (state: RootState) => {
     const basicLandsCount = Object.values(state.lands.basics).reduce((prev, current) => prev + current, 0);
 
     return commanderCount + spellCount + nonBasicLandsCount + basicLandsCount;
-};
-
-export const selectIsDeckComplete = (state: RootState) => {
-    const totalCount = selectTotalCardCount(state);
-    const format = state.identity.format;
-
-    return totalCount === CARD_COUNT_BY_FORMAT[format];
 };
