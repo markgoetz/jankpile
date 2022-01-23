@@ -7,6 +7,7 @@ type Card = {
     setCode: string,
     cardNumber: string,
     manaValue: number,
+    pips: string,
 };
 
 export default Card;

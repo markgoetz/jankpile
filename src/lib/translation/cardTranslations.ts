@@ -27,6 +27,7 @@ export const fullCardToCommander = (card: FullCard): Card => {
     const imageUris = getImageUris(card);
 
     const name = card.card_faces ? card.card_faces[0].name : card.name;
+    const pips = card.card_faces ? card.card_faces[0].mana_cost : card.mana_cost as string;
 
     return {
         id: card.id,
@@ -37,6 +38,7 @@ export const fullCardToCommander = (card: FullCard): Card => {
         setCode: card.set,
         cardNumber: card.collector_number,
         manaValue: card.cmc,
+        pips,
     };
 };
 
@@ -48,6 +50,7 @@ export const fullCardToSpell = (card: FullCard): Card => {
     const imageUris = getImageUris(card);
 
     const name = card.card_faces ? card.card_faces[0].name : card.name;
+    const pips = card.card_faces ? card.card_faces[0].mana_cost : card.mana_cost as string;
 
     return {
         id: card.id,
@@ -58,6 +61,7 @@ export const fullCardToSpell = (card: FullCard): Card => {
         setCode: card.set,
         cardNumber: card.collector_number,
         manaValue: card.cmc,
+        pips,
     };
 };
 
@@ -79,6 +83,7 @@ export const fullCardToLand = (card: FullCard): Card => {
         setCode: card.set,
         cardNumber: card.collector_number,
         manaValue: card.cmc,
+        pips: '',
     };
 };
 
