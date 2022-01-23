@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import Card from '../definitions/Card';
 import commanderSlice from './commander';
 import identitySlice from './identity';
 import landSlice from './lands';
@@ -20,13 +21,22 @@ export default store;
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
 
-export const selectTotalCardCount = (state: RootState) => {
-    const commanderCount = state.commander.commander != null ? 1 : 0;
-    console.log(commanderCount, state.commander.commander);
+export const selectAllCards = (state: RootState) => {
+    const cards: Card[] = state.commander.commander != null
+        ? [state.commander.commander]
+        : [];
+    
+    cards.push(...state.spells.spells);
 
-    const spellCount = state.spells.spells.length;
-    const nonBasicLandsCount = state.lands.nonbasics.length;
-    const basicLandsCount = Object.values(state.lands.basics).reduce((prev, current) => prev + current, 0);
+    Object.values(state.lands.basics).forEach(colorState => {
+        if (colorState.selectedArt == null && colorState.count > 0) {
+            throw new Error('selected art is null');
+        }
 
-    return commanderCount + spellCount + nonBasicLandsCount + basicLandsCount;
+        const basics = Array.from({ length: colorState.count }).fill(colorState.selectedArt) as Card[];
+        cards.push(...basics);
+    });
+    cards.push(...state.lands.nonbasics.lands);
+
+    return cards;
 };
