@@ -84,7 +84,12 @@ const landSlice = createSlice({
         },
         setBasicCount: (state, action: PayloadAction<{ color: Color, count: number }>) => {
             const { color, count } = action.payload;
-            state.basics[color].count = count;
+
+            if (count < 0) {
+                throw new Error('count cannot be negative');
+            }
+
+            state.basics[color].count = Math.floor(count);
         },
     },
     extraReducers: (builder) => {
@@ -93,7 +98,9 @@ const landSlice = createSlice({
         }).addCase(fetchBasicLandArt.pending, (state) => {
             state.basicArtStatus = 'loading';
         }).addCase(fetchBasicLandArt.fulfilled, (state, action) => {
-            state.basics[action.payload.color].artOptions = action.payload.response.data.map(fullCardToLand);
+            const { color, response } = action.payload;
+            state.basics[color].artOptions = response.data.map(fullCardToLand);
+            state.basics[color].selectedArt = state.basics[color].artOptions[0];
             state.basicArtStatus = 'idle';
         }).addCase(fetchNonBasicLands.pending, (state) => {
             state.nonbasicStatus = 'loading';
@@ -106,3 +113,5 @@ const landSlice = createSlice({
 });
 
 export default landSlice;
+
+export const { toggleNonBasic, setBasicCount } = landSlice.actions;
