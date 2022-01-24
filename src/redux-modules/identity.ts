@@ -12,11 +12,11 @@ export type IdentityState = {
 const initialState: IdentityState = {
     format: 'brawl',
     colors: {
-        'B': false,
-        'G': false,
-        'R': false,
-        'U': false,
-        'W': false,
+        [Color.WHITE]: false,
+        [Color.BLUE]: false,
+        [Color.BLACK]: false,
+        [Color.RED]: false,
+        [Color.GREEN]: false,
     },
 };
 
