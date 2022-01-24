@@ -10,7 +10,7 @@ type Props = {
 const SpellOption: React.FC<Props> = ({ option, onToggle, disabled }) => {
     return (
         <button type="button" onClick={onToggle} disabled={disabled}>
-            <img src={option.fullImageUri} alt={option.name} />
+            <img src={option.fullImageUri} alt={option.name} width={146} height={204} />
         </button>
     );
 };
