@@ -53,7 +53,11 @@ const SpellPanel: React.FC = () => {
                             <ul className="o-full-grid">
                                 {options.map(option => (
                                     <li key={option.id}>
-                                        <SpellOption option={option} onToggle={() => onToggleOption(option)} />
+                                        <SpellOption
+                                            option={option}
+                                            onToggle={() => onToggleOption(option)}
+                                            disabled={option.id === commander?.id}
+                                        />
                                     </li>
                                 ))}
                             </ul>

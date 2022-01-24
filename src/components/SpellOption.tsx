@@ -4,11 +4,12 @@ import Card from '../definitions/Card';
 type Props = {
     option: Card;
     onToggle: () => void;
+    disabled: boolean;
 }
 
-const SpellOption: React.FC<Props> = ({ option, onToggle }) => {
+const SpellOption: React.FC<Props> = ({ option, onToggle, disabled }) => {
     return (
-        <button type="button" onClick={onToggle}>
+        <button type="button" onClick={onToggle} disabled={disabled}>
             <img src={option.fullImageUri} alt={option.name} />
         </button>
     );
