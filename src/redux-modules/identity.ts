@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Color from '../definitions/Color';
 import Format from '../definitions/Format';
+import Identity from '../definitions/Identity';
 import { RootState } from './store';
 
 export type IdentityState = {
@@ -10,26 +11,31 @@ export type IdentityState = {
 
 const initialState: IdentityState = {
     format: 'brawl',
-    colors: { 'B': false, 'G': false, 'R': false, 'U': false, 'W': false },
+    colors: {
+        'B': false,
+        'G': false,
+        'R': false,
+        'U': false,
+        'W': false,
+    },
 };
 
 const identitySlice = createSlice({
     name: 'identity',
     initialState,
     reducers: {
-        setFormat: (state, action: PayloadAction<Format>) => {
-            state.format = action.payload;
+        setIdentity: (state, action: PayloadAction<Identity>) => {
+            const identity = action.payload;
+            
+            state.format = identity.format;
+            Object.keys(state.colors).forEach(
+                key => { state.colors[key as Color] = identity.colors.includes(key as Color); }
+            );
         },
-        setFormatToHistoric: (state) => {
-            state.format = 'historic';
-        },
-        toggleColor: (state, action: PayloadAction<Color>) => {
-            state.colors[action.payload] = !state.colors[action.payload];
-        }
     },
 });
 
-export const { setFormat, toggleColor } = identitySlice.actions;
+export const { setIdentity } = identitySlice.actions;
 export default identitySlice;
 
 export const selectFormat = (state: RootState) => state.identity.format;

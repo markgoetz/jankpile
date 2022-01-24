@@ -10,7 +10,7 @@ const colorMatchers = {
 };
 
 const getPipCounts = (cards: Card[]) => {
-    const pipCounts = {
+    const initialPipCounts = {
         [Color.WHITE]: 0,
         [Color.BLUE]: 0,
         [Color.BLACK]: 0,
@@ -19,19 +19,19 @@ const getPipCounts = (cards: Card[]) => {
     };
 
     return cards.reduce(
-        (prevPips, card) => {
+        (pips, card) => {
             Object.entries(colorMatchers).forEach(
                 ([color, matcher]) => {
                     const matches = card.pips.match(matcher);
                     if (matches != null) {
-                        pipCounts[color as Color] += matches.length;
+                        pips[color as Color] += matches.length;
                     }
                 }
             );
 
-            return pipCounts;
+            return pips;
         },
-        pipCounts
+        initialPipCounts,
     );
 };
 
