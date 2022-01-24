@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from '../definitions/Card';
+import { selectCommander } from '../redux-modules/commander';
 import { selectSpellList, selectSpellOptions, toggleSpell } from '../redux-modules/spells';
 import { jumpToSpells, nextStep, selectIsAfterSpells, selectIsSpells } from '../redux-modules/steps';
 import Heading from './Heading';
@@ -13,6 +14,7 @@ const SpellPanel: React.FC = () => {
     const spells = useSelector(selectSpellList);
     const isPanelOpen = useSelector(selectIsSpells);
     const isEditVisible = useSelector(selectIsAfterSpells);
+    const commander = useSelector(selectCommander);
 
     const onToggleOption = useCallback(
         (option: Card) => {
@@ -47,6 +49,7 @@ const SpellPanel: React.FC = () => {
                 <div className="c-panel__bd">
                     <div className="o-sidebar-layout">
                         <div>
+                            <div>{commander?.description}</div>
                             <ul className="o-full-grid">
                                 {options.map(option => (
                                     <li key={option.id}>
