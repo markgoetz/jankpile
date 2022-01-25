@@ -34,14 +34,14 @@ const SpellPanel: React.FC = () => {
         [dispatch],
     );
 
-    const descriptionPieces = commander?.description?.split('\n').filter(piece => piece !== '') ?? [];
+    const descriptionPieces = commander?.description?.split('\n') ?? [];
 
     return (
         <div className="c-panel">
             <PanelHeading>
                 <div className="o-split">
                     <div className="o-h-list o-h-list--baseline">
-                        <Heading size="normal"><h2>Spells</h2></Heading>
+                        <Heading size="large"><h2>Spells</h2></Heading>
                         {(spells.length > 0 && <Heading size="small"><span>({spells.length})</span></Heading>)}
                     </div>
                     {(isEditVisible && <button type="button" onClick={onEditClick}>Edit</button>)}
@@ -52,9 +52,10 @@ const SpellPanel: React.FC = () => {
                     <div className="o-sidebar-layout">
                         <div>
                             <div className="o-v-list o-v-list--x2">
-                                <Heading size="small"><h3>Commander Description</h3></Heading>
+                                <Heading size="medium"><h3>Commander Description</h3></Heading>
                                 {descriptionPieces.map(piece => <span>{piece}</span>)}
                             </div>
+                            <Heading size="medium"><h3>Deck List</h3></Heading>
                             <ul className="o-full-grid">
                                 {options.map(option => (
                                     <li key={option.id}>
@@ -69,7 +70,7 @@ const SpellPanel: React.FC = () => {
                             <button type="button" onClick={onConfirmClick}>Confirm</button>
                         </div>
                         <aside>
-                            <Heading size="small"><h3>Current Deck</h3></Heading>
+                            <Heading size="medium"><h3>Current Deck</h3></Heading>
                             <ul>
                                 {spells.map(spell => (
                                     <li key={spell.id}>{spell.name}</li>

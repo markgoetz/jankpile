@@ -29,7 +29,7 @@ export const fullCardToCommander = (card: FullCard): Card => {
     const name = card.card_faces ? card.card_faces[0].name : card.name;
     const pips = card.card_faces ? card.card_faces[0].mana_cost : card.mana_cost as string;
     const description = card.card_faces
-        ? card.card_faces.reduce((description, face) => `${description}\n${face.oracle_text}`, '')
+        ? card.card_faces.map(face => face.oracle_text).join('\n')
         : card.oracle_text;
 
     return {
@@ -56,7 +56,7 @@ export const fullCardToSpell = (card: FullCard): Card => {
     const name = card.card_faces ? card.card_faces[0].name : card.name;
     const pips = card.card_faces ? card.card_faces[0].mana_cost : card.mana_cost as string;
     const description = card.card_faces
-        ? card.card_faces.reduce((description, face) => `${description}\n${face.oracle_text}`, '')
+        ? card.card_faces.map(face => face.oracle_text).join('\n')
         : card.oracle_text;
 
     return {
@@ -82,7 +82,7 @@ export const fullCardToLand = (card: FullCard): Card => {
 
     const name = card.card_faces ? card.card_faces[0].name : card.name;
     const description = card.card_faces
-        ? card.card_faces.reduce((description, face) => `${description}\n${face.oracle_text}`, '')
+        ? card.card_faces.map(face => face.oracle_text).join('\n')
         : card.oracle_text;
 
     return {

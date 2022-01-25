@@ -46,7 +46,7 @@ const IdentityPanel: React.FC = () => {
             <div className="o-split">
                 <div className="o-h-list o-h-list--x4">
                     <div className="o-h-list o-h-list--x2 o-h-list--baseline">
-                        <Heading size="normal"><h2>Format</h2></Heading>
+                        <Heading size="large"><h2>Format</h2></Heading>
                         <div>
                             <label>
                                 <input type="radio" name="format" value="brawl" checked={format === 'brawl'} onChange={() => setFormat('brawl')} />Brawl
@@ -57,7 +57,7 @@ const IdentityPanel: React.FC = () => {
                         </div>
                     </div>
                     <div className="o-h-list o-h-list--x2 o-h-list--baseline">
-                        <Heading size="normal"><h2>Colors</h2></Heading>
+                        <Heading size="large"><h2>Colors</h2></Heading>
                         <div>
                             <label>
                                 <input type="checkbox" name="color" value={Color.WHITE} checked={colors.includes(Color.WHITE)} onChange={() => toggleColor(Color.WHITE)} /> White

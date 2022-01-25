@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 
 type Props = {
-    size: 'normal' | 'small';
+    size: 'large' | 'medium' | 'small';
 }
 
 const Heading: React.FC<Props> = ({ size, children }) => {
@@ -12,7 +12,8 @@ const Heading: React.FC<Props> = ({ size, children }) => {
         'u-txt--color-primary',
         'u-txt--weight-black',
         {
-            'u-txt--36': size === 'normal',
+            'u-txt--36': size === 'large',
+            'u-txt--24': size === 'medium',
             'u-txt--20': size === 'small',
         }
     );

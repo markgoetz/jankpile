@@ -6,6 +6,7 @@ import NetworkStatus from '../definitions/NetworkStatus';
 import { getBasicLandArt, getNonBasicLands } from '../lib/api/card';
 import { fullCardToLand } from '../lib/translation/cardTranslations';
 import { fetchCommanders } from './commander';
+import { RootState } from './store';
 
 type BasicState = {
     count: number,
@@ -115,3 +116,7 @@ const landSlice = createSlice({
 export default landSlice;
 
 export const { toggleNonBasic, setBasicCount } = landSlice.actions;
+
+export const selectNonBasicOptions = (state: RootState) => state.lands.nonbasics.options;
+export const selectNonBasicLands = (state: RootState) => state.lands.nonbasics.lands;
+export const selectNonBasicStatus = (state: RootState) => state.lands.nonbasicStatus;
