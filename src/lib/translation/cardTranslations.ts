@@ -28,7 +28,9 @@ export const fullCardToCommander = (card: FullCard): Card => {
 
     const name = card.card_faces ? card.card_faces[0].name : card.name;
     const pips = card.card_faces ? card.card_faces[0].mana_cost : card.mana_cost as string;
-    const description = card.card_faces ? card.card_faces[0].oracle_text : card.oracle_text;
+    const description = card.card_faces
+        ? card.card_faces.reduce((description, face) => `${description}\n${face.oracle_text}`, '')
+        : card.oracle_text;
 
     return {
         id: card.id,
@@ -53,7 +55,9 @@ export const fullCardToSpell = (card: FullCard): Card => {
 
     const name = card.card_faces ? card.card_faces[0].name : card.name;
     const pips = card.card_faces ? card.card_faces[0].mana_cost : card.mana_cost as string;
-    const description = card.card_faces ? card.card_faces[0].oracle_text : card.oracle_text;
+    const description = card.card_faces
+        ? card.card_faces.reduce((description, face) => `${description}\n${face.oracle_text}`, '')
+        : card.oracle_text;
 
     return {
         id: card.id,
@@ -77,7 +81,9 @@ export const fullCardToLand = (card: FullCard): Card => {
     const imageUris = getImageUris(card);
 
     const name = card.card_faces ? card.card_faces[0].name : card.name;
-    const description = card.card_faces ? card.card_faces[0].oracle_text : card.oracle_text;
+    const description = card.card_faces
+        ? card.card_faces.reduce((description, face) => `${description}\n${face.oracle_text}`, '')
+        : card.oracle_text;
 
     return {
         id: card.id,

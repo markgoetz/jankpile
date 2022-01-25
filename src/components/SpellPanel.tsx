@@ -34,6 +34,8 @@ const SpellPanel: React.FC = () => {
         [dispatch],
     );
 
+    const descriptionPieces = commander?.description?.split('\n') ?? [];
+
     return (
         <div className="c-panel">
             <PanelHeading>
@@ -49,7 +51,9 @@ const SpellPanel: React.FC = () => {
                 <div className="c-panel__bd">
                     <div className="o-sidebar-layout">
                         <div>
-                            <div>{commander?.description}</div>
+                            <div className="o-v-list o-v-list--x2">
+                                {descriptionPieces.map(piece => <span>{piece}</span>)}
+                            </div>
                             <ul className="o-full-grid">
                                 {options.map(option => (
                                     <li key={option.id}>

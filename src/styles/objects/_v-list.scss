@@ -1,0 +1,14 @@
+.o-v-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.o-v-list > * + * {
+    margin-top: $base-grid-size;
+}
+
+@for $i from 2 through 4 {
+    .o-v-list--x#{$i} > * + * {
+        margin-top: $base-grid-size * $i;
+    }
+};
