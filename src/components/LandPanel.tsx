@@ -1,17 +1,26 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import Card from '../definitions/Card';
 import getPipCounts from '../lib/utils/getPipCounts';
-import { selectNonBasicLands, selectNonBasicOptions } from '../redux-modules/lands';
+import { selectNonBasicLands, selectNonBasicOptions, toggleNonBasic } from '../redux-modules/lands';
 import { selectIsLands } from '../redux-modules/steps';
 import { selectAllCards } from '../redux-modules/store';
 import Heading from './Heading';
 import PanelHeading from './PanelHeading';
 
 const LandPanel: React.FC = () => {
+    const dispatch = useDispatch();
     const deck = useSelector(selectAllCards);
     const nonBasics = useSelector(selectNonBasicLands);
     const nonBasicOptions = useSelector(selectNonBasicOptions);
     const isPanelOpen = useSelector(selectIsLands);
+
+    const onToggleOption = useCallback(
+        (option: Card) => {
+            dispatch(toggleNonBasic(option));
+        },
+        [dispatch],
+    );
 
     const pipCounts = getPipCounts(deck);
     console.log(pipCounts);
@@ -32,7 +41,9 @@ const LandPanel: React.FC = () => {
                             <ul className="o-full-grid">
                                 {nonBasicOptions.map(option => (
                                     <li key={option.id}>
-                                        {option.name}
+                                        <button type="button" onClick={() => onToggleOption(option)}>
+                                            {option.name}
+                                        </button>
                                     </li>
                                 ))}
                             </ul>
