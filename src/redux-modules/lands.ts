@@ -95,7 +95,19 @@ const landSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(fetchCommanders.pending, (state) => {
-            state = {...initialState};
+            state.basics = {
+                [Color.WHITE]: {...initialBasicState},
+                [Color.BLUE]: {...initialBasicState},
+                [Color.BLACK]: {...initialBasicState},
+                [Color.RED]: {...initialBasicState},
+                [Color.GREEN]: {...initialBasicState},
+            };
+            state.nonbasics = {
+                options: [],
+                lands: [],
+            };
+            state.nonbasicStatus = 'idle';
+            state.basicArtStatus = 'idle';
         }).addCase(fetchBasicLandArt.pending, (state) => {
             state.basicArtStatus = 'loading';
         }).addCase(fetchBasicLandArt.fulfilled, (state, action) => {
@@ -107,7 +119,6 @@ const landSlice = createSlice({
             state.nonbasicStatus = 'loading';
         }).addCase(fetchNonBasicLands.fulfilled, (state, action) => {
             state.nonbasics.options = action.payload.data.map(fullCardToLand);
-            console.log(state.nonbasics.options);
             state.nonbasicStatus = 'idle';
         });
     }
