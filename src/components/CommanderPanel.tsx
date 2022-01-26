@@ -55,7 +55,7 @@ const CommanderPanel: React.FC = () => {
                         ))}
                     </ul>
                     <Button disabled={commander == null} onClick={onConfirmClick}>
-                        {commander == null && 'Select a commander to continue'}
+                        {commander == null && 'No commander selected'}
                         {commander != null && `Select ${commander.name}`}
                     </Button>
                 </div>

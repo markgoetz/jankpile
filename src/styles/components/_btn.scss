@@ -14,7 +14,11 @@
     transition: box-shadow .1s, transform .1s;
 }
 
-.c-btn:active {
+.c-btn:not([disabled]):active {
     box-shadow: 0 0 0 0 #473100;
     transform: translateY(.3rem);
+}
+
+.c-btn[disabled] {
+    opacity: .7;
 }
