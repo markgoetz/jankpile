@@ -20,7 +20,7 @@ const Header: React.FC = () => {
                         </p>
                     </div>
                 </div>
-                <div className="u-txt--20 u-txt--heading u-txt--color-highlight">
+                <div role="contentinfo" className="u-txt--20 u-txt--heading u-txt--color-highlight">
                     <p>by Mark Goetz, © {new Date().getFullYear()}</p>
                     <p>All card art © {new Date().getFullYear()} Wizards of the Coast</p>
                 </div>

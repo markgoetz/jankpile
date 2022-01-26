@@ -18,8 +18,8 @@ function App() {
                     <section><CommanderPanel /></section>
                     <section><SpellPanel /></section>
                     <section><LandPanel /></section>
+                    <section><Footer /></section>
                 </main>
-                <footer><Footer /></footer>
             </div>
         </Provider>
     );
