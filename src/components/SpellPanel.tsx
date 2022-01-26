@@ -6,7 +6,7 @@ import { selectSpellList, selectSpellOptions, toggleSpell } from '../redux-modul
 import { jumpToSpells, nextStep, selectIsAfterSpells, selectIsSpells } from '../redux-modules/steps';
 import Heading from './Heading';
 import PanelHeading from './PanelHeading';
-import SpellOption from './SpellOption';
+import CardOption from './CardOption';
 
 const SpellPanel: React.FC = () => {
     const dispatch = useDispatch();
@@ -53,13 +53,13 @@ const SpellPanel: React.FC = () => {
                         <div>
                             <div className="o-v-list o-v-list--x2">
                                 <Heading size="medium"><h3>Commander Description</h3></Heading>
-                                {descriptionPieces.map(piece => <span>{piece}</span>)}
+                                {descriptionPieces.map(piece => <span key={piece}>{piece}</span>)}
                             </div>
                             <Heading size="medium"><h3>Deck List</h3></Heading>
                             <ul className="o-full-grid">
                                 {options.map(option => (
                                     <li key={option.id}>
-                                        <SpellOption
+                                        <CardOption
                                             option={option}
                                             onToggle={() => onToggleOption(option)}
                                             disabled={option.id === commander?.id}

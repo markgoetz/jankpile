@@ -5,6 +5,7 @@ import getPipCounts from '../lib/utils/getPipCounts';
 import { selectNonBasicLands, selectNonBasicOptions, toggleNonBasic } from '../redux-modules/lands';
 import { selectIsLands } from '../redux-modules/steps';
 import { selectAllCards } from '../redux-modules/store';
+import CardOption from './CardOption';
 import Heading from './Heading';
 import PanelHeading from './PanelHeading';
 
@@ -37,13 +38,14 @@ const LandPanel: React.FC = () => {
                 <div className="c-panel__bd">
                     <div className="o-sidebar-layout">
                         <div>
-                            <Heading size="medium"><h3>Deck List</h3></Heading>
+                            <Heading size="medium"><h3>Non-Basic Lands</h3></Heading>
                             <ul className="o-full-grid">
                                 {nonBasicOptions.map(option => (
                                     <li key={option.id}>
-                                        <button type="button" onClick={() => onToggleOption(option)}>
-                                            {option.name}
-                                        </button>
+                                        <CardOption
+                                            onToggle={() => onToggleOption(option)}
+                                            option={option}
+                                            disabled={false} />
                                     </li>
                                 ))}
                             </ul>

@@ -7,7 +7,7 @@ type Props = {
     disabled: boolean;
 }
 
-const SpellOption: React.FC<Props> = ({ option, onToggle, disabled }) => {
+const CardOption: React.FC<Props> = ({ option, onToggle, disabled }) => {
     return (
         <button type="button" onClick={onToggle} disabled={disabled}>
             <img src={option.fullImageUri} alt={option.name} width={146} height={204} />
@@ -15,4 +15,4 @@ const SpellOption: React.FC<Props> = ({ option, onToggle, disabled }) => {
     );
 };
 
-export default SpellOption;
+export default CardOption;
