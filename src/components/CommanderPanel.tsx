@@ -4,7 +4,8 @@ import Card from '../definitions/Card';
 import { selectCommander, selectCommanderOptions, setCommander } from '../redux-modules/commander';
 import { jumpToCommander, nextStep, selectIsCommander, selectIsAfterCommander } from '../redux-modules/steps';
 import CommanderOption from './CommanderOption';
-import Heading from './Heading';
+import Button from './common/Button';
+import Heading from './common/Heading';
 import PanelHeading from './PanelHeading';
 
 const CommanderPanel: React.FC = () => {
@@ -37,7 +38,7 @@ const CommanderPanel: React.FC = () => {
                         <Heading size="large"><h2>Commander</h2></Heading>
                         {(commander != null && <Heading size="small"><span>{commander.name}</span></Heading>)}
                     </div>
-                    {(isEditVisible && <button type="button" onClick={onEditClick}>Edit</button>)}
+                    {(isEditVisible && <Button onClick={onEditClick}>Edit</Button>)}
                 </div>
             </PanelHeading>
             {isPanelOpen && (
@@ -53,9 +54,10 @@ const CommanderPanel: React.FC = () => {
                             </li>
                         ))}
                     </ul>
-                    <button type="button" disabled={commander == null} onClick={onConfirmClick}>
-                        Confirm
-                    </button>
+                    <Button disabled={commander == null} onClick={onConfirmClick}>
+                        {commander == null && 'Select a commander to continue'}
+                        {commander != null && `Select ${commander.name}`}
+                    </Button>
                 </div>
             )}
         </div>

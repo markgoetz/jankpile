@@ -6,7 +6,7 @@ import { selectNonBasicLands, selectNonBasicOptions, toggleNonBasic } from '../r
 import { selectIsLands } from '../redux-modules/steps';
 import { selectAllCards } from '../redux-modules/store';
 import CardOption from './CardOption';
-import Heading from './Heading';
+import Heading from './common/Heading';
 import PanelHeading from './PanelHeading';
 
 const LandPanel: React.FC = () => {

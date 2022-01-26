@@ -4,12 +4,13 @@ import Color from '../definitions/Color';
 import { selectFormat, selectColors, setIdentity } from '../redux-modules/identity';
 import { fetchCommanders  } from '../redux-modules/commander';
 import PanelHeading from './PanelHeading';
-import Heading from './Heading';
+import Heading from './common/Heading';
 import { fetchSpells } from '../redux-modules/spells';
 import { jumpToCommander } from '../redux-modules/steps';
 import { fetchNonBasicLands } from '../redux-modules/lands';
 import Format from '../definitions/Format';
 import Identity from '../definitions/Identity';
+import Button from './common/Button';
 
 const IdentityPanel: React.FC = () => {
     const colorsFromStore = useSelector(selectColors);
@@ -77,7 +78,7 @@ const IdentityPanel: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <button type="button" onClick={onSearchClick}>Find Commanders</button>
+                <Button onClick={onSearchClick}>Find Commanders</Button>
             </div>
         </PanelHeading>
     );

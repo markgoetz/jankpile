@@ -4,9 +4,10 @@ import Card from '../definitions/Card';
 import { selectCommander } from '../redux-modules/commander';
 import { selectSpellList, selectSpellOptions, toggleSpell } from '../redux-modules/spells';
 import { jumpToSpells, nextStep, selectIsAfterSpells, selectIsSpells } from '../redux-modules/steps';
-import Heading from './Heading';
+import Heading from './common/Heading';
 import PanelHeading from './PanelHeading';
 import CardOption from './CardOption';
+import Button from './common/Button';
 
 const SpellPanel: React.FC = () => {
     const dispatch = useDispatch();
@@ -44,7 +45,7 @@ const SpellPanel: React.FC = () => {
                         <Heading size="large"><h2>Spells</h2></Heading>
                         {(spells.length > 0 && <Heading size="small"><span>({spells.length})</span></Heading>)}
                     </div>
-                    {(isEditVisible && <button type="button" onClick={onEditClick}>Edit</button>)}
+                    {(isEditVisible && <Button onClick={onEditClick}>Edit</Button>)}
                 </div>
             </PanelHeading>
             {isPanelOpen && (
@@ -67,7 +68,7 @@ const SpellPanel: React.FC = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <button type="button" onClick={onConfirmClick}>Confirm</button>
+                            <Button onClick={onConfirmClick}>Continue to Lands</Button>
                         </div>
                         <aside>
                             <Heading size="medium"><h3>Current Deck</h3></Heading>

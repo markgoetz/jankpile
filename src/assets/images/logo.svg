@@ -1,96 +1,159 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="66px" height="77px" viewBox="0 0 66 77" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="64px" height="75px" viewBox="0 0 64 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
     <title>logo</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Top" transform="translate(-15.000000, -10.000000)">
+        <g id="Top" transform="translate(-16.000000, -11.000000)">
             <g transform="translate(0.000000, -6.000000)" id="logo">
                 <g transform="translate(3.000000, 0.000000)">
                     <g id="Card" transform="translate(45.000000, 64.500000) rotate(77.000000) translate(-45.000000, -64.500000) translate(11.000000, 35.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 63.500000) rotate(57.000000) translate(-45.000000, -63.500000) translate(11.000000, 34.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 62.500000) rotate(69.000000) translate(-45.000000, -62.500000) translate(11.000000, 33.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 61.500000) rotate(59.000000) translate(-45.000000, -61.500000) translate(11.000000, 32.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 60.500000) rotate(86.000000) translate(-45.000000, -60.500000) translate(11.000000, 31.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 59.500000) rotate(79.000000) translate(-45.000000, -59.500000) translate(11.000000, 30.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 58.500000) rotate(71.000000) translate(-45.000000, -58.500000) translate(11.000000, 29.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 57.500000) rotate(46.000000) translate(-45.000000, -57.500000) translate(11.000000, 28.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 56.500000) rotate(61.000000) translate(-45.000000, -56.500000) translate(11.000000, 27.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 55.500000) rotate(78.000000) translate(-45.000000, -55.500000) translate(11.000000, 26.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 54.500000) rotate(74.000000) translate(-45.000000, -54.500000) translate(11.000000, 25.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 53.500000) rotate(46.000000) translate(-45.000000, -53.500000) translate(11.000000, 24.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 52.500000) rotate(56.000000) translate(-45.000000, -52.500000) translate(11.000000, 23.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 51.500000) rotate(36.000000) translate(-45.000000, -51.500000) translate(11.000000, 22.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 50.500000) rotate(85.000000) translate(-45.000000, -50.500000) translate(11.000000, 21.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 49.500000) rotate(63.000000) translate(-45.000000, -49.500000) translate(11.000000, 20.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 48.500000) rotate(48.000000) translate(-45.000000, -48.500000) translate(11.000000, 19.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 47.500000) rotate(94.000000) translate(-45.000000, -47.500000) translate(11.000000, 18.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 46.500000) rotate(63.000000) translate(-45.000000, -46.500000) translate(11.000000, 17.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 45.500000) rotate(72.000000) translate(-45.000000, -45.500000) translate(11.000000, 16.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                     <g id="Card" transform="translate(45.000000, 44.500000) rotate(60.000000) translate(-45.000000, -44.500000) translate(11.000000, 15.000000)">
-                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="2"></rect>
-                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="1"></rect>
+                        <rect id="Rectangle-3-Copy-12" stroke="#C59E3E" stroke-width="1" fill="#FEEFDE" x="17.5" y="1.5" width="33" height="56" rx="4"></rect>
+                        <rect id="Rectangle" fill="#745206" x="20" y="4" width="28" height="26" rx="3"></rect>
+                        <rect id="Rectangle-6" fill="#E9CD88" x="20" y="34" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy" fill="#E9CD88" x="20" y="40" width="28" height="4" rx="2"></rect>
+                        <rect id="Rectangle-6-Copy-2" fill="#E9CD88" x="20" y="46" width="28" height="4" rx="2"></rect>
                     </g>
                 </g>
             </g>
