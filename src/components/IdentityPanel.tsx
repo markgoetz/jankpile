@@ -44,7 +44,7 @@ const IdentityPanel: React.FC = () => {
 
     return (
         <PanelHeading>
-            <div className="o-split">
+            <div className="o-split o-split--v-center">
                 <div className="o-h-list o-h-list--x4">
                     <div className="o-h-list o-h-list--x2 o-h-list--baseline">
                         <Heading size="large"><h2>Format</h2></Heading>

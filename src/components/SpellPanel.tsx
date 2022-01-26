@@ -40,7 +40,7 @@ const SpellPanel: React.FC = () => {
     return (
         <div className="c-panel">
             <PanelHeading>
-                <div className="o-split">
+                <div className="o-split o-split--v-center">
                     <div className="o-h-list o-h-list--baseline">
                         <Heading size="large"><h2>Spells</h2></Heading>
                         {(spells.length > 0 && <Heading size="small"><span>({spells.length})</span></Heading>)}

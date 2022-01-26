@@ -33,7 +33,7 @@ const CommanderPanel: React.FC = () => {
     return (
         <div className="c-panel">
             <PanelHeading>
-                <div className="o-split">
+                <div className="o-split o-split--v-center">
                     <div className="o-h-list o-h-list--baseline">
                         <Heading size="large"><h2>Commander</h2></Heading>
                         {(commander != null && <Heading size="small"><span>{commander.name}</span></Heading>)}
