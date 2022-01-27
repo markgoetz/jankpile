@@ -1,3 +1,8 @@
+@use "sass:color";
+
+$color-shadow: color.adjust($color: $color-primary, $lightness: -10%);
+$button-depth: .4rem;
+
 .c-btn {
     padding: $base-grid-size $base-grid-size * 2;
     border-radius: 2.2rem;
@@ -7,7 +12,7 @@
     background-color: $color-primary;
     color: $color-white;
     border: none;
-    box-shadow: 0 .3rem 0 0 #473100;
+    box-shadow: 0 $button-depth 0 0 $color-shadow;
     cursor: pointer;
     transform: translateY(0);
 
@@ -15,8 +20,8 @@
 }
 
 .c-btn:not([disabled]):active {
-    box-shadow: 0 0 0 0 #473100;
-    transform: translateY(.3rem);
+    box-shadow: 0 0 0 0 $color-shadow;
+    transform: translateY($button-depth);
 }
 
 .c-btn[disabled] {
