@@ -63,6 +63,7 @@ const LandPanel: React.FC = () => {
                                                 value={basicLandCounts[color]}
                                                 type="number"
                                                 inputMode="numeric"
+                                                size={3}
                                                 onChange={e => onInputChange(color, Number(e.target.value))}
                                             />
                                         </div>
