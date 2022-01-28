@@ -86,6 +86,9 @@ const LandPanel: React.FC = () => {
                         <aside>
                             <Heading size="medium"><h3>Current Deck</h3></Heading>
                             <ul>
+                                {colors.map(color => (
+                                    <li key={color}>{basicLandCounts[color]} {LAND_NAMES_BY_COLOR[color]}</li>
+                                ))}
                                 {nonBasics.map(land => (
                                     <li key={land.id}>{land.name}</li>
                                 ))}
