@@ -3,11 +3,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import Card from '../definitions/Card';
 import Color from '../definitions/Color';
 import { LAND_NAMES_BY_COLOR } from '../lib/consts';
-// import getPipCounts from '../lib/utils/getPipCounts';
+import getPipCounts from '../lib/utils/getPipCounts';
 import { selectColors } from '../redux-modules/identity';
 import { selectBasicLandCounts, selectNonBasicLands, selectNonBasicOptions, setBasicCount, toggleNonBasic } from '../redux-modules/lands';
 import { selectIsLands } from '../redux-modules/steps';
-// import { selectAllCards } from '../redux-modules/store';
+import { selectAllCards } from '../redux-modules/store';
 import CardOption from './CardOption';
 import Heading from './common/Heading';
 import PanelHeading from './PanelHeading';
@@ -16,7 +16,7 @@ const LandPanel: React.FC = () => {
     const dispatch = useDispatch();
     const colors = useSelector(selectColors);
     const basicLandCounts = useSelector(selectBasicLandCounts);
-    // const deck = useSelector(selectAllCards);
+    const deck = useSelector(selectAllCards);
     const nonBasics = useSelector(selectNonBasicLands);
     const nonBasicOptions = useSelector(selectNonBasicOptions);
     const isPanelOpen = useSelector(selectIsLands);
@@ -39,7 +39,7 @@ const LandPanel: React.FC = () => {
     const nonBasicLandTotal = nonBasics.length;
     const landTotal = basicLandTotal + nonBasicLandTotal;
 
-    // const pipCounts = getPipCounts(deck);
+    const pipCounts = getPipCounts(deck);
 
     return (
         <>
@@ -57,8 +57,16 @@ const LandPanel: React.FC = () => {
                             <div className="o-h-list">
                                 {colors.map(color => (
                                     <div key={color}>
-                                        {LAND_NAMES_BY_COLOR[color]}
-                                        <input value={basicLandCounts[color]} type="number" inputMode="numeric" onChange={e => onInputChange(color, Number(e.target.value))} />
+                                        <div>
+                                            {LAND_NAMES_BY_COLOR[color]}
+                                            <input
+                                                value={basicLandCounts[color]}
+                                                type="number"
+                                                inputMode="numeric"
+                                                onChange={e => onInputChange(color, Number(e.target.value))}
+                                            />
+                                        </div>
+                                        <div>Pips x {pipCounts[color]}</div>
                                     </div>
                                 ))}
                             </div>
