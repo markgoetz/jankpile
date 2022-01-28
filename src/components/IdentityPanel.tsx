@@ -7,7 +7,7 @@ import PanelHeading from './PanelHeading';
 import Heading from './common/Heading';
 import { fetchSpells } from '../redux-modules/spells';
 import { jumpToCommander } from '../redux-modules/steps';
-import { fetchNonBasicLands } from '../redux-modules/lands';
+import { fetchBasicLandArt, fetchNonBasicLands } from '../redux-modules/lands';
 import Format from '../definitions/Format';
 import Identity from '../definitions/Identity';
 import Button from './common/Button';
@@ -37,6 +37,9 @@ const IdentityPanel: React.FC = () => {
             dispatch(fetchCommanders(identity));
             dispatch(fetchSpells(identity));
             dispatch(fetchNonBasicLands(identity));
+
+            colors.forEach(color => dispatch(fetchBasicLandArt({ color, isSnow: false })));
+
             dispatch(jumpToCommander());
         },
         [dispatch, colors, format],

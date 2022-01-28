@@ -1,17 +1,22 @@
 import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from '../definitions/Card';
-import getPipCounts from '../lib/utils/getPipCounts';
-import { selectNonBasicLands, selectNonBasicOptions, toggleNonBasic } from '../redux-modules/lands';
+import Color from '../definitions/Color';
+import { LAND_NAMES_BY_COLOR } from '../lib/consts';
+// import getPipCounts from '../lib/utils/getPipCounts';
+import { selectColors } from '../redux-modules/identity';
+import { selectBasicLandCounts, selectNonBasicLands, selectNonBasicOptions, setBasicCount, toggleNonBasic } from '../redux-modules/lands';
 import { selectIsLands } from '../redux-modules/steps';
-import { selectAllCards } from '../redux-modules/store';
+// import { selectAllCards } from '../redux-modules/store';
 import CardOption from './CardOption';
 import Heading from './common/Heading';
 import PanelHeading from './PanelHeading';
 
 const LandPanel: React.FC = () => {
     const dispatch = useDispatch();
-    const deck = useSelector(selectAllCards);
+    const colors = useSelector(selectColors);
+    const basicLandCounts = useSelector(selectBasicLandCounts);
+    // const deck = useSelector(selectAllCards);
     const nonBasics = useSelector(selectNonBasicLands);
     const nonBasicOptions = useSelector(selectNonBasicOptions);
     const isPanelOpen = useSelector(selectIsLands);
@@ -23,8 +28,14 @@ const LandPanel: React.FC = () => {
         [dispatch],
     );
 
-    const pipCounts = getPipCounts(deck);
-    console.log(pipCounts);
+    const onInputChange = useCallback(
+        (color: Color, count: number) => {
+            dispatch(setBasicCount({ color, count }));
+        },
+        [dispatch]
+    );
+
+    // const pipCounts = getPipCounts(deck);
 
     return (
         <>
@@ -38,6 +49,16 @@ const LandPanel: React.FC = () => {
                 <div className="c-panel__bd">
                     <div className="o-sidebar-layout">
                         <div>
+                            <Heading size="medium"><h3>Basic Lands</h3></Heading>
+                            <div className="o-h-list">
+                                {colors.map(color => (
+                                    <div key={color}>
+                                        {LAND_NAMES_BY_COLOR[color]}
+                                        <input value={basicLandCounts[color]} type="number" inputMode="numeric" onChange={e => onInputChange(color, Number(e.target.value))} />
+                                    </div>
+                                ))}
+                            </div>
+
                             <Heading size="medium"><h3>Non-Basic Lands</h3></Heading>
                             <ul className="o-full-grid">
                                 {nonBasicOptions.map(option => (

@@ -131,3 +131,10 @@ export const { toggleNonBasic, setBasicCount } = landSlice.actions;
 export const selectNonBasicOptions = (state: RootState) => state.lands.nonbasics.options;
 export const selectNonBasicLands = (state: RootState) => state.lands.nonbasics.lands;
 export const selectNonBasicStatus = (state: RootState) => state.lands.nonbasicStatus;
+export const selectBasicLandCounts = (state: RootState): Record<Color, number> => {
+    const colors = Object.keys(state.lands.basics) as Color[];
+    return colors.reduce(
+        (prevVal, color) => ({...prevVal, [color]: state.lands.basics[color].count }),
+        {} as Record<Color, number>
+    );
+};
