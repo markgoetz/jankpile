@@ -35,6 +35,10 @@ const LandPanel: React.FC = () => {
         [dispatch]
     );
 
+    const basicLandTotal = Object.values(basicLandCounts).reduce((prev, colorCount) => prev + colorCount, 0);
+    const nonBasicLandTotal = nonBasics.length;
+    const landTotal = basicLandTotal + nonBasicLandTotal;
+
     // const pipCounts = getPipCounts(deck);
 
     return (
@@ -42,7 +46,7 @@ const LandPanel: React.FC = () => {
             <PanelHeading>
                 <div className="o-h-list o-h-list--baseline">
                     <Heading size="large"><h2>Lands</h2></Heading>
-                    {(nonBasics.length > 0 && <Heading size="small"><span>({nonBasics.length})</span></Heading>)}
+                    {(landTotal > 0 && <Heading size="small"><span>({landTotal})</span></Heading>)}
                 </div>
             </PanelHeading>
             {isPanelOpen && (
