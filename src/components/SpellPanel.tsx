@@ -52,9 +52,12 @@ const SpellPanel: React.FC = () => {
                 <div className="c-panel__bd">
                     <div className="o-sidebar-layout">
                         <div>
-                            <div className="o-v-list o-v-list--x2">
-                                <Heading size="medium"><h3>Commander Description</h3></Heading>
-                                {descriptionPieces.map(piece => <span key={piece}>{piece}</span>)}
+                            <Heading size="medium"><h3>Commander Description</h3></Heading>
+                            <div className="o-h-list o-h-list--x2">
+                                <div><img src={commander?.fullImageUri} alt={commander?.name} /></div>
+                                <div className="o-v-list o-v-list--x2">
+                                    {descriptionPieces.map(piece => <span key={piece} className="u-txt--lh-1.4">{piece}</span>)}
+                                </div>
                             </div>
                             <Heading size="medium"><h3>Deck List</h3></Heading>
                             <ul className="o-full-grid">

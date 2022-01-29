@@ -8,7 +8,7 @@ import SpellPanel from './components/SpellPanel';
 import LandPanel from './components/LandPanel';
 import store from './redux-modules/store';
 
-function App() {
+const App: React.FC = () => {
     return (
         <Provider store={store}>
             <div className="App">
