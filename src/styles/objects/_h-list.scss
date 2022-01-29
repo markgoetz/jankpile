@@ -10,6 +10,10 @@
     align-items: baseline;
 }
 
+.o-h-list--center {
+    align-items: center;
+}
+
 @for $i from 2 through 4 {
     .o-h-list--x#{$i} > * + * {
         margin-left: $base-grid-size * $i;
