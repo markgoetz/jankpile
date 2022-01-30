@@ -11,6 +11,7 @@ import { fetchBasicLandArt, fetchNonBasicLands } from '../redux-modules/lands';
 import Format from '../definitions/Format';
 import Identity from '../definitions/Identity';
 import Button from './common/Button';
+import sleep from '../lib/utils/sleep';
 
 const IdentityPanel: React.FC = () => {
     const colorsFromStore = useSelector(selectColors);
@@ -30,12 +31,15 @@ const IdentityPanel: React.FC = () => {
     const dispatch = useDispatch();
 
     const onSearchClick = useCallback(
-        () => {
+        async () => {
             const identity: Identity = { colors, format };
 
             dispatch(setIdentity(identity));
+            await sleep(100);
             dispatch(fetchCommanders(identity));
+            await sleep(100);
             dispatch(fetchSpells({ identity }));
+            await sleep(100);
             dispatch(fetchNonBasicLands(identity));
 
             colors.forEach(color => dispatch(fetchBasicLandArt({ color, isSnow: false })));
