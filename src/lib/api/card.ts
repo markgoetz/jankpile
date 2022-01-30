@@ -20,14 +20,38 @@ export const getCommander = async (identity: Identity): Promise<CardResponse> =>
     return response.data;
 };
 
-export const getSpells = async (identity: Identity, query?: string): Promise<CardResponse> => {
+export type SpellQueryParams = {
+    identity: Identity,
+    query?: string,
+    manaValues?: number[],
+    page?: number,
+}
+
+export const getSpells = async (params: SpellQueryParams): Promise<CardResponse> => {
+    const { identity, query = '', manaValues = [], page = 1 } = params;
     const { format, colors } = identity;
+
     const apiFormat = getApiFormat(format);
     const colorString = getColorString(colors);
 
-    const cardQuery = `id<=${colorString}+f:${apiFormat}+game:arena+-t:land`;
+    const queryPieces = [
+        `id<=${colorString}`,
+        `f:${apiFormat}`,
+        'game:arena',
+        '-t:land'
+    ];
 
-    const response = await axios.get(`${ENDPOINT}${cardQuery}`);
+    if (manaValues.length > 0) {
+        queryPieces.push(`(${manaValues.map(v => `mv:${v}`).join(' OR ')})`);
+    }
+
+    if (query.trim() !== '') {
+        queryPieces.push(`(o:${query} OR name:${query})`);
+    }
+
+    const cardQuery = queryPieces.join('+');
+
+    const response = await axios.get(`${ENDPOINT}${cardQuery}&page=${page}`);
     return response.data;
 };
 

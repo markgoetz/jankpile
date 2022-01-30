@@ -22,10 +22,17 @@ const initialState: SpellState = {
 };
 
 // TODO: Add query and page
+export type fetchSpellParams = {
+    identity: Identity,
+    query?: string,
+    manaValues?: number[],
+    page?: number,
+};
+
 export const fetchSpells = createAsyncThunk(
     'spells/fetchSpells',
-    async (identity: Identity) => {
-        const response = await getSpells(identity);
+    async (params: fetchSpellParams) => {
+        const response = await getSpells(params);
         return response;
     }
 );
