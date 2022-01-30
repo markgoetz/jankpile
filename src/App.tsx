@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Provider } from 'react-redux';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -7,8 +7,11 @@ import CommanderPanel from './components/CommanderPanel';
 import SpellPanel from './components/SpellPanel';
 import LandPanel from './components/LandPanel';
 import store from './redux-modules/store';
+import ExportModal from './components/ExportModal';
 
 const App: React.FC = () => {
+    const [isExportModalOpen, setIsExportModalOpen] = useState(false);
+
     return (
         <Provider store={store}>
             <div className="App">
@@ -21,6 +24,8 @@ const App: React.FC = () => {
                     <section><Footer /></section>
                 </main>
             </div>
+            <button type="button" onClick={() => { setIsExportModalOpen(true);}}>open me</button>
+            <ExportModal isOpen={isExportModalOpen} onClose={() => { setIsExportModalOpen(false); }} />
         </Provider>
     );
 }

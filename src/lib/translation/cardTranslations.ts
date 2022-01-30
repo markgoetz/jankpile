@@ -99,3 +99,6 @@ export const fullCardToLand = (card: FullCard): Card => {
     };
 };
 
+export const cardToArena = (card: Card, count = 1): string => {
+    return `${count} ${card.name} (${card.setCode.toUpperCase()}) ${card.cardNumber}`;
+};

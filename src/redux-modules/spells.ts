@@ -21,7 +21,6 @@ const initialState: SpellState = {
     status: 'idle',
 };
 
-// TODO: Add query and page
 export type fetchSpellParams = {
     identity: Identity,
     query?: string,
@@ -63,7 +62,7 @@ const spellSlice = createSlice({
             state.options = action.payload.data.map(fullCardToSpell);
             state.status = 'idle';
         });
-    }
+    },
 });
 
 export const selectSpellOptions = (state: RootState) => state.spells.options;

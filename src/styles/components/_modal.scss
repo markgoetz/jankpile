@@ -1,0 +1,23 @@
+.c-modal {
+    position: fixed;
+}
+
+.c-modal__curtain {
+    position: fixed;
+    background-color: $color-black-transparent;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.c-modal__body {
+    background-color: $color-white;
+    border: solid .4rem $color-highlight;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 2rem;
+    padding: $base-grid-size * 4;
+    transform: translateX(-50%) translateY(-50%);
+}
