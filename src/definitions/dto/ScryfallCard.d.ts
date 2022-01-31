@@ -45,7 +45,7 @@ type CardFace = {
     watermark?: string,
 }
 
-type FullCard = {
+type ScryfallCard = {
     arena_id?: number,
     id: string,
     mtgo_id?: number,
@@ -155,4 +155,4 @@ type FullCard = {
     },
 };
 
-export default FullCard;
+export default ScryfallCard;

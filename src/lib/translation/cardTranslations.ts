@@ -1,7 +1,7 @@
 import Card from "../../definitions/Card";
-import FullCard from "../../definitions/dto/FullCard";
+import ScryfallCard from "../../definitions/dto/ScryfallCard";
 
-const getImageUris = (card: FullCard) => {
+const getImageUris = (card: ScryfallCard) => {
     if (card.image_uris != null) {
         return card.image_uris;
     }
@@ -19,7 +19,7 @@ const getImageUris = (card: FullCard) => {
     return faceImageUriMaps[0].image_uris;
 };
 
-export const fullCardToCommander = (card: FullCard): Card => {
+export const fullCardToCommander = (card: ScryfallCard): Card => {
     if (!card.type_line.toLowerCase().includes('legendary')) {
         throw new Error(`fullCardToCommander is not compatible with type line ${card.type_line}`);
     }
@@ -46,7 +46,7 @@ export const fullCardToCommander = (card: FullCard): Card => {
     };
 };
 
-export const fullCardToSpell = (card: FullCard): Card => {
+export const fullCardToSpell = (card: ScryfallCard): Card => {
     if (card.type_line.toLowerCase().includes('land')) {
         throw new Error(`fullCardToSpell is not compatible with type line ${card.type_line}`);
     }
@@ -73,7 +73,7 @@ export const fullCardToSpell = (card: FullCard): Card => {
     };
 };
 
-export const fullCardToLand = (card: FullCard): Card => {
+export const fullCardToLand = (card: ScryfallCard): Card => {
     if (!card.type_line.toLowerCase().includes('land')) {
         throw new Error(`fullCardToLand is not compatible with type line ${card.type_line}`);
     }
