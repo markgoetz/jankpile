@@ -39,7 +39,7 @@ export const fullCardToCommander = (card: ScryfallCard): Card => {
         artist: card.artist || 'Unknown',
         fullImageUri: imageUris.small,
         artImageUri: imageUris.art_crop,
-        setCode: card.set,
+        setCode: card.set.toUpperCase(),
         cardNumber: card.collector_number,
         manaValue: card.cmc,
         pips,
@@ -66,7 +66,7 @@ export const fullCardToSpell = (card: ScryfallCard): Card => {
         artist: card.artist || 'Unknown',
         fullImageUri: imageUris.small,
         artImageUri: imageUris.art_crop,
-        setCode: card.set,
+        setCode: card.set.toUpperCase(),
         cardNumber: card.collector_number,
         manaValue: card.cmc,
         pips,
@@ -92,7 +92,7 @@ export const fullCardToLand = (card: ScryfallCard): Card => {
         artist: card.artist || 'Unknown',
         fullImageUri: imageUris.small,
         artImageUri: imageUris.art_crop,
-        setCode: card.set,
+        setCode: card.set.toUpperCase(),
         cardNumber: card.collector_number,
         manaValue: card.cmc,
         pips: '',
@@ -100,5 +100,5 @@ export const fullCardToLand = (card: ScryfallCard): Card => {
 };
 
 export const cardToArena = (card: Card, count = 1): string => {
-    return `${count} ${card.name} (${card.setCode.toUpperCase()}) ${card.cardNumber}`;
+    return `${count} ${card.name} (${card.setCode}) ${card.cardNumber}`;
 };
