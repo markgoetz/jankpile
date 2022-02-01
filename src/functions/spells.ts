@@ -2,7 +2,7 @@ import { Handler } from '@netlify/functions';
 import axios, { AxiosResponse } from 'axios';
 import CardResponse from '../definitions/dto/CardResponse';
 import { createResponse, getEndpoint, parseColors, parseFormat } from '../lib/function-utils/helpers';
-import { fullCardToSpell } from '../lib/translation/cardTranslations';
+import { fullCardToSpell } from '../lib/function-utils/cardTranslations';
 
 const API_RESULTS = 175;
 const PAGE_RESULTS = 25;

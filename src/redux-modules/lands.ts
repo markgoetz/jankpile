@@ -4,7 +4,6 @@ import Color from '../definitions/Color';
 import Identity from '../definitions/Identity';
 import NetworkStatus from '../definitions/NetworkStatus';
 import { getBasicLandArt, getNonBasicLands } from '../lib/api/card';
-import { fullCardToLand } from '../lib/translation/cardTranslations';
 import { fetchCommanders } from './commander';
 import { RootState } from './store';
 
@@ -112,13 +111,13 @@ const landSlice = createSlice({
             state.basicArtStatus = 'loading';
         }).addCase(fetchBasicLandArt.fulfilled, (state, action) => {
             const { color, response } = action.payload;
-            state.basics[color].artOptions = response.data.map(fullCardToLand);
+            state.basics[color].artOptions = response;
             state.basics[color].selectedArt = state.basics[color].artOptions[0];
             state.basicArtStatus = 'idle';
         }).addCase(fetchNonBasicLands.pending, (state) => {
             state.nonbasicStatus = 'loading';
         }).addCase(fetchNonBasicLands.fulfilled, (state, action) => {
-            state.nonbasics.options = action.payload.data.map(fullCardToLand);
+            state.nonbasics.options = action.payload;
             state.nonbasicStatus = 'idle';
         });
     }

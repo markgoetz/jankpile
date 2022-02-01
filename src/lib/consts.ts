@@ -6,10 +6,25 @@ export const CARD_COUNT_BY_FORMAT: Record<Format, number> = {
     'brawl': 60,
 };
 
-export const LAND_NAMES_BY_COLOR: Record<Color, string> = {
+export const PLURAL_LAND_NAMES: Record<Color, string> = {
     [Color.WHITE]: 'Plains',
     [Color.BLUE]: 'Islands',
     [Color.BLACK]: 'Swamps',
     [Color.RED]: 'Mountains',
     [Color.GREEN]: 'Forests',
+};
+
+export const SINGULAR_LAND_NAMES: Record<Color, string> = {
+    [Color.WHITE]: 'Plains',
+    [Color.BLUE]: 'Island',
+    [Color.BLACK]: 'Swamp',
+    [Color.RED]: 'Mountain',
+    [Color.GREEN]: 'Forest',
+};
+
+export const ENDPOINTS = {
+    COMMANDER: '/api/commander',
+    SPELLS: '/api/spells',
+    NONBASICS: '/api/nonbasics',
+    BASIC_ART: '/api/basics',
 };

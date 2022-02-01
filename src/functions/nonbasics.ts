@@ -2,7 +2,7 @@ import { Handler } from '@netlify/functions';
 import axios, { AxiosResponse } from 'axios';
 import CardResponse from '../definitions/dto/CardResponse';
 import { createResponse, getEndpoint, parseColors, parseFormat } from '../lib/function-utils/helpers';
-import { fullCardToLand } from '../lib/translation/cardTranslations';
+import { fullCardToLand } from '../lib/function-utils/cardTranslations';
 
 const handler: Handler = async(event, context) => {
     const params = event.queryStringParameters ?? {};

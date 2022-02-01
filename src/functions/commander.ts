@@ -1,7 +1,7 @@
 import { Handler } from '@netlify/functions';
 import axios, { AxiosResponse } from 'axios';
 import CardResponse from '../definitions/dto/CardResponse';
-import { fullCardToCommander } from '../lib/translation/cardTranslations';
+import { fullCardToCommander } from '../lib/function-utils/cardTranslations';
 import { createResponse, parseFormat, parseColors, getEndpoint } from '../lib/function-utils/helpers';
 
 const handler: Handler = async (event, context) => {

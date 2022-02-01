@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from '../definitions/Card';
 import Color from '../definitions/Color';
-import { LAND_NAMES_BY_COLOR } from '../lib/consts';
+import { SINGULAR_LAND_NAMES, PLURAL_LAND_NAMES } from '../lib/consts';
 import getPipCounts from '../lib/utils/getPipCounts';
 import { selectColors } from '../redux-modules/identity';
 import { selectBasicLandCounts, selectNonBasicLands, selectNonBasicOptions, setBasicCount, toggleNonBasic } from '../redux-modules/lands';
@@ -58,7 +58,7 @@ const LandPanel: React.FC = () => {
                                 {colors.map(color => (
                                     <div key={color}>
                                         <div>
-                                            {LAND_NAMES_BY_COLOR[color]}
+                                            {PLURAL_LAND_NAMES[color]}
                                             <input
                                                 value={basicLandCounts[color]}
                                                 type="number"
@@ -79,7 +79,8 @@ const LandPanel: React.FC = () => {
                                         <CardOption
                                             onToggle={() => onToggleOption(option)}
                                             option={option}
-                                            disabled={false} />
+                                            disabled={false}
+                                        />
                                     </li>
                                 ))}
                             </ul>
@@ -88,7 +89,10 @@ const LandPanel: React.FC = () => {
                             <Heading size="medium"><h3>Current Deck</h3></Heading>
                             <ul>
                                 {colors.map(color => (
-                                    <li key={color}>{basicLandCounts[color]} {LAND_NAMES_BY_COLOR[color]}</li>
+                                    <li key={color}>
+                                        {basicLandCounts[color] > 1 && `${basicLandCounts[color]} ${PLURAL_LAND_NAMES[color]}`}
+                                        {basicLandCounts[color] === 1 && `${basicLandCounts[color]} ${SINGULAR_LAND_NAMES[color]}`}
+                                    </li>
                                 ))}
                                 {nonBasics.map(land => (
                                     <li key={land.id}>{land.name}</li>

@@ -3,7 +3,6 @@ import Card from '../definitions/Card';
 import Identity from '../definitions/Identity';
 import NetworkStatus from '../definitions/NetworkStatus';
 import { getCommander } from '../lib/api/card';
-import { fullCardToCommander } from '../lib/translation/cardTranslations';
 import { RootState } from './store';
 
 export type CommanderState = {
@@ -40,7 +39,7 @@ const commanderSlice = createSlice({
             state.commander = null;
             state.status = 'loading';
         }).addCase(fetchCommanders.fulfilled, (state, action) => {
-            state.options = action.payload.data.map(fullCardToCommander);
+            state.options = action.payload;
             state.status = 'idle';
         })
     },

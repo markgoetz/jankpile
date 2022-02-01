@@ -1,22 +1,15 @@
 import axios from 'axios';
+import Card from '../../definitions/Card';
 import Color from '../../definitions/Color';
-import CardResponse from '../../definitions/dto/CardResponse';
 import Format from '../../definitions/Format';
 import Identity from '../../definitions/Identity';
+import { ENDPOINTS } from '../consts';
 
-const ENDPOINT = 'https://api.scryfall.com/cards/search?q='
-
-const getApiFormat = (format: Format) => (format === 'historic') ? 'historicbrawl' : 'brawl';
-const getColorString = (colors: Color[]) => (colors.length > 0) ? colors.join('') : 'c';
-
-export const getCommander = async (identity: Identity): Promise<CardResponse> => {
+export const getCommander = async (identity: Identity): Promise<Card[]> => {
     const { format, colors } = identity;
-    const apiFormat = getApiFormat(format);
-    const colorString = getColorString(colors);
+    const colorString = colors.join(',');
 
-    const cardQuery = `id=${colorString}+f:${apiFormat}+(is:commander OR t:planeswalker)+game:arena`;
-
-    const response = await axios.get(`${ENDPOINT}${cardQuery}`);
+    const response = await axios.get(ENDPOINTS.COMMANDER + `?colors=${colorString}&format=${format}`);
     return response.data;
 };
 
@@ -27,48 +20,37 @@ export type SpellQueryParams = {
     page?: number,
 }
 
-export const getSpells = async (params: SpellQueryParams): Promise<CardResponse> => {
+export const getSpells = async (params: SpellQueryParams): Promise<Card[]> => {
     const { identity, query = '', manaValues = [], page = 1 } = params;
     const { format, colors } = identity;
 
-    const apiFormat = getApiFormat(format);
-    const colorString = getColorString(colors);
+    const searchParams = new URLSearchParams();
+    searchParams.set('colors', colors.join(','));
+    searchParams.set('format', format);
 
-    const queryPieces = [
-        `id<=${colorString}`,
-        `f:${apiFormat}`,
-        'game:arena',
-        '-t:land'
-    ];
+    if (query !== '') {
+        searchParams.set('q', query);
+    }
 
     if (manaValues.length > 0) {
-        queryPieces.push(`(${manaValues.map(v => `mv:${v}`).join(' OR ')})`);
+        searchParams.set('mv', manaValues.join(','));
+    }
+    
+    if (page !== 1) {
+        searchParams.set('page', page.toString());
     }
 
-    if (query.trim() !== '') {
-        queryPieces.push(`(o:${query} OR name:${query})`);
-    }
-
-    const cardQuery = queryPieces.join('+');
-
-    const response = await axios.get(`${ENDPOINT}${cardQuery}&page=${page}`);
+    const response = await axios.get(`${ENDPOINTS.SPELLS}?${searchParams.toString()}`);
     return response.data;
 };
 
-export const getBasicLandArt = async (color: Color, isSnow: Boolean): Promise<CardResponse> => {
-    const snowQuery = isSnow ? 't:snow' : '-t:snow';
-    const cardQuery = `id=${color}+f:brawl+t:land+${snowQuery}+t:basic+game:arena&unique=art`;
-
-    const response = await axios.get(`${ENDPOINT}${cardQuery}`);
+export const getBasicLandArt = async (color: Color, isSnow: Boolean): Promise<Card[]> => {
+    const snowQuery = isSnow ? '&isSnow' : '';
+    const response = await axios.get(`${ENDPOINTS.BASIC_ART}?color=${color}${snowQuery}`);
     return response.data;
 };
 
-export const getNonBasicLands = async (colors: Color[], format: Format): Promise<CardResponse> => {
-    const colorString = getColorString(colors);
-    const apiFormat = getApiFormat(format);
-
-    const cardQuery = `id<=${colorString}+f:${apiFormat}+t:land+-t:basic+game:arena`;
-
-    const response = await axios.get(`${ENDPOINT}${cardQuery}`);
+export const getNonBasicLands = async (colors: Color[], format: Format): Promise<Card[]> => {
+    const response = await axios.get(`${ENDPOINTS.NONBASICS}?colors=${colors.join(',')}&format=${format}`);
     return response.data;
 };
