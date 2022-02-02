@@ -13,6 +13,7 @@ import Identity from '../definitions/Identity';
 import Button from './common/Button';
 import sleep from '../lib/utils/sleep';
 import Selector from './common/Selector';
+import ImageCheckboxGroup from './common/ImageCheckboxGroup';
 
 const IdentityPanel: React.FC = () => {
     const colorsFromStore = useSelector(selectColors);
@@ -79,21 +80,18 @@ const IdentityPanel: React.FC = () => {
                     <div className="o-h-list o-h-list--x2 o-h-list--baseline">
                         <Heading size="large"><h2>Colors</h2></Heading>
                         <div>
-                            <label>
-                                <input type="checkbox" name="color" value={Color.WHITE} checked={colors.includes(Color.WHITE)} onChange={() => toggleColor(Color.WHITE)} /> White
-                            </label>
-                            <label>
-                                <input type="checkbox" name="color" value={Color.BLUE} checked={colors.includes(Color.BLUE)} onChange={() => toggleColor(Color.BLUE)} /> Blue
-                            </label>
-                            <label>
-                                <input type="checkbox" name="color" value={Color.BLACK} checked={colors.includes(Color.BLACK)} onChange={() => toggleColor(Color.BLACK)} /> Black
-                            </label>
-                            <label>
-                                <input type="checkbox" name="color" value={Color.RED} checked={colors.includes(Color.RED)} onChange={() => toggleColor(Color.RED)} /> Red
-                            </label>
-                            <label>
-                                <input type="checkbox" name="color" value={Color.GREEN} checked={colors.includes(Color.GREEN)} onChange={() => toggleColor(Color.GREEN)} /> Green
-                            </label>
+                            <ImageCheckboxGroup
+                                name="color"
+                                options={[
+                                    { value: Color.WHITE, label: 'White' },
+                                    { value: Color.BLUE, label: 'Blue' },
+                                    { value: Color.BLACK, label: 'Black' },
+                                    { value: Color.RED, label: 'Red' },
+                                    { value: Color.GREEN, label: 'Green' },
+                                ]}
+                                selected={colors}
+                                onChange={(value) => toggleColor(value as Color)}
+                            />
                         </div>
                     </div>
                 </div>
