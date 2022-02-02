@@ -1,0 +1,47 @@
+@use "sass:color";
+
+$color-shadow: color.adjust($color: $color-primary, $lightness: -10%);
+$button-depth: .4rem;
+
+.c-selector {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.c-selector__option {
+    display: inline-block;
+}
+
+.c-selector__option__label {
+    display: inline-block;
+    padding: $base-grid-size $base-grid-size * 2;
+    font-family: $font-heading;
+    font-size: 2rem;
+    font-weight: 800;
+    background: $color-white;
+    border: solid 1px $color-primary;
+    box-shadow: 0 $button-depth 0 0 $color-shadow;
+    transform: translateY(0);
+    transition: transform .25s, box-shadow .25s;
+}
+
+.c-selector__option:first-child .c-selector__option__label {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+
+.c-selector__option:last-child .c-selector__option__label {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.c-selector__option__radio {
+    display: none;
+}
+
+.c-selector__option__radio:checked ~ .c-selector__option__label {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: none;
+    transform: translateY($button-depth);
+}

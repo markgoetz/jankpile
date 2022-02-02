@@ -14,7 +14,7 @@ const ExportModal: React.FC<Props> = ({ isOpen, onClose }) => {
 
     return (
         <Modal isOpen={isOpen} onClose={onClose}>
-            <textarea value={deck.map(cardToArena).join('\n')} />
+            <textarea value={deck.map(card => cardToArena(card)).join('\n')} readOnly />
         </Modal>
     );
 };

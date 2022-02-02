@@ -12,6 +12,7 @@ import Format from '../definitions/Format';
 import Identity from '../definitions/Identity';
 import Button from './common/Button';
 import sleep from '../lib/utils/sleep';
+import Selector from './common/Selector';
 
 const IdentityPanel: React.FC = () => {
     const colorsFromStore = useSelector(selectColors);
@@ -49,20 +50,31 @@ const IdentityPanel: React.FC = () => {
         [dispatch, colors, format],
     );
 
+    const formatOptions = [
+        { value: 'brawl', label: 'Brawl' },
+        { value: 'historic', label: 'Historic Brawl' },
+    ];
+
+    const onFormatChange = useCallback(
+        (value: string) => {
+            const format = value as Format;
+            setFormat(format);
+        },
+        []
+    );
+
     return (
         <PanelHeading>
             <div className="o-split o-split--v-center">
                 <div className="o-h-list o-h-list--x4">
-                    <div className="o-h-list o-h-list--x2 o-h-list--baseline">
+                    <div className="o-h-list o-h-list--x2 o-h-list--center">
                         <Heading size="large"><h2>Format</h2></Heading>
-                        <div>
-                            <label>
-                                <input type="radio" name="format" value="brawl" checked={format === 'brawl'} onChange={() => setFormat('brawl')} />Brawl
-                            </label>
-                            <label>
-                                <input type="radio" name="format" value="historic" checked={format === 'historic'} onChange={() => setFormat('historic')} />Historic Brawl
-                            </label>
-                        </div>
+                        <Selector
+                            name="format"
+                            options={formatOptions}
+                            onChange={onFormatChange}
+                            selectedValue={format}
+                        />
                     </div>
                     <div className="o-h-list o-h-list--x2 o-h-list--baseline">
                         <Heading size="large"><h2>Colors</h2></Heading>
