@@ -1,0 +1,26 @@
+.c-image-checkbox {
+    position: relative;
+}
+
+.c-image-checkbox__image {
+    z-index: 0;
+}
+
+.c-image-checkbox__input {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.c-image-checkbox__label {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: auto;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+}

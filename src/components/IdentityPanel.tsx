@@ -14,6 +14,11 @@ import Button from './common/Button';
 import sleep from '../lib/utils/sleep';
 import Selector from './common/Selector';
 import ImageCheckboxGroup from './common/ImageCheckboxGroup';
+import W_SVG from '../assets/images/W.svg';
+import U_SVG from '../assets/images/U.svg';
+import B_SVG from '../assets/images/B.svg';
+import R_SVG from '../assets/images/R.svg';
+import G_SVG from '../assets/images/G.svg';
 
 const IdentityPanel: React.FC = () => {
     const colorsFromStore = useSelector(selectColors);
@@ -77,17 +82,18 @@ const IdentityPanel: React.FC = () => {
                             selectedValue={format}
                         />
                     </div>
-                    <div className="o-h-list o-h-list--x2 o-h-list--baseline">
+                    <div className="o-h-list o-h-list--x2 o-h-list--center">
                         <Heading size="large"><h2>Colors</h2></Heading>
                         <div>
                             <ImageCheckboxGroup
+                                className="o-h-list"
                                 name="color"
                                 options={[
-                                    { value: Color.WHITE, label: 'White' },
-                                    { value: Color.BLUE, label: 'Blue' },
-                                    { value: Color.BLACK, label: 'Black' },
-                                    { value: Color.RED, label: 'Red' },
-                                    { value: Color.GREEN, label: 'Green' },
+                                    { value: Color.WHITE, label: 'White', imageUrl: W_SVG, imageWidth: 44, imageHeight: 44 },
+                                    { value: Color.BLUE, label: 'Blue', imageUrl: U_SVG, imageWidth: 44, imageHeight: 44 },
+                                    { value: Color.BLACK, label: 'Black', imageUrl: B_SVG, imageWidth: 44, imageHeight: 44 },
+                                    { value: Color.RED, label: 'Red', imageUrl: R_SVG, imageWidth: 44, imageHeight: 44 },
+                                    { value: Color.GREEN, label: 'Green', imageUrl: G_SVG, imageWidth: 44, imageHeight: 44 },
                                 ]}
                                 selected={colors}
                                 onChange={(value) => toggleColor(value as Color)}
