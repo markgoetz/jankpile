@@ -1,11 +1,12 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../definitions/Card';
-import { selectCommander, selectCommanderOptions, setCommander } from '../redux-modules/commander';
+import { selectCommander, selectCommanderOptions, selectCommanderStatus, setCommander } from '../redux-modules/commander';
 import { jumpToCommander, nextStep, selectIsCommander, selectIsAfterCommander } from '../redux-modules/steps';
 import CommanderOption from './CommanderOption';
 import Button from './common/Button';
 import Heading from './common/Heading';
+import LoadingSpinner from './common/LoadingSpinner';
 import PanelHeading from './PanelHeading';
 
 const CommanderPanel: React.FC = () => {
@@ -13,6 +14,7 @@ const CommanderPanel: React.FC = () => {
     const commander = useSelector(selectCommander);
     const isPanelOpen = useSelector(selectIsCommander);
     const isEditVisible = useSelector(selectIsAfterCommander);
+    const commanderStatus = useSelector(selectCommanderStatus);
     const dispatch = useDispatch();
 
     const onCommanderClick = useCallback(
@@ -42,23 +44,28 @@ const CommanderPanel: React.FC = () => {
                 </div>
             </PanelHeading>
             {isPanelOpen && (
-                <div className="c-panel__bd">
-                    <ul>
-                        {options.map(option => (
-                            <li key={option.id}>
-                                <CommanderOption
-                                    card={option}
-                                    isSelected={option.id === commander?.id}
-                                    onSelect={() => onCommanderClick(option)}
-                                />
-                            </li>
-                        ))}
-                    </ul>
-                    <Button disabled={commander == null} onClick={onConfirmClick}>
-                        {commander == null && 'No commander selected'}
-                        {commander != null && `Select ${commander.name}`}
-                    </Button>
-                </div>
+                commanderStatus === 'idle' ?
+                (
+                    <div className="c-panel__bd">
+                        <ul>
+                            {options.map(option => (
+                                <li key={option.id}>
+                                    <CommanderOption
+                                        card={option}
+                                        isSelected={option.id === commander?.id}
+                                        onSelect={() => onCommanderClick(option)}
+                                    />
+                                </li>
+                            ))}
+                        </ul>
+                        <Button disabled={commander == null} onClick={onConfirmClick}>
+                            {commander == null && 'No commander selected'}
+                            {commander != null && `Select ${commander.name}`}
+                        </Button>
+                    </div>
+                ) : (
+                    <LoadingSpinner />
+                )
             )}
         </div>
     );

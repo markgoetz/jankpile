@@ -1,7 +1,10 @@
-@import './utils/reset';
-@import './utils/variables';
-@import './utils/fonts';
-@import './utils/elements';
+@import './base/reset';
+@import './base/variables';
+@import './base/fonts';
+@import './base/elements';
+
+@import './utils/center';
+@import './utils/padding';
 @import './utils/txt';
 
 @import './objects/full-grid';
@@ -14,7 +17,10 @@
 @import './components/footer';
 @import './components/header';
 @import './components/image-checkbox';
+@import './components/loading-card';
 @import './components/logo-lockup';
 @import './components/modal';
 @import './components/panel';
 @import './components/selector';
+
+@import './animations/spin';
