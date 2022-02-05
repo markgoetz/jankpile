@@ -1,0 +1,9 @@
+.u-vr {
+    margin-bottom: $base-grid-size;
+}
+
+@for $i from 2 through 4 {
+    .u-vr--x#{$i} {
+        margin-bottom: $base-grid-size * $i;
+    }
+};

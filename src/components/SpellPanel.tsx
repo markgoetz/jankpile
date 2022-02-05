@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from '../definitions/Card';
 import { selectCommander } from '../redux-modules/commander';
@@ -16,6 +16,8 @@ const SpellPanel: React.FC = () => {
     const isPanelOpen = useSelector(selectIsSpells);
     const isEditVisible = useSelector(selectIsAfterSpells);
     const commander = useSelector(selectCommander);
+
+    const [page, setPage] = useState(0);
 
     const onToggleOption = useCallback(
         (option: Card) => {
@@ -60,7 +62,7 @@ const SpellPanel: React.FC = () => {
                                 </div>
                             </div>
                             <Heading size="medium"><h3>Deck List</h3></Heading>
-                            <ul className="o-full-grid">
+                            <ul className="o-full-grid u-vr--x2">
                                 {options.map(option => (
                                     <li key={option.id}>
                                         <CardOption
@@ -71,6 +73,14 @@ const SpellPanel: React.FC = () => {
                                     </li>
                                 ))}
                             </ul>
+                            <div className="o-split u-vr--x4">
+                                <span>
+                                    {page > 0 && (<Button variation="secondary" onClick={() => {}}>Previous Page</Button>)}
+                                </span>
+                                <span>
+                                    <Button variation="secondary" onClick={() => {}}>Next Page</Button>
+                                </span>
+                            </div>
                             <Button onClick={onConfirmClick}>Continue to Lands</Button>
                         </div>
                         <aside>

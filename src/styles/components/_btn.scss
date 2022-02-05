@@ -1,6 +1,7 @@
 @use "sass:color";
 
-$color-shadow: color.adjust($color: $color-primary, $lightness: -10%);
+$color-shadow: color.adjust($color: $color-primary, $lightness: -25%);
+$color-secondary-shadow: color.adjust($color: $color-mid-end, $lightness: -25%);
 $button-depth: .4rem;
 
 .c-btn {
@@ -22,6 +23,13 @@ $button-depth: .4rem;
 .c-btn:not([disabled]):active {
     box-shadow: 0 0 0 0 $color-shadow;
     transform: translateY($button-depth);
+}
+
+.c-btn--secondary {
+    background-color: $color-mid-end;
+    color: $color-primary;
+    box-shadow: 0 $button-depth 0 0 $color-secondary-shadow;
+    font-size: 1.6rem;
 }
 
 .c-btn[disabled] {
