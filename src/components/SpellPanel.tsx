@@ -1,14 +1,16 @@
 import React, { useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import useDeepCompareEffect from 'use-deep-compare-effect';
 import Card from '../definitions/Card';
 import { selectCommander } from '../redux-modules/commander';
-import { selectSpellList, selectSpellOptions, selectSpellStatus, toggleSpell } from '../redux-modules/spells';
+import { selectSpellList, selectSpellOptions, selectSpellStatus, toggleSpell, fetchSpells } from '../redux-modules/spells';
 import { jumpToSpells, nextStep, selectIsAfterSpells, selectIsSpells } from '../redux-modules/steps';
 import Heading from './common/Heading';
 import PanelHeading from './PanelHeading';
 import CardOption from './CardOption';
 import Button from './common/Button';
 import LoadingWrapper from './common/LoadingWrapper';
+import { selectColors, selectFormat } from '../redux-modules/identity';
 
 const SpellPanel: React.FC = () => {
     const dispatch = useDispatch();
@@ -18,8 +20,25 @@ const SpellPanel: React.FC = () => {
     const isEditVisible = useSelector(selectIsAfterSpells);
     const commander = useSelector(selectCommander);
     const spellStatus = useSelector(selectSpellStatus);
+    const colors = useSelector(selectColors);
+    const format = useSelector(selectFormat);
 
     const [page, setPage] = useState(0);
+
+    useDeepCompareEffect(
+        () => {
+            setPage(0);
+        },
+        [colors, format],
+    );
+
+    useDeepCompareEffect(
+        () => {
+            const identity = { colors, format };
+            dispatch(fetchSpells({ identity, page }));
+        },
+        [dispatch, colors, format, page],
+    );
 
     const onToggleOption = useCallback(
         (option: Card) => {
@@ -37,6 +56,17 @@ const SpellPanel: React.FC = () => {
             dispatch(nextStep());
         },
         [dispatch],
+    );
+
+    const onPreviousPageClick = useCallback(
+        () => { setPage(Math.max(0, page - 1)); },
+        [page]
+    );
+
+
+    const onNextPageClick = useCallback(
+        () => { setPage(page + 1); },
+        [page]
     );
 
     const descriptionPieces = commander?.description?.split('\n') ?? [];
@@ -79,10 +109,10 @@ const SpellPanel: React.FC = () => {
                             </LoadingWrapper>
                             <div className="o-split u-vr--x4">
                                 <span>
-                                    {page > 0 && (<Button variation="secondary" onClick={() => {}}>Previous Page</Button>)}
+                                    {page > 0 && (<Button variation="secondary" onClick={onPreviousPageClick}>Previous Page</Button>)}
                                 </span>
                                 <span>
-                                    <Button variation="secondary" onClick={() => {}}>Next Page</Button>
+                                    <Button variation="secondary" onClick={onNextPageClick}>Next Page</Button>
                                 </span>
                             </div>
                             <Button onClick={onConfirmClick}>Continue to Lands</Button>

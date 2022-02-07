@@ -36,8 +36,8 @@ export const getSpells = async (params: SpellQueryParams): Promise<Card[]> => {
         searchParams.set('mv', manaValues.join(','));
     }
     
-    if (page !== 1) {
-        searchParams.set('page', page.toString());
+    if (page !== 0) {
+        searchParams.set('p', page.toString());
     }
 
     const response = await axios.get(`${ENDPOINTS.SPELLS}?${searchParams.toString()}`);
