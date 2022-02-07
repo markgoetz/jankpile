@@ -45,8 +45,6 @@ const IdentityPanel: React.FC = () => {
             await sleep(100);
             dispatch(fetchCommanders(identity));
             await sleep(100);
-            dispatch(fetchSpells({ identity }));
-            await sleep(100);
             dispatch(fetchNonBasicLands(identity));
 
             colors.forEach(color => dispatch(fetchBasicLandArt({ color, isSnow: false })));
