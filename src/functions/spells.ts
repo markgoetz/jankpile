@@ -25,7 +25,6 @@ const handler: Handler = async(event, context) => {
         `f:${format}`,
         'game:arena',
         '-t:land',
-        `page:${serverPage}`,
     ];
 
     if (manaValues.length > 0) {
@@ -39,7 +38,7 @@ const handler: Handler = async(event, context) => {
     const cardQuery = queryPieces.join('+');
 
     try {
-        const response = await axios.get(getEndpoint(cardQuery)) as AxiosResponse<CardResponse>;
+        const response = await axios.get(getEndpoint(cardQuery, serverPage)) as AxiosResponse<CardResponse>;
         const parsedResponse = response.data.data.map(fullCardToSpell);
         const splicedResponse = parsedResponse.splice(clientSplice * PAGE_RESULTS, PAGE_RESULTS);
         return createResponse(200, splicedResponse);
