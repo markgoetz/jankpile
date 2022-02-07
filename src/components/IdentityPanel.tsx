@@ -5,7 +5,6 @@ import { selectFormat, selectColors, setIdentity } from '../redux-modules/identi
 import { fetchCommanders  } from '../redux-modules/commander';
 import PanelHeading from './PanelHeading';
 import Heading from './common/Heading';
-import { fetchSpells } from '../redux-modules/spells';
 import { jumpToCommander } from '../redux-modules/steps';
 import { fetchBasicLandArt, fetchNonBasicLands } from '../redux-modules/lands';
 import Format from '../definitions/Format';
