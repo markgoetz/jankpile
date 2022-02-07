@@ -6,7 +6,7 @@ import { jumpToCommander, nextStep, selectIsCommander, selectIsAfterCommander } 
 import CommanderOption from './CommanderOption';
 import Button from './common/Button';
 import Heading from './common/Heading';
-import LoadingSpinner from './common/LoadingSpinner';
+import LoadingWrapper from './common/LoadingWrapper';
 import PanelHeading from './PanelHeading';
 
 const CommanderPanel: React.FC = () => {
@@ -44,8 +44,7 @@ const CommanderPanel: React.FC = () => {
                 </div>
             </PanelHeading>
             {isPanelOpen && (
-                commanderStatus === 'idle' ?
-                (
+                <LoadingWrapper status={commanderStatus}>
                     <div className="c-panel__bd">
                         <ul>
                             {options.map(option => (
@@ -63,9 +62,7 @@ const CommanderPanel: React.FC = () => {
                             {commander != null && `Select ${commander.name}`}
                         </Button>
                     </div>
-                ) : (
-                    <LoadingSpinner />
-                )
+                </LoadingWrapper>
             )}
         </div>
     );

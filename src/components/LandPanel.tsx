@@ -5,11 +5,12 @@ import Color from '../definitions/Color';
 import { SINGULAR_LAND_NAMES, PLURAL_LAND_NAMES } from '../lib/consts';
 import getPipCounts from '../lib/utils/getPipCounts';
 import { selectColors } from '../redux-modules/identity';
-import { selectBasicLandCounts, selectNonBasicLands, selectNonBasicOptions, setBasicCount, toggleNonBasic } from '../redux-modules/lands';
+import { selectBasicLandCounts, selectNonBasicLands, selectNonBasicOptions, selectNonBasicStatus, setBasicCount, toggleNonBasic } from '../redux-modules/lands';
 import { selectIsLands } from '../redux-modules/steps';
 import { selectAllCards } from '../redux-modules/store';
 import CardOption from './CardOption';
 import Heading from './common/Heading';
+import LoadingWrapper from './common/LoadingWrapper';
 import PanelHeading from './PanelHeading';
 
 const LandPanel: React.FC = () => {
@@ -20,6 +21,7 @@ const LandPanel: React.FC = () => {
     const nonBasics = useSelector(selectNonBasicLands);
     const nonBasicOptions = useSelector(selectNonBasicOptions);
     const isPanelOpen = useSelector(selectIsLands);
+    const landStatus = useSelector(selectNonBasicStatus);
 
     const onToggleOption = useCallback(
         (option: Card) => {
@@ -73,17 +75,19 @@ const LandPanel: React.FC = () => {
                             </div>
 
                             <Heading size="medium"><h3>Non-Basic Lands</h3></Heading>
-                            <ul className="o-full-grid">
-                                {nonBasicOptions.map(option => (
-                                    <li key={option.id}>
-                                        <CardOption
-                                            onToggle={() => onToggleOption(option)}
-                                            option={option}
-                                            disabled={false}
-                                        />
-                                    </li>
-                                ))}
-                            </ul>
+                            <LoadingWrapper status={landStatus}>
+                                <ul className="o-full-grid">
+                                    {nonBasicOptions.map(option => (
+                                        <li key={option.id}>
+                                            <CardOption
+                                                onToggle={() => onToggleOption(option)}
+                                                option={option}
+                                                disabled={false}
+                                            />
+                                        </li>
+                                    ))}
+                                </ul>
+                            </LoadingWrapper>
                         </div>
                         <aside>
                             <Heading size="medium"><h3>Current Deck</h3></Heading>

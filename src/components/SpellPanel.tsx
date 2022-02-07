@@ -2,12 +2,13 @@ import React, { useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from '../definitions/Card';
 import { selectCommander } from '../redux-modules/commander';
-import { selectSpellList, selectSpellOptions, toggleSpell } from '../redux-modules/spells';
+import { selectSpellList, selectSpellOptions, selectSpellStatus, toggleSpell } from '../redux-modules/spells';
 import { jumpToSpells, nextStep, selectIsAfterSpells, selectIsSpells } from '../redux-modules/steps';
 import Heading from './common/Heading';
 import PanelHeading from './PanelHeading';
 import CardOption from './CardOption';
 import Button from './common/Button';
+import LoadingWrapper from './common/LoadingWrapper';
 
 const SpellPanel: React.FC = () => {
     const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const SpellPanel: React.FC = () => {
     const isPanelOpen = useSelector(selectIsSpells);
     const isEditVisible = useSelector(selectIsAfterSpells);
     const commander = useSelector(selectCommander);
+    const spellStatus = useSelector(selectSpellStatus);
 
     const [page, setPage] = useState(0);
 
@@ -62,17 +64,19 @@ const SpellPanel: React.FC = () => {
                                 </div>
                             </div>
                             <Heading size="medium"><h3>Deck List</h3></Heading>
-                            <ul className="o-full-grid u-vr--x2">
-                                {options.map(option => (
-                                    <li key={option.id}>
-                                        <CardOption
-                                            option={option}
-                                            onToggle={() => onToggleOption(option)}
-                                            disabled={option.id === commander?.id}
-                                        />
-                                    </li>
-                                ))}
-                            </ul>
+                            <LoadingWrapper status={spellStatus}>
+                                <ul className="o-full-grid u-vr--x2">
+                                    {options.map(option => (
+                                        <li key={option.id}>
+                                            <CardOption
+                                                option={option}
+                                                onToggle={() => onToggleOption(option)}
+                                                disabled={option.id === commander?.id}
+                                            />
+                                        </li>
+                                    ))}
+                                </ul>
+                            </LoadingWrapper>
                             <div className="o-split u-vr--x4">
                                 <span>
                                     {page > 0 && (<Button variation="secondary" onClick={() => {}}>Previous Page</Button>)}
