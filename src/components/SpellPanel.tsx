@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 import Card from '../definitions/Card';
 import { selectCommander } from '../redux-modules/commander';
-import { selectSpellList, selectSpellOptions, selectSpellStatus, toggleSpell, fetchSpells } from '../redux-modules/spells';
+import { selectSpellList, selectSpellOptions, selectSpellStatus, toggleSpell, fetchSpells, selectTotalSpellPages } from '../redux-modules/spells';
 import { jumpToSpells, nextStep, selectIsAfterSpells, selectIsSpells } from '../redux-modules/steps';
 import Heading from './common/Heading';
 import PanelHeading from './PanelHeading';
@@ -22,6 +22,7 @@ const SpellPanel: React.FC = () => {
     const spellStatus = useSelector(selectSpellStatus);
     const colors = useSelector(selectColors);
     const format = useSelector(selectFormat);
+    const totalPages = useSelector(selectTotalSpellPages);
 
     const [page, setPage] = useState(0);
 
@@ -112,7 +113,7 @@ const SpellPanel: React.FC = () => {
                                     {page > 0 && (<Button variation="secondary" onClick={onPreviousPageClick}>Previous Page</Button>)}
                                 </span>
                                 <span>
-                                    <Button variation="secondary" onClick={onNextPageClick}>Next Page</Button>
+                                    {page < totalPages - 1 && (<Button variation="secondary" onClick={onNextPageClick}>Next Page</Button>)}
                                 </span>
                             </div>
                             <Button onClick={onConfirmClick}>Continue to Lands</Button>

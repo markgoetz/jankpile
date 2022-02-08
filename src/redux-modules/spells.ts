@@ -9,6 +9,7 @@ import { RootState } from './store';
 export type SpellState = {
     options: Card[],
     page: number,
+    totalPages: number,
     spells: Card[],
     status: NetworkStatus,
 };
@@ -16,6 +17,7 @@ export type SpellState = {
 const initialState: SpellState = {
     options: [],
     page: 0,
+    totalPages: 0,
     spells: [],
     status: 'idle',
 };
@@ -58,7 +60,8 @@ const spellSlice = createSlice({
             state.status = 'loading';
             state.page = 0;
         }).addCase(fetchSpells.fulfilled, (state, action) => {
-            state.options = action.payload;
+            state.options = action.payload.cards;
+            state.totalPages = action.payload.totalPages;
             state.status = 'idle';
         });
     },
@@ -67,6 +70,7 @@ const spellSlice = createSlice({
 export const selectSpellOptions = (state: RootState) => state.spells.options;
 export const selectSpellStatus = (state: RootState) => state.spells.status;
 export const selectSpellList = (state: RootState) => state.spells.spells;
+export const selectTotalSpellPages = (state: RootState) => state.spells.totalPages;
 
 export const { toggleSpell } = spellSlice.actions;
 

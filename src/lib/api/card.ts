@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Card from '../../definitions/Card';
+import CardResponse from '../../definitions/CardResponse';
 import Color from '../../definitions/Color';
 import Format from '../../definitions/Format';
 import Identity from '../../definitions/Identity';
@@ -20,7 +21,7 @@ export type SpellQueryParams = {
     page?: number,
 }
 
-export const getSpells = async (params: SpellQueryParams): Promise<Card[]> => {
+export const getSpells = async (params: SpellQueryParams): Promise<CardResponse> => {
     const { identity, query = '', manaValues = [], page = 1 } = params;
     const { format, colors } = identity;
 

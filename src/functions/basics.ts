@@ -1,6 +1,6 @@
 import { Handler } from '@netlify/functions';
 import axios, { AxiosResponse } from 'axios';
-import CardResponse from '../definitions/dto/CardResponse';
+import ScryfallList from '../definitions/dto/ScryfallList';
 import { createResponse, getEndpoint } from '../lib/function-utils/helpers';
 import { fullCardToLand } from '../lib/function-utils/cardTranslations';
 
@@ -14,7 +14,7 @@ const handler: Handler = async(event, context) => {
     const cardQuery = `id=${color}+f:brawl+t:land+${snowQuery}+t:basic+game:arena&unique=art`;
 
     try {
-        const response = await axios.get(getEndpoint(cardQuery)) as AxiosResponse<CardResponse>;
+        const response = await axios.get(getEndpoint(cardQuery)) as AxiosResponse<ScryfallList>;
         const parsedResponse = response.data.data.map(fullCardToLand);
         return createResponse(200, parsedResponse);
     } catch (e) {

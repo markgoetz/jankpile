@@ -1,10 +1,10 @@
 import ScryfallCard from './ScryfallCard';
 
-type CardResponse = {
+type ScryfallList = {
     object: string,
     total_cards: number,
     has_more: boolean,
     data: ScryfallCard[],
 };
 
-export default CardResponse;
+export default ScryfallList;

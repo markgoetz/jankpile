@@ -11,6 +11,8 @@ type Legality = 'legal' | 'not_legal' | 'restricted' | 'banned';
 
 type Game = 'arena' | 'paper' | 'mtgo';
 
+type Rarity = 'common' | 'uncommon' | 'rare' | 'mythic';
+
 type ImageUriMap = {
     small: string,
     normal: string,
@@ -81,7 +83,6 @@ type ScryfallCard = {
     reserved: boolean,
     toughness?: string,
     type_line: string,
-
     artist?: string,
     booster: boolean,
     border_color: 'black' | 'white' | 'borderless' | 'silver' | 'gold',
@@ -107,7 +108,7 @@ type ScryfallCard = {
     promo: boolean,
     promo_types?: string[],
     purchase_uris: Record<string, string>,
-    rarity: string,
+    rarity: Rarity,
     related_uris: Record<string, string>,
     released_at: string,
     reprint: boolean,
