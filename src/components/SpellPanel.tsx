@@ -11,6 +11,9 @@ import CardOption from './CardOption';
 import Button from './common/Button';
 import LoadingWrapper from './common/LoadingWrapper';
 import { selectColors, selectFormat } from '../redux-modules/identity';
+import { SpellQueryParams } from '../lib/api/card';
+
+type SearchParams = Omit<SpellQueryParams, 'identity'>;
 
 const SpellPanel: React.FC = () => {
     const dispatch = useDispatch();
@@ -24,11 +27,11 @@ const SpellPanel: React.FC = () => {
     const format = useSelector(selectFormat);
     const totalPages = useSelector(selectTotalSpellPages);
 
-    const [page, setPage] = useState(0);
+    const [params, setParams] = useState<SearchParams>({ page: 0 });
 
     useDeepCompareEffect(
         () => {
-            setPage(0);
+            setParams({ ...params, page: 0 });
         },
         [colors, format],
     );
@@ -36,9 +39,9 @@ const SpellPanel: React.FC = () => {
     useDeepCompareEffect(
         () => {
             const identity = { colors, format };
-            dispatch(fetchSpells({ identity, page }));
+            dispatch(fetchSpells({ identity, ...params }));
         },
-        [dispatch, colors, format, page],
+        [dispatch, colors, format, params],
     );
 
     const onToggleOption = useCallback(
@@ -60,14 +63,14 @@ const SpellPanel: React.FC = () => {
     );
 
     const onPreviousPageClick = useCallback(
-        () => { setPage(Math.max(0, page - 1)); },
-        [page]
+        () => { setParams({ ...params, page: Math.max(0, params.page - 1)} ); },
+        [params],
     );
 
 
     const onNextPageClick = useCallback(
-        () => { setPage(page + 1); },
-        [page]
+        () => { setParams({ ...params, page: params.page + 1 }); },
+        [params]
     );
 
     const descriptionPieces = commander?.description?.split('\n') ?? [];
@@ -110,10 +113,10 @@ const SpellPanel: React.FC = () => {
                             </LoadingWrapper>
                             <div className="o-split u-vr--x4">
                                 <span>
-                                    {page > 0 && (<Button variation="secondary" onClick={onPreviousPageClick}>Previous Page</Button>)}
+                                    {params.page > 0 && (<Button variation="secondary" onClick={onPreviousPageClick}>Previous Page</Button>)}
                                 </span>
                                 <span>
-                                    {page < totalPages - 1 && (<Button variation="secondary" onClick={onNextPageClick}>Next Page</Button>)}
+                                    {params.page < totalPages - 1 && (<Button variation="secondary" onClick={onNextPageClick}>Next Page</Button>)}
                                 </span>
                             </div>
                             <Button onClick={onConfirmClick}>Continue to Lands</Button>

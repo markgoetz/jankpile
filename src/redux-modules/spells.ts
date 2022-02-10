@@ -1,8 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Card from '../definitions/Card';
-import Identity from '../definitions/Identity';
 import NetworkStatus from '../definitions/NetworkStatus';
-import { getSpells } from '../lib/api/card';
+import { getSpells, SpellQueryParams } from '../lib/api/card';
 import { fetchCommanders } from './commander';
 import { RootState } from './store';
 
@@ -22,16 +21,9 @@ const initialState: SpellState = {
     status: 'idle',
 };
 
-export type fetchSpellParams = {
-    identity: Identity,
-    query?: string,
-    manaValues?: number[],
-    page?: number,
-};
-
 export const fetchSpells = createAsyncThunk(
     'spells/fetchSpells',
-    async (params: fetchSpellParams) => {
+    async (params: SpellQueryParams) => {
         const response = await getSpells(params);
         return response;
     }

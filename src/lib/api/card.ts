@@ -18,11 +18,11 @@ export type SpellQueryParams = {
     identity: Identity,
     query?: string,
     manaValues?: number[],
-    page?: number,
+    page: number,
 }
 
 export const getSpells = async (params: SpellQueryParams): Promise<CardResponse> => {
-    const { identity, query = '', manaValues = [], page = 1 } = params;
+    const { identity, query = '', manaValues = [], page } = params;
     const { format, colors } = identity;
 
     const searchParams = new URLSearchParams();
