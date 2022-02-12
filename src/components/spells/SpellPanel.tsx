@@ -1,17 +1,18 @@
 import React, { useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import useDeepCompareEffect from 'use-deep-compare-effect';
-import Card from '../definitions/Card';
-import { selectCommander } from '../redux-modules/commander';
-import { selectSpellList, selectSpellOptions, selectSpellStatus, toggleSpell, fetchSpells, selectTotalSpellPages } from '../redux-modules/spells';
-import { jumpToSpells, nextStep, selectIsAfterSpells, selectIsSpells } from '../redux-modules/steps';
-import Heading from './common/Heading';
-import PanelHeading from './PanelHeading';
-import CardOption from './CardOption';
-import Button from './common/Button';
-import LoadingWrapper from './common/LoadingWrapper';
-import { selectColors, selectFormat } from '../redux-modules/identity';
-import { SpellQueryParams } from '../lib/api/card';
+import Card from '../../definitions/Card';
+import { selectCommander } from '../../redux-modules/commander';
+import { selectSpellList, selectSpellOptions, selectSpellStatus, toggleSpell, fetchSpells, selectTotalSpellPages } from '../../redux-modules/spells';
+import { jumpToSpells, nextStep, selectIsAfterSpells, selectIsSpells } from '../../redux-modules/steps';
+import Heading from '../common/Heading';
+import PanelHeading from '../PanelHeading';
+import CardOption from '../CardOption';
+import Button from '../common/Button';
+import LoadingWrapper from '../common/LoadingWrapper';
+import { selectColors, selectFormat } from '../../redux-modules/identity';
+import { SpellQueryParams } from '../../lib/api/card';
+import QueryForm from './QueryForm';
 
 type SearchParams = Omit<SpellQueryParams, 'identity'>;
 
@@ -67,10 +68,14 @@ const SpellPanel: React.FC = () => {
         [params],
     );
 
-
     const onNextPageClick = useCallback(
         () => { setParams({ ...params, page: params.page + 1 }); },
         [params]
+    );
+
+    const onSearch = useCallback(
+        (query: string, manaValues: number[]) => { setParams({ ...params, query, manaValues }) },
+        [params],
     );
 
     const descriptionPieces = commander?.description?.split('\n') ?? [];
@@ -98,6 +103,7 @@ const SpellPanel: React.FC = () => {
                                 </div>
                             </div>
                             <Heading size="medium"><h3>Deck List</h3></Heading>
+                            <QueryForm currentQuery={params.query ?? ''} onSearch={onSearch} />
                             <LoadingWrapper status={spellStatus}>
                                 <ul className="o-full-grid u-vr--x2">
                                     {options.map(option => (
