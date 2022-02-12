@@ -8,7 +8,7 @@ import { selectColors } from '../redux-modules/identity';
 import { selectBasicLandCounts, selectNonBasicLands, selectNonBasicOptions, selectNonBasicStatus, setBasicCount, toggleNonBasic } from '../redux-modules/lands';
 import { selectIsLands } from '../redux-modules/steps';
 import { selectAllCards } from '../redux-modules/store';
-import CardOption from './CardOption';
+import CardOption from './common/CardOption';
 import Heading from './common/Heading';
 import LoadingWrapper from './common/LoadingWrapper';
 import PanelHeading from './PanelHeading';

@@ -7,12 +7,13 @@ import { selectSpellList, selectSpellOptions, selectSpellStatus, toggleSpell, fe
 import { jumpToSpells, nextStep, selectIsAfterSpells, selectIsSpells } from '../../redux-modules/steps';
 import Heading from '../common/Heading';
 import PanelHeading from '../PanelHeading';
-import CardOption from '../CardOption';
 import Button from '../common/Button';
 import LoadingWrapper from '../common/LoadingWrapper';
 import { selectColors, selectFormat } from '../../redux-modules/identity';
 import { SpellQueryParams } from '../../lib/api/card';
 import QueryForm from './QueryForm';
+import SpellList from './SpellList';
+import CommanderDescription from './CommanderDescription';
 
 type SearchParams = Omit<SpellQueryParams, 'identity'>;
 
@@ -78,8 +79,6 @@ const SpellPanel: React.FC = () => {
         [params],
     );
 
-    const descriptionPieces = commander?.description?.split('\n') ?? [];
-
     return (
         <div className="c-panel">
             <PanelHeading>
@@ -96,26 +95,15 @@ const SpellPanel: React.FC = () => {
                     <div className="o-sidebar-layout">
                         <div>
                             <Heading size="medium"><h3>Commander Description</h3></Heading>
-                            <div className="o-h-list o-h-list--x2">
-                                <div><img src={commander?.fullImageUri} alt={commander?.name} /></div>
-                                <div className="o-v-list o-v-list--x2">
-                                    {descriptionPieces.map(piece => <span key={piece} className="u-txt--lh-1.4">{piece}</span>)}
-                                </div>
-                            </div>
+                            {commander != null && <CommanderDescription commander={commander} />}
                             <Heading size="medium"><h3>Deck List</h3></Heading>
                             <QueryForm currentQuery={params.query ?? ''} onSearch={onSearch} />
                             <LoadingWrapper status={spellStatus}>
-                                <ul className="o-full-grid u-vr--x2">
-                                    {options.map(option => (
-                                        <li key={option.id}>
-                                            <CardOption
-                                                option={option}
-                                                onToggle={() => onToggleOption(option)}
-                                                disabled={option.id === commander?.id}
-                                            />
-                                        </li>
-                                    ))}
-                                </ul>
+                                <SpellList
+                                    options={options}
+                                    onToggleOption={onToggleOption}
+                                    commanderId={commander?.id ?? ''}
+                                />
                             </LoadingWrapper>
                             <div className="o-split u-vr--x4">
                                 <span>
