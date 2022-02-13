@@ -46,17 +46,19 @@ const CommanderPanel: React.FC = () => {
             {isPanelOpen && (
                 <LoadingWrapper status={commanderStatus}>
                     <div className="c-panel__bd">
-                        <ul>
-                            {options.map(option => (
-                                <li key={option.id}>
-                                    <CommanderOption
-                                        card={option}
-                                        isSelected={option.id === commander?.id}
-                                        onSelect={() => onCommanderClick(option)}
-                                    />
-                                </li>
-                            ))}
-                        </ul>
+                        <div className="o-horizontal-scroll">
+                            <ul className="o-h-list">
+                                {options.map(option => (
+                                    <li key={option.id}>
+                                        <CommanderOption
+                                            card={option}
+                                            isSelected={option.id === commander?.id}
+                                            onSelect={() => onCommanderClick(option)}
+                                        />
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                         <Button disabled={commander == null} onClick={onConfirmClick}>
                             {commander == null && 'No commander selected'}
                             {commander != null && `Select ${commander.name}`}

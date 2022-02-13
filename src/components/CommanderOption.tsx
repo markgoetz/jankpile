@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import Card from '../definitions/Card';
 
 type Props = {
@@ -8,13 +9,17 @@ type Props = {
 }
 
 const CommanderOption: React.FC<Props> = ({ card, isSelected, onSelect }) => {
+    const className = clsx(
+        'c-commander-option', {
+            'c-commander-option--selected': isSelected
+        },
+    );
+
     return (
-        <button type="button" onClick={onSelect}>
-            <span>
-                <img src={card.artImageUri} alt={card.name} width={207} height={151} />
-                <span>{card.name}</span>
-                <span>art by {card.artist}</span>
-            </span>
+        <button type="button" className={className} onClick={onSelect}>
+            <img src={card.artImageUri} alt={card.name} width={207} height={151} />
+            <span className="c-commander-option__name">{card.name}</span>
+            <span className="c-commander-option__artist">art by {card.artist}</span>
         </button>
     );
 };

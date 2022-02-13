@@ -1,0 +1,22 @@
+.c-commander-option {
+    border: 0;
+    padding: 0;
+    background-color: $color-black;
+    color: $color-white;
+}
+
+.c-commander-option--selected {
+    background-color: $color-primary;
+}
+
+.c-commander-option__name {
+    display: block;
+    font-family: $font-body;
+    font-size: 1.6rem;
+}
+
+.c-commander-option__artist {
+    display: block;
+    font-family: $font-body;
+    font-size: 1.2rem;
+}
