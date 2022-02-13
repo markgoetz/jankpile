@@ -92,12 +92,12 @@ const SpellPanel: React.FC = () => {
             </PanelHeading>
             {isPanelOpen && (
                 <div className="c-panel__bd">
+                    <Heading size="medium"><h3>Commander Description</h3></Heading>
+                    {commander != null && <CommanderDescription commander={commander} />}
+                    <QueryForm currentQuery={params.query ?? ''} onSearch={onSearch} />
                     <div className="o-sidebar-layout">
                         <div>
-                            <Heading size="medium"><h3>Commander Description</h3></Heading>
-                            {commander != null && <CommanderDescription commander={commander} />}
                             <Heading size="medium"><h3>Deck List</h3></Heading>
-                            <QueryForm currentQuery={params.query ?? ''} onSearch={onSearch} />
                             <LoadingWrapper status={spellStatus}>
                                 <SpellList
                                     options={options}
