@@ -23,6 +23,7 @@ const Header: React.FC = () => {
                 <div role="contentinfo" className="u-txt--20 u-txt--heading u-txt--color-highlight">
                     <p>by Mark Goetz, © {new Date().getFullYear()}</p>
                     <p>All card art © {new Date().getFullYear()} Wizards of the Coast</p>
+                    <p>Mana symbols © MTG Wiki</p>
                 </div>
             </div>
         </div>

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { selectAllCards } from '../redux-modules/store';
 import { selectFormat } from '../redux-modules/identity';
 import { CARD_COUNT_BY_FORMAT } from '../lib/consts';
+import Button from './common/Button';
 
 const Footer: React.FC = () => {
     const allCards = useSelector(selectAllCards);
@@ -11,13 +12,15 @@ const Footer: React.FC = () => {
 
     return (
         <div className="c-footer">
-            <div className="o-h-list o-h-list--x2 o-h-list--center">
-                <span className="u-txt--24 u-txt--heading u-txt--weight-black u-txt--color-black">
-                    Total cards: {allCards.length}/{cardCount}
-                </span>
-                <button type="button" disabled={allCards.length !== cardCount} className="c-btn">
-                    Export to Arena
-                </button>
+            <div className="c-form">
+                <div className="o-h-list o-h-list--x2 o-h-list--center">
+                    <span className="u-txt--24 u-txt--heading u-txt--weight-black u-txt--color-black">
+                        Total cards: {allCards.length}/{cardCount}
+                    </span>
+                    <Button type="button" disabled={allCards.length !== cardCount}>
+                        Export to Arena
+                    </Button>
+                </div>
             </div>
         </div>
     );

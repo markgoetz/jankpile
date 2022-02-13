@@ -137,3 +137,10 @@ export const selectBasicLandCounts = (state: RootState): Record<Color, number> =
         {} as Record<Color, number>
     );
 };
+export const selectBasicLandArts = (state: RootState): Record<Color, Card | null> => {
+    const colors = Object.keys(state.lands.basics) as Color[];
+    return colors.reduce(
+        (prevVal, color) => ({...prevVal, [color]: state.lands.basics[color].selectedArt }),
+        {} as Record<Color, Card | null>
+    );
+};

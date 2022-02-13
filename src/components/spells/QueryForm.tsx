@@ -7,6 +7,7 @@ import MANAVALUE_4_SVG from '../../assets/images/4.svg';
 import MANAVALUE_5_SVG from '../../assets/images/5.svg';
 import MANAVALUE_6_SVG from '../../assets/images/6.svg';
 import MANAVALUE_7_SVG from '../../assets/images/7.svg';
+import Button from '../common/Button';
 
 type Props = {
     currentQuery: string,
@@ -40,7 +41,7 @@ const QueryForm: React.FC<Props> = ({ currentQuery, onSearch }) => {
     };
 
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className="c-form">
             <div className="o-h-list">
                 <input value={query} onChange={onQueryChange} />
                 <ImageCheckboxGroup
@@ -58,7 +59,7 @@ const QueryForm: React.FC<Props> = ({ currentQuery, onSearch }) => {
                     selected={manaValues}
                     onChange={value => toggleValue(value)}
                 />
-                <button>Search</button>
+                <Button type="submit">Search</Button>
             </div>
         </form>
     )
