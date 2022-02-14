@@ -79,6 +79,9 @@ const SpellPanel: React.FC = () => {
         [params],
     );
 
+    const sortedSpells = [...spells];
+    sortedSpells.sort((a, b) => a.name > b.name ? 1 : -1);
+
     return (
         <div className="c-panel">
             <PanelHeading>
@@ -118,7 +121,7 @@ const SpellPanel: React.FC = () => {
                         <aside>
                             <Heading size="medium"><h3>Current Deck</h3></Heading>
                             <ul>
-                                {spells.map(spell => (
+                                {sortedSpells.map(spell => (
                                     <li key={spell.id}>{spell.name}</li>
                                 ))}
                             </ul>

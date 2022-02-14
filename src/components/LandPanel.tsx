@@ -43,6 +43,9 @@ const LandPanel: React.FC = () => {
 
     const pipCounts = getPipCounts(deck);
 
+    const sortedNonBasics = [...nonBasics];
+    sortedNonBasics.sort((a, b) => a.name > b.name ? 1 : -1);
+
     return (
         <>
             <PanelHeading>
@@ -98,7 +101,7 @@ const LandPanel: React.FC = () => {
                                         {basicLandCounts[color] === 1 && `${basicLandCounts[color]} ${SINGULAR_LAND_NAMES[color]}`}
                                     </li>
                                 ))}
-                                {nonBasics.map(land => (
+                                {sortedNonBasics.map(land => (
                                     <li key={land.id}>{land.name}</li>
                                 ))}
                             </ul>
