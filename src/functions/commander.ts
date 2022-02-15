@@ -17,7 +17,13 @@ const handler: Handler = async (event, context) => {
         const parsedResponse = response.data.data.map(fullCardToCommander);
         return createResponse(200, parsedResponse);
     } catch (e) {
-        return createResponse(500, e);
+        const err = e as Error;
+
+        if (err.message === 'Request failed with status code 404') {
+            return createResponse(200, []);
+        }
+
+        return createResponse(500, err.message);
     }
 };
 

@@ -32,6 +32,10 @@ $button-depth: .4rem;
     font-size: 1.6rem;
 }
 
+.c-btn--square {
+    border-radius: .5rem;
+}
+
 .c-btn[disabled] {
     opacity: .7;
 }
