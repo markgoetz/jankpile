@@ -1,4 +1,5 @@
 .o-sidebar-layout {
     display: grid;
     grid-template-columns: 1fr 20rem;
+    gap: $base-grid-size * 2;
 }
