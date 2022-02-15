@@ -10,6 +10,8 @@ type Props = {
 };
 
 const BasicLandForm: React.FC<Props> = ({ colors, pipCounts, basicLandCounts, onInputChange }) => {
+    const pipSum = Object.values(pipCounts).reduce((current, prev) => current + prev);
+
     return (
         <div className="o-h-list">
             {colors.map(color => (
@@ -24,7 +26,7 @@ const BasicLandForm: React.FC<Props> = ({ colors, pipCounts, basicLandCounts, on
                             onChange={e => onInputChange(color, Number(e.target.value))}
                         />
                     </div>
-                    <div>Pips x {pipCounts[color]}</div>
+                    <div>Pips x {pipCounts[color]} ({Math.round(100 * pipCounts[color] / pipSum)}%)</div>
                 </div>
             ))}
         </div>
