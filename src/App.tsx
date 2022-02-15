@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import IdentityPanel from './components/IdentityPanel';
 import CommanderPanel from './components/CommanderPanel';
 import SpellPanel from './components/spells/SpellPanel';
-import LandPanel from './components/LandPanel';
+import LandPanel from './components/lands/LandPanel';
 import store from './redux-modules/store';
 import ExportModal from './components/ExportModal';
 
