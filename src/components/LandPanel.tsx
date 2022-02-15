@@ -9,6 +9,7 @@ import { selectBasicLandCounts, selectNonBasicLands, selectNonBasicOptions, sele
 import { selectIsLands } from '../redux-modules/steps';
 import { selectAllCards } from '../redux-modules/store';
 import CardOption from './common/CardOption';
+import DeleteItem from './common/DeleteItem';
 import Heading from './common/Heading';
 import LoadingWrapper from './common/LoadingWrapper';
 import PanelHeading from './PanelHeading';
@@ -102,7 +103,11 @@ const LandPanel: React.FC = () => {
                                     </li>
                                 ))}
                                 {sortedNonBasics.map(land => (
-                                    <li key={land.id}>{land.name}</li>
+                                    <li key={land.id}>
+                                        <DeleteItem onDelete={() => onToggleOption(land)}>
+                                            {land.name}
+                                        </DeleteItem>
+                                    </li>
                                 ))}
                             </ul>
                         </aside>
