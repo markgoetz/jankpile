@@ -14,6 +14,7 @@ import { SpellQueryParams } from '../../lib/api/card';
 import QueryForm from './QueryForm';
 import SpellList from './SpellList';
 import CommanderDescription from './CommanderDescription';
+import DeleteItem from '../common/DeleteItem';
 
 type SearchParams = Omit<SpellQueryParams, 'identity'>;
 
@@ -122,7 +123,11 @@ const SpellPanel: React.FC = () => {
                             <Heading size="medium"><h3>Current Deck</h3></Heading>
                             <ul>
                                 {sortedSpells.map(spell => (
-                                    <li key={spell.id}>{spell.name}</li>
+                                    <li key={spell.id}>
+                                        <DeleteItem onDelete={() => onToggleOption(spell)}>
+                                            {spell.name}
+                                        </DeleteItem>
+                                    </li>
                                 ))}
                             </ul>
                         </aside>
