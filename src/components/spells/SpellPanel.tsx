@@ -107,6 +107,7 @@ const SpellPanel: React.FC = () => {
                                     options={options}
                                     onToggleOption={onToggleOption}
                                     commanderId={commander?.id ?? ''}
+                                    spells={spells}
                                 />
                             </LoadingWrapper>
                             <div className="o-split u-vr--x4">

@@ -3,12 +3,13 @@ import Card from '../../definitions/Card';
 import CardOption from '../common/CardOption';
 
 type Props = {
+    spells: Card[],
     options: Card[],
     onToggleOption: (option: Card) => void,
     commanderId: string,
 };
 
-const SpellList: React.FC<Props> = ({ options, onToggleOption, commanderId }) => {
+const SpellList: React.FC<Props> = ({ spells, options, onToggleOption, commanderId }) => {
     return (
         <ul className="o-full-grid u-vr--x2">
             {options.map(option => (
@@ -17,6 +18,7 @@ const SpellList: React.FC<Props> = ({ options, onToggleOption, commanderId }) =>
                         option={option}
                         onToggle={() => onToggleOption(option)}
                         disabled={option.id === commanderId}
+                        isSelected={spells.includes(option)}
                     />
                 </li>
             ))}

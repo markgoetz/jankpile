@@ -75,6 +75,7 @@ const LandPanel: React.FC = () => {
                                             <CardOption
                                                 onToggle={() => onToggleOption(option)}
                                                 option={option}
+                                                isSelected={nonBasics.includes(option)}
                                                 disabled={false}
                                             />
                                         </li>
