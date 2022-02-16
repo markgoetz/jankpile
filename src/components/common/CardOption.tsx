@@ -19,7 +19,6 @@ const CardOption: React.FC<Props> = ({ option, onToggle, disabled, isSelected })
     return (
         <button type="button" onClick={onToggle} disabled={disabled} className={className}>
             <img src={option.fullImageUri} alt={option.name} width={146} height={204} />
-
         </button>
     );
 };
