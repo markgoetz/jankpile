@@ -18,7 +18,7 @@ const SpellList: React.FC<Props> = ({ spells, options, onToggleOption, commander
                         option={option}
                         onToggle={() => onToggleOption(option)}
                         disabled={option.id === commanderId}
-                        isSelected={spells.includes(option)}
+                        isSelected={spells.find(spell => spell.id === option.id) != null}
                     />
                 </li>
             ))}
