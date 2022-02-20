@@ -101,7 +101,7 @@ const SpellPanel: React.FC = () => {
                     <QueryForm currentQuery={params.query ?? ''} onSearch={onSearch} />
                     <div className="o-sidebar-layout">
                         <div>
-                            <Heading size="medium"><h3>Deck List</h3></Heading>
+                            <Heading size="medium"><h3>Available Cards</h3></Heading>
                             <LoadingWrapper status={spellStatus}>
                                 <SpellList
                                     options={options}

@@ -50,7 +50,16 @@ const handler: Handler = async(event, context) => {
 
         return createResponse(200, responseToReturn);
     } catch (e) {
-        return createResponse(500, e);
+        const err = e as Error;
+
+        if (err.message === 'Request failed with status code 404') {
+            return createResponse(
+                200,
+                { cards: [], totalPages: 0 },
+            );
+        }
+
+        return createResponse(500, err.message);
     }
 };
 
