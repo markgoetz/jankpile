@@ -76,7 +76,7 @@ const SpellPanel: React.FC = () => {
     );
 
     const onSearch = useCallback(
-        (query: string, manaValues: number[]) => { setParams({ ...params, query, manaValues }) },
+        (query: string, manaValues: number[]) => { setParams({ ...params, query, manaValues, page: 0 }) },
         [params],
     );
 
