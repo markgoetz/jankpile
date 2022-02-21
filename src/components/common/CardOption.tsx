@@ -16,13 +16,17 @@ const CardOption: React.FC<Props> = ({ option, onToggle, disabled, isSelected })
         { 'c-card-option--disabled': disabled },
     );
 
+    const descriptionPieces = option.description?.split('\n') ?? [];
+
     return (
         <button type="button" onClick={onToggle} disabled={disabled} className={className}>
             <img className="c-card-option__image" src={option.fullImageUri} alt={option.name} width={146} height={204} />
             <span className="c-card-option__frame" />
             <span className="c-card-option__focus">
                 <img className="c-card-option__image" src={option.fullImageUri} alt={option.name} width={146} height={204} />
-                <p className="c-card-option__description">{option.description}</p>
+                <span className="c-card-option__description">
+                    {descriptionPieces.map(piece => <p key={piece} className="u-txt--lh-1.4">{piece}</p>)}
+                </span>
             </span>
         </button>
     );
