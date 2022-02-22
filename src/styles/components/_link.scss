@@ -1,0 +1,10 @@
+.c-link {
+    text-decoration: underline;
+    color: $color-primary;
+    font-size: 1.6rem;
+    font-family: $font-body;
+}
+
+.c-link:hover, .c-link:focus {
+    background-color: $color-mid-start;
+}

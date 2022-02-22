@@ -75,6 +75,11 @@ const SpellPanel: React.FC = () => {
         [params]
     );
 
+    const onCommanderSearch = useCallback(
+        (query: string) => { setParams({...params, query, manaValues: [], page: 0 })},
+        [params],
+    )
+
     const onSearch = useCallback(
         (query: string, manaValues: number[]) => { setParams({ ...params, query, manaValues, page: 0 }) },
         [params],
@@ -97,7 +102,7 @@ const SpellPanel: React.FC = () => {
             {isPanelOpen && (
                 <div className="c-panel__bd">
                     <Heading size="medium"><h3>Commander Description</h3></Heading>
-                    {commander != null && <CommanderDescription commander={commander} />}
+                    {commander != null && <CommanderDescription commander={commander} onSearch={onCommanderSearch} />}
                     <QueryForm currentQuery={params.query ?? ''} onSearch={onSearch} />
                     <div className="o-sidebar-layout">
                         <div>

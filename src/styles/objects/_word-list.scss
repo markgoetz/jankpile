@@ -1,0 +1,8 @@
+.o-word-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.o-word-list > * + * {
+    margin-left: .3rem;
+}
