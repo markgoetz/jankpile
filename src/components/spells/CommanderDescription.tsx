@@ -12,8 +12,8 @@ const CommanderDescription: React.FC<Props> = ({ commander }) => {
         <div className="o-h-list o-h-list--x2">
             <div><img src={commander?.fullImageUri} alt={commander?.name} /></div>
             <div className="o-content-container">
-                <div className="o-v-list o-v-list--x2">
-                    {descriptionLines.map(piece => <span key={piece} className="u-txt--lh-1.4">{piece}</span>)}
+                <div>
+                    {descriptionLines.map(piece => <p key={piece} className="u-txt--lh-1.4">{piece}</p>)}
                 </div>
             </div>
         </div>
