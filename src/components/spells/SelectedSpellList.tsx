@@ -12,7 +12,9 @@ type Props = {
 const MAX_MANA_VALUE = 7;
 
 const SelectedSpellList: React.FC<Props> = ({ spells, onToggleOption }) => {
-    console.log(getManaValues(spells, MAX_MANA_VALUE));
+    const manaValues = getManaValues(spells, MAX_MANA_VALUE);
+    const maxManaValue = Math.max(...Object.values(manaValues));
+    console.log({ manaValues, maxManaValue });
 
     return (
         <>
@@ -27,13 +29,13 @@ const SelectedSpellList: React.FC<Props> = ({ spells, onToggleOption }) => {
                         <rect x={25} y={0} width={5} height={44} fill="#F5EFDE" />
                         <rect x={31} y={0} width={5} height={44} fill="#F5EFDE" />
                         <rect x={37} y={0} width={5} height={44} fill="#F5EFDE" />
-                        <rect x={1} y={0} width={5} height={44} fill="#745206" />
-                        <rect x={7} y={0} width={5} height={44} fill="#745206" />
-                        <rect x={13} y={0} width={5} height={44} fill="#745206" />
-                        <rect x={19} y={0} width={5} height={44} fill="#745206" />
-                        <rect x={25} y={0} width={5} height={44} fill="#745206" />
-                        <rect x={31} y={0} width={5} height={44} fill="#745206" />
-                        <rect x={37} y={0} width={5} height={44} fill="#745206" />
+                        <rect x={1} y={44 - manaValues[1]} width={5} height={44 * manaValues[1] / maxManaValue} fill="#745206" />
+                        <rect x={7} y={44 - manaValues[2]} width={5} height={44 * manaValues[2] / maxManaValue} fill="#745206" />
+                        <rect x={13} y={44 - manaValues[3]} width={5} height={44 * manaValues[3] / maxManaValue} fill="#745206" />
+                        <rect x={19} y={44 - manaValues[4]} width={5} height={44 * manaValues[4] / maxManaValue} fill="#745206" />
+                        <rect x={25} y={44 - manaValues[5]} width={5} height={44 * manaValues[5] / maxManaValue} fill="#745206" />
+                        <rect x={31} y={44 - manaValues[6]} width={5} height={44 * manaValues[6] / maxManaValue} fill="#745206" />
+                        <rect x={37} y={44 - manaValues[7]} width={5} height={44 * manaValues[7] / maxManaValue} fill="#745206" />
                     </svg>
                 </button>
             </div>
