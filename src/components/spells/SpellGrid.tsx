@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from '../../definitions/Card';
-import getManaValues from '../../lib/utils/getManaValues';
 import CardOption from '../common/CardOption';
 
 type Props = {
@@ -10,10 +9,7 @@ type Props = {
     commanderId: string,
 };
 
-const MAX_MANA_VALUE = 7;
-
-const SpellList: React.FC<Props> = ({ spells, options, onToggleOption, commanderId }) => {
-    console.log(getManaValues(spells, MAX_MANA_VALUE));
+const SpellGrid: React.FC<Props> = ({ spells, options, onToggleOption, commanderId }) => {
     return (
         <ul className="o-full-grid u-vr--x2">
             {options.map(option => (
@@ -30,4 +26,4 @@ const SpellList: React.FC<Props> = ({ spells, options, onToggleOption, commander
     );
 };
 
-export default SpellList;
+export default SpellGrid;

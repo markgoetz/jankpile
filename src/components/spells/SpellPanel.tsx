@@ -12,9 +12,9 @@ import LoadingWrapper from '../common/LoadingWrapper';
 import { selectColors, selectFormat } from '../../redux-modules/identity';
 import { SpellQueryParams } from '../../lib/api/card';
 import QueryForm from './QueryForm';
-import SpellList from './SpellList';
+import SpellGrid from './SpellGrid';
 import CommanderDescription from './CommanderDescription';
-import DeleteItem from '../common/DeleteItem';
+import SelectedSpellList from './SelectedSpellList';
 
 type SearchParams = Omit<SpellQueryParams, 'identity'>;
 
@@ -106,9 +106,8 @@ const SpellPanel: React.FC = () => {
                     <QueryForm currentQuery={params.query ?? ''} onSearch={onSearch} />
                     <div className="o-sidebar-layout">
                         <div>
-                            <Heading size="medium"><h3>Available Cards</h3></Heading>
-                            <LoadingWrapper status={spellStatus}>
-                                <SpellList
+                             <LoadingWrapper status={spellStatus}>
+                                <SpellGrid
                                     options={options}
                                     onToggleOption={onToggleOption}
                                     commanderId={commander?.id ?? ''}
@@ -126,16 +125,7 @@ const SpellPanel: React.FC = () => {
                             <Button onClick={onConfirmClick}>Continue to Lands</Button>
                         </div>
                         <aside>
-                            <Heading size="medium"><h3>Current Deck</h3></Heading>
-                            <ul>
-                                {sortedSpells.map(spell => (
-                                    <li key={spell.id}>
-                                        <DeleteItem onDelete={() => onToggleOption(spell)}>
-                                            {spell.name}
-                                        </DeleteItem>
-                                    </li>
-                                ))}
-                            </ul>
+                            <SelectedSpellList spells={sortedSpells} onToggleOption={onToggleOption} />
                         </aside>
                     </div>
                 </div>
