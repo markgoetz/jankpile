@@ -37,6 +37,7 @@ export const STOPWORD_LIST = [
     'and/or',
     'any',
     'are',
+    'as',
     'at',
     'by',
     'each',

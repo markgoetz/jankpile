@@ -15,7 +15,7 @@ const CommanderDescriptionLine: React.FC<LineProps> = ({ line, onSearch }) => {
             <span className="o-word-list">
                 {words.map((word, index) => (
                     (STOPWORD_LIST.includes(word.toLowerCase())) ? (
-                        <span>{word}</span>
+                        <span key={index}>{word}</span>
                     ) : (
                         <button key={index} onClick={() => onSearch(word)} type="button" className="c-link">
                             {word}
