@@ -1,6 +1,6 @@
 .c-modal {
     position: fixed;
-    z-index: 10;
+    z-index: $zindex-modal;
 }
 
 .c-modal__curtain {

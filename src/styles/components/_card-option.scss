@@ -14,7 +14,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: $zindex-highlight;
 }
 
 .c-card-option--selected > .c-card-option__frame {
@@ -28,7 +28,7 @@
     top: -$base-grid-size - .4rem;
     left: -$base-grid-size - .4rem;
     background-color: $color-mid-start;
-    z-index: 2;
+    z-index: $zindex-overlay;
     border: .4rem solid $color-highlight;
 }
 

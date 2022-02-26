@@ -2,4 +2,5 @@
     position: fixed;
     right: $base-grid-size;
     bottom: $base-grid-size;
+    z-index: $zindex-footer;
 }
