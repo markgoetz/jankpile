@@ -69,6 +69,7 @@ export const STOPWORD_LIST = [
     'to',
     'up',
     'was',
+    'when',
     'whenever',
     'who',
     'with',

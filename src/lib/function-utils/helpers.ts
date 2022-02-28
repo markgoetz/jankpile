@@ -7,6 +7,10 @@ export const createResponse = (statusCode: number, data: unknown) => {
 
 export const parseFormat = (params: Record<string, string | undefined>) => (params.format === 'historic') ? 'historicbrawl' : 'brawl';
 export const parseColors = (params: Record<string, string | undefined>) => {
+    if (params.colors === '') {
+        return 'c';
+    }
+
     const colors = params.colors?.split(',') ?? [];
     return (colors.length > 0) ? colors.join('') : 'c';
 }
