@@ -46,6 +46,7 @@ export const STOPWORD_LIST = [
     'for',
     'from',
     'has',
+    'if',
     'into',
     'is',
     'it',

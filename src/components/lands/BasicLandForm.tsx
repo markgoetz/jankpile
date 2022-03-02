@@ -1,6 +1,6 @@
 import React from 'react';
 import Color from '../../definitions/Color';
-import { PLURAL_LAND_NAMES } from '../../lib/consts';
+import BasicLandRow from './BasicLandRow';
 
 type Props = {
     colors: Color[],
@@ -16,17 +16,13 @@ const BasicLandForm: React.FC<Props> = ({ colors, pipCounts, basicLandCounts, on
         <div className="o-h-list">
             {colors.map(color => (
                 <div key={color}>
-                    <div>
-                        {PLURAL_LAND_NAMES[color]}
-                        <input
-                            value={basicLandCounts[color]}
-                            type="number"
-                            inputMode="numeric"
-                            size={3}
-                            onChange={e => onInputChange(color, Number(e.target.value))}
-                        />
-                    </div>
-                    <div>Pips x {pipCounts[color]} ({Math.round(100 * pipCounts[color] / pipSum)}%)</div>
+                    <BasicLandRow
+                        color={color}
+                        pipCount={pipCounts[color]}
+                        pipSum={pipSum}
+                        basicCount={basicLandCounts[color]}
+                        onBasicChange={(count) => onInputChange(color, count)}
+                    />
                 </div>
             ))}
         </div>
