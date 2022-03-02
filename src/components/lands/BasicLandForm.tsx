@@ -13,9 +13,9 @@ const BasicLandForm: React.FC<Props> = ({ colors, pipCounts, basicLandCounts, on
     const pipSum = Object.values(pipCounts).reduce((current, prev) => current + prev);
 
     return (
-        <div className="o-h-list">
+        <ul className="o-h-list">
             {colors.map(color => (
-                <div key={color}>
+                <li key={color}>
                     <BasicLandRow
                         color={color}
                         pipCount={pipCounts[color]}
@@ -23,9 +23,9 @@ const BasicLandForm: React.FC<Props> = ({ colors, pipCounts, basicLandCounts, on
                         basicCount={basicLandCounts[color]}
                         onBasicChange={(count) => onInputChange(color, count)}
                     />
-                </div>
+                </li>
             ))}
-        </div>
+        </ul>
     );
 };
 
