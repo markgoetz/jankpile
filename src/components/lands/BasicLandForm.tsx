@@ -7,9 +7,10 @@ type Props = {
     pipCounts: Record<Color, number>,
     basicLandCounts: Record<Color, number>,
     onInputChange: (color: Color, count: number) => void,
+    onArtModalOpen: (color: Color) => void,
 };
 
-const BasicLandForm: React.FC<Props> = ({ colors, pipCounts, basicLandCounts, onInputChange }) => {
+const BasicLandForm: React.FC<Props> = ({ colors, pipCounts, basicLandCounts, onInputChange, onArtModalOpen }) => {
     const pipSum = Object.values(pipCounts).reduce((current, prev) => current + prev);
 
     return (
@@ -23,6 +24,7 @@ const BasicLandForm: React.FC<Props> = ({ colors, pipCounts, basicLandCounts, on
                             pipSum={pipSum}
                             basicCount={basicLandCounts[color]}
                             onBasicChange={(count) => onInputChange(color, count)}
+                            onArtSelect={() => onArtModalOpen(color)}
                         />
                     </li>
                 ))}

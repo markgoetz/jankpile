@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from '../../definitions/Card';
 import Color from '../../definitions/Color';
@@ -14,6 +14,7 @@ import Heading from '../common/Heading';
 import LoadingWrapper from '../common/LoadingWrapper';
 import PanelHeading from '../PanelHeading';
 import BasicLandForm from './BasicLandForm';
+import LandArtModal from './LandArtModal';
 
 const LandPanel: React.FC = () => {
     const dispatch = useDispatch();
@@ -24,6 +25,8 @@ const LandPanel: React.FC = () => {
     const nonBasicOptions = useSelector(selectNonBasicOptions);
     const isPanelOpen = useSelector(selectIsLands);
     const landStatus = useSelector(selectNonBasicStatus);
+
+    const [selectedColor, setSelectedColor] = useState<Color | null>(null);
 
     const onToggleOption = useCallback(
         (option: Card) => {
@@ -37,6 +40,13 @@ const LandPanel: React.FC = () => {
             dispatch(setBasicCount({ color, count }));
         },
         [dispatch]
+    );
+
+    const onArtModalClose = useCallback(
+        () => {
+            setSelectedColor(null);
+        },
+        []
     );
 
     const basicLandTotal = Object.values(basicLandCounts).reduce((prev, colorCount) => prev + colorCount, 0);
@@ -64,6 +74,7 @@ const LandPanel: React.FC = () => {
                         pipCounts={pipCounts}
                         basicLandCounts={basicLandCounts}
                         onInputChange={onInputChange}
+                        onArtModalOpen={setSelectedColor}
                     />
                     <div className="o-sidebar-layout">
                         <div>
@@ -104,6 +115,13 @@ const LandPanel: React.FC = () => {
                     </div>
                 </div>
             )}
+            <LandArtModal
+                onClose={onArtModalClose}
+                color={selectedColor ?? Color.WHITE}
+                isOpen={selectedColor != null}
+                options={[]}
+                onSelect={() => {}}
+            />
         </>
     );
 };

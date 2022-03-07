@@ -22,9 +22,10 @@ type Props = {
     pipSum: number,
     basicCount: number,
     onBasicChange: (count: number) => void,
+    onArtSelect: () => void,
 };
 
-const BasicLandRow: React.FC<Props> = ({ color, basicCount, pipCount, pipSum, onBasicChange }) => {
+const BasicLandRow: React.FC<Props> = ({ color, basicCount, pipCount, pipSum, onBasicChange, onArtSelect }) => {
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         onBasicChange(Number(e.target.value));
     };
@@ -55,7 +56,7 @@ const BasicLandRow: React.FC<Props> = ({ color, basicCount, pipCount, pipSum, on
                 />
             </div>
             <div className="c-basic-land-row__action">
-                <Button variation="secondary">Select art...</Button>
+                <Button variation="secondary" onClick={onArtSelect}>Select art...</Button>
             </div>
         </div>
     );
