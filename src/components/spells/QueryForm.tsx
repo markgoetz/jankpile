@@ -43,7 +43,7 @@ const QueryForm: React.FC<Props> = ({ currentQuery, onSearch }) => {
     return (
         <form onSubmit={onSubmit} className="c-form">
             <div className="o-h-list">
-                <input value={query} onChange={onQueryChange} />
+                <input className="c-input" value={query} onChange={onQueryChange} />
                 <ImageCheckboxGroup
                     className='o-h-list'
                     name='manavalue'

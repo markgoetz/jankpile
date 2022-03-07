@@ -1,0 +1,29 @@
+.c-basic-land-row {
+    display: grid;
+    grid-template-areas:
+        'icon name field action'
+        'icon pips field action';
+    grid-template-columns: 4.4rem 12rem 5.6rem auto;
+    column-gap: $base-grid-size;
+    align-items: center;
+}
+
+.c-basic-land-row__icon {
+    grid-area: icon;
+}
+
+.c-basic-land-row__name {
+    grid-area: name;
+}
+
+.c-basic-land-row__field {
+    grid-area: field;
+}
+
+.c-basic-land-row__pips {
+    grid-area: pips;
+}
+
+.c-basic-land-row__action {
+    grid-area: action;
+}

@@ -65,6 +65,7 @@ export const STOPWORD_LIST = [
     'the',
     'their',
     'then',
+    'there',
     'they',
     'this',
     'to',
