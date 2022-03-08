@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { deckToArena } from '../lib/translation/cardTranslations';
 import { selectCommander } from '../redux-modules/commander';
-import { selectBasicLandArts, selectBasicLandCounts, selectNonBasicLands } from '../redux-modules/lands';
+import { selectLandArtByColor, selectBasicLandCounts, selectNonBasicLands } from '../redux-modules/lands';
 import { selectSpellList } from '../redux-modules/spells';
 import Modal from './common/Modal';
 
@@ -16,7 +16,7 @@ const ExportModal: React.FC<Props> = ({ isOpen, onClose }) => {
     const spells = useSelector(selectSpellList);
     const nonbasics = useSelector(selectNonBasicLands);
     const basicCounts = useSelector(selectBasicLandCounts);
-    const basicArts = useSelector(selectBasicLandArts);
+    const basicArts = useSelector(selectLandArtByColor);
 
     const value = commander != null
         ? deckToArena({commander, spells, nonbasics, basicCounts, basicArts })
