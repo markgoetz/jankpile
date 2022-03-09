@@ -23,7 +23,7 @@ const ExportModal: React.FC<Props> = ({ isOpen, onClose }) => {
         : '';
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={onClose} size="small">
             <textarea value={value} readOnly />
         </Modal>
     );

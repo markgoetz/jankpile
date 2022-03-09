@@ -22,6 +22,10 @@
     padding: $base-grid-size * 4;
     transform: translateX(-50%) translateY(-50%);
     max-height: 90vh;
-    max-width: 90vw;
+    width: 500px;
     overflow: auto;
+}
+
+.c-modal__body--large {
+    width: 90vw;
 }

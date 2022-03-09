@@ -15,7 +15,7 @@ type Props = {
 
 const LandArtModal: React.FC<Props> = ({ isOpen, color, options, onSelect, onClose }) => {
     return (
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={onClose} size="large">
             <Heading size="large">Select {SINGULAR_LAND_NAMES[color]} Art</Heading>
             <ul className="o-full-grid">
                 {options.map(option => (
