@@ -3,11 +3,6 @@
 @import './base/fonts';
 @import './base/elements';
 
-@import './utils/center';
-@import './utils/padding';
-@import './utils/txt';
-@import './utils/vr';
-
 @import './objects/content-container';
 @import './objects/full-grid';
 @import './objects/h-list';
@@ -34,5 +29,12 @@
 @import './components/panel';
 @import './components/scroll-lock';
 @import './components/selector';
+@import './components/textarea';
 
 @import './animations/spin';
+
+@import './utils/center';
+@import './utils/dimensions';
+@import './utils/padding';
+@import './utils/txt';
+@import './utils/vr';

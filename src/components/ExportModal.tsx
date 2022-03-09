@@ -4,6 +4,7 @@ import { deckToArena } from '../lib/translation/cardTranslations';
 import { selectCommander } from '../redux-modules/commander';
 import { selectLandArtByColor, selectBasicLandCounts, selectNonBasicLands } from '../redux-modules/lands';
 import { selectSpellList } from '../redux-modules/spells';
+import Heading from './common/Heading';
 import Modal from './common/Modal';
 
 type Props = {
@@ -24,7 +25,8 @@ const ExportModal: React.FC<Props> = ({ isOpen, onClose }) => {
 
     return (
         <Modal isOpen={isOpen} onClose={onClose} size="small">
-            <textarea value={value} readOnly />
+            <Heading size="large">Export to Arena</Heading>
+            <textarea value={value} readOnly className="c-textarea u-width--100-pct" rows={40} />
         </Modal>
     );
 };
