@@ -11,7 +11,7 @@ const CommanderDescriptionLine: React.FC<LineProps> = ({ line, onSearch }) => {
     const words = line.split(' ');
     
     return (
-        <p key={line} className="u-txt--lh-1.4">
+        <p className="u-txt--lh-1.4">
             <span className="o-word-list">
                 {words.map((word, index) => (
                     (STOPWORD_LIST.includes(word.toLowerCase())) ? (
@@ -40,7 +40,9 @@ const CommanderDescription: React.FC<Props> = ({ commander, onSearch }) => {
             <div><img src={commander?.fullImageUri} alt={commander?.name} /></div>
             <div className="o-content-container">
                 <div>
-                    {descriptionLines.map(line => <CommanderDescriptionLine line={line} onSearch={onSearch} />)}
+                    {descriptionLines.map(
+                        line => <CommanderDescriptionLine key={line} line={line} onSearch={onSearch} />
+                    )}
                 </div>
             </div>
         </div>
