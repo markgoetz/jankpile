@@ -7,28 +7,35 @@ type Props = {
     onToggle: () => void,
     disabled: boolean,
     isSelected: boolean,
+    isFocusOpen: boolean,
+    openFocus: () => void,
+    closeFocus: () => void,
 }
 
-const CardOption: React.FC<Props> = ({ option, onToggle, disabled, isSelected }) => {
+const CardOption: React.FC<Props> = ({ option, onToggle, disabled, isSelected, isFocusOpen, openFocus, closeFocus }) => {
     const className = clsx(
         'c-card-option',
-        { 'c-card-option--selected': isSelected },
         { 'c-card-option--disabled': disabled },
     );
 
     const descriptionPieces = option.description?.split('\n') ?? [];
 
     return (
-        <button type="button" onClick={onToggle} disabled={disabled} className={className}>
-            <img className="c-card-option__image" src={option.fullImageUri} alt={option.name} width={146} height={204} />
-            <span className="c-card-option__frame" />
-            <span className="c-card-option__focus">
-                <img className="c-card-option__image" src={option.fullImageUri} alt={option.name} width={146} height={204} />
-                <span className="c-card-option__description">
-                    {descriptionPieces.map(piece => <p key={piece} className="u-txt--lh-1.4">{piece}</p>)}
+        <div className={className}>
+            <button type="button" onClick={onToggle} disabled={disabled}>
+                <img src={option.fullImageUri} alt={option.name} width={146} height={204} />
+            </button>
+            <button type="button" className="c-card-option__icon" onClick={openFocus} />
+            <span className={clsx('c-card-option__frame', { 'c-card-option__frame--selected': isSelected })} />
+            {isFocusOpen && (
+                <span className="c-card-option__focus">
+                    <img src={option.fullImageUri} alt={option.name} width={146} height={204} />
+                    <span className="c-card-option__description">
+                        {descriptionPieces.map(piece => <p key={piece} className="u-txt--lh-1.4">{piece}</p>)}
+                    </span>
                 </span>
-            </span>
-        </button>
+            )}
+        </div>
     );
 };
 

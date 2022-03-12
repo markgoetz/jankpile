@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '../../definitions/Card';
 import CardOption from '../common/CardOption';
 
@@ -10,6 +10,8 @@ type Props = {
 };
 
 const SpellGrid: React.FC<Props> = ({ spells, options, onToggleOption, commanderId }) => {
+    const [spellFocusId, setSpellFocusId] = useState<string | null>(null);
+
     return (
         <ul className="o-full-grid u-vr--x2">
             {options.map(option => (
@@ -19,6 +21,9 @@ const SpellGrid: React.FC<Props> = ({ spells, options, onToggleOption, commander
                         onToggle={() => onToggleOption(option)}
                         disabled={option.id === commanderId}
                         isSelected={spells.find(spell => spell.id === option.id) != null}
+                        isFocusOpen={spellFocusId === option.id}
+                        openFocus={() => setSpellFocusId(option.id)}
+                        closeFocus={() => setSpellFocusId(null)}
                     />
                 </li>
             ))}

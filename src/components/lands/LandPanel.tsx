@@ -28,6 +28,7 @@ const LandPanel: React.FC = () => {
     const landArtOptions = useSelector(selectLandArtOptions);
 
     const [selectedColor, setSelectedColor] = useState<Color | null>(null);
+    const [landFocusId, setLandFocusId] = useState<string | null>();
 
     const onToggleOption = useCallback(
         (option: Card) => {
@@ -88,6 +89,9 @@ const LandPanel: React.FC = () => {
                                                 onToggle={() => onToggleOption(option)}
                                                 option={option}
                                                 isSelected={nonBasics.includes(option)}
+                                                isFocusOpen={option.id === landFocusId}
+                                                openFocus={() => setLandFocusId(option.id)}
+                                                closeFocus={() => setLandFocusId(null)}
                                                 disabled={false}
                                             />
                                         </li>
