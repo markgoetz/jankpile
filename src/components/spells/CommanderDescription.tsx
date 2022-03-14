@@ -8,7 +8,7 @@ type LineProps = {
 };
 
 const extractWord = (linePiece: string) => {
-    const letterMatch = linePiece.match(/^\W*(\w.*\w)\W*$/);
+    const letterMatch = linePiece.match(/^\W*((\w.*\w|\w))\W*$/);
     if (letterMatch == null) {
         return '';
     }
@@ -26,7 +26,7 @@ const CommanderDescriptionLine: React.FC<LineProps> = ({ line, onSearch }) => {
                     STOPWORD_LIST.includes(extractWord(word)) ? (
                         <span key={index}>{word}</span>
                     ) : (
-                        <button key={index} onClick={() => onSearch(word)} type="button" className="c-link">
+                        <button key={index} onClick={() => onSearch(extractWord(word))} type="button" className="c-link">
                             {word}
                         </button>
                     )
