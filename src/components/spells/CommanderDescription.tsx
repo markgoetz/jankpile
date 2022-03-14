@@ -7,6 +7,15 @@ type LineProps = {
     onSearch: (query: string) => void,
 };
 
+const extractWord = (linePiece: string) => {
+    const letterMatch = linePiece.match(/^\W*(\w.*\w)\W*$/);
+    if (letterMatch == null) {
+        return '';
+    }
+
+    return letterMatch[1].toLowerCase();
+};
+
 const CommanderDescriptionLine: React.FC<LineProps> = ({ line, onSearch }) => {
     const words = line.split(' ');
     
@@ -14,7 +23,7 @@ const CommanderDescriptionLine: React.FC<LineProps> = ({ line, onSearch }) => {
         <p className="u-txt--lh-1.4">
             <span className="o-word-list">
                 {words.map((word, index) => (
-                    (STOPWORD_LIST.includes(word.toLowerCase())) ? (
+                    STOPWORD_LIST.includes(extractWord(word)) ? (
                         <span key={index}>{word}</span>
                     ) : (
                         <button key={index} onClick={() => onSearch(word)} type="button" className="c-link">

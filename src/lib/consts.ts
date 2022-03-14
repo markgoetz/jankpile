@@ -42,6 +42,8 @@ export const STOPWORD_LIST = [
     'be',
     'by',
     'can\'t',
+    'do',
+    'don\'t',
     'each',
     'for',
     'from',
