@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 import Card from '../../definitions/Card';
+import CardTooltip from './CardTooltip';
 
 type Props = {
     option: Card,
@@ -18,8 +19,6 @@ const CardOption: React.FC<Props> = ({ option, onToggle, disabled, isSelected, i
         { 'c-card-option--disabled': disabled },
     );
 
-    const descriptionPieces = option.description?.split('\n') ?? [];
-
     return (
         <div className={className}>
             <button type="button" onClick={onToggle} disabled={disabled}>
@@ -27,14 +26,7 @@ const CardOption: React.FC<Props> = ({ option, onToggle, disabled, isSelected, i
             </button>
             <button type="button" className="c-card-option__icon" onClick={openFocus} />
             <span className={clsx('c-card-option__frame', { 'c-card-option__frame--selected': isSelected })} />
-            {isFocusOpen && (
-                <span className="c-card-option__focus">
-                    <img src={option.fullImageUri} alt={option.name} width={146} height={204} />
-                    <span className="c-card-option__description">
-                        {descriptionPieces.map(piece => <p key={piece} className="u-txt--lh-1.4">{piece}</p>)}
-                    </span>
-                </span>
-            )}
+            {isFocusOpen && <CardTooltip option={option} onClose={closeFocus} />}
         </div>
     );
 };

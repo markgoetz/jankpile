@@ -1,0 +1,20 @@
+.c-card-tooltip {
+    display: flex;
+    position: absolute;
+    padding: $base-grid-size;
+    top: -$base-grid-size - .4rem;
+    left: -$base-grid-size - .4rem;
+    background-color: $color-mid-start;
+    z-index: $zindex-overlay;
+    border: .4rem solid $color-highlight;
+    border-radius: .4rem;
+}
+
+
+.c-card-tooltip__description {
+    text-align: left;
+    width: 25rem;
+    margin-left: $base-grid-size;
+    color: $color-black;
+    font-family: $font-body;
+}

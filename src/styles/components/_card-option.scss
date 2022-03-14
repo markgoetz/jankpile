@@ -22,29 +22,6 @@
     box-shadow: inset 0 0 0 .6rem $color-highlight;
 }
 
-.c-card-option__focus {
-    display: none;
-    position: absolute;
-    padding: $base-grid-size;
-    top: -$base-grid-size - .4rem;
-    left: -$base-grid-size - .4rem;
-    background-color: $color-mid-start;
-    z-index: $zindex-overlay;
-    border: .4rem solid $color-highlight;
-}
-
-.c-card-option__focus {
-    display: flex;
-}
-
-.c-card-option__description {
-    text-align: left;
-    width: 20rem;
-    margin-left: $base-grid-size;
-    color: $color-black;
-    font-family: $font-body;
-}
-
 .c-card-option__icon {
     position: absolute;
     bottom: .8rem;
