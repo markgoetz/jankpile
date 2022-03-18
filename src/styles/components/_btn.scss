@@ -14,7 +14,6 @@ $button-depth: .4rem;
     color: $color-white;
     border: none;
     box-shadow: 0 $button-depth 0 0 $color-shadow;
-    cursor: pointer;
     transform: translateY(0);
 
     transition: box-shadow .1s, transform .1s;
