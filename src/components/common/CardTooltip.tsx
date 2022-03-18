@@ -2,6 +2,7 @@ import React from 'react';
 import Card from '../../definitions/Card';
 import Button from './Button';
 import X_SVG from '../../assets/images/x-brown.svg';
+import ParagraphList from './ParagraphList';
 
 type Props = {
     option: Card,
@@ -9,8 +10,6 @@ type Props = {
 };
 
 const CardTooltip: React.FC<Props> = ({ option, onClose }) => {
-    const descriptionPieces = option.description?.split('\n') ?? [];
-
     return (
         <span className="c-card-tooltip">
             <span className="c-card-tooltip__layout">
@@ -18,7 +17,7 @@ const CardTooltip: React.FC<Props> = ({ option, onClose }) => {
                     <img src={option.fullImageUri} alt={option.name} width={146} height={204} />
                 </span>
                 <span className="c-card-tooltip__description">
-                    {descriptionPieces.map(piece => <p key={piece} className="u-txt--lh-1.4">{piece}</p>)}
+                    <ParagraphList text={option.description ?? ''} />
                 </span>
                 <span className="c-card-tooltip__close">
                     <button type="button" onClick={onClose}>

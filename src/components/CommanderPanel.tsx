@@ -7,6 +7,7 @@ import CommanderOption from './CommanderOption';
 import Button from './common/Button';
 import Heading from './common/Heading';
 import LoadingWrapper from './common/LoadingWrapper';
+import ParagraphList from './common/ParagraphList';
 import PanelHeading from './PanelHeading';
 
 const CommanderPanel: React.FC = () => {
@@ -59,6 +60,9 @@ const CommanderPanel: React.FC = () => {
                                 ))}
                             </ul>
                         </div>
+                        {commander != null && (
+                            <ParagraphList text={commander.description ?? ''} />
+                        )}
                         <Button disabled={commander == null} onClick={onConfirmClick}>
                             {commander == null && 'No commander selected'}
                             {commander != null && `Select ${commander.name}`}
