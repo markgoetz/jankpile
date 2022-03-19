@@ -1,14 +1,11 @@
+import CardFace from "./CardFace";
+
 type Card = {
     id: string,
-    name: string,
-    description?: string,
-    artist: string,
-    fullImageUri: string,
-    artImageUri: string,
+    frontFace: CardFace,
+    backFace?: CardFace,
     setCode: string,
     cardNumber: string,
-    manaValue: number,
-    pips: string,
 };
 
 export default Card;

@@ -22,7 +22,7 @@ const SelectedSpellList: React.FC<Props> = ({ spells, onToggleOption }) => {
                 {spells.map(spell => (
                     <li key={spell.id}>
                         <DeleteItem onDelete={() => onToggleOption(spell)}>
-                            {spell.name}
+                            {spell.frontFace.name}
                         </DeleteItem>
                     </li>
                 ))}

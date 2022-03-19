@@ -1,22 +1,61 @@
 import Card from "../../definitions/Card";
+import CardFace from "../../definitions/CardFace";
 import ScryfallCard from "../../definitions/dto/ScryfallCard";
 
-const getImageUris = (card: ScryfallCard) => {
-    if (card.image_uris != null) {
-        return card.image_uris;
+const getFrontFace = (card: ScryfallCard): CardFace => {
+    if (card.card_faces != null) {
+        const cardFace = card.card_faces[0];
+
+        if (cardFace.image_uris == null) {
+            throw new Error('Card does not have any image URIs');
+        }
+
+        return {
+            name: cardFace.name,
+            description: cardFace.oracle_text,
+            artist: cardFace.artist,
+            fullImageUri: cardFace.image_uris.small,
+            artImageUri: cardFace.image_uris.art_crop,
+            manaValue: cardFace.cmc,
+            pips: cardFace.mana_cost,
+        }
     }
 
-    if (card.card_faces == null || card.card_faces.length === 0) {
+    if (card.image_uris == null) {
         throw new Error('Card does not have any image URIs');
     }
 
-    const faceImageUriMaps = card.card_faces.filter(face => face.image_uris != null);
+    return {
+        name: card.name,
+        description: card.oracle_text,
+        artist: card.artist ?? 'Unknown',
+        fullImageUri: card.image_uris.small,
+        artImageUri: card.image_uris.art_crop,
+        manaValue: card.cmc,
+        pips: card.mana_cost as string,
+    }
+};
 
-    if (faceImageUriMaps[0].image_uris == null || faceImageUriMaps.length === 0) {
-        throw new Error('Card does not have any image URIs');
+const getBackFace = (card: ScryfallCard): CardFace | undefined => {
+    if (card.card_faces != null) {
+        const cardFace = card.card_faces[1];
+
+        if (cardFace.image_uris == null) {
+            throw new Error('Card does not have any image URIs');
+        }
+
+        return {
+            name: cardFace.name,
+            description: cardFace.oracle_text,
+            artist: cardFace.artist,
+            fullImageUri: cardFace.image_uris.small,
+            artImageUri: cardFace.image_uris.art_crop,
+            manaValue: cardFace.cmc,
+            pips: cardFace.mana_cost,
+        }
     }
 
-    return faceImageUriMaps[0].image_uris;
+    return undefined;
 };
 
 export const fullCardToCommander = (card: ScryfallCard): Card => {
@@ -24,25 +63,12 @@ export const fullCardToCommander = (card: ScryfallCard): Card => {
         throw new Error(`fullCardToCommander is not compatible with type line ${card.type_line}`);
     }
 
-    const imageUris = getImageUris(card);
-
-    const name = card.card_faces ? card.card_faces[0].name : card.name;
-    const pips = card.card_faces ? card.card_faces[0].mana_cost : card.mana_cost as string;
-    const description = card.card_faces
-        ? card.card_faces.map(face => face.oracle_text).join('\n')
-        : card.oracle_text;
-
     return {
         id: card.id,
-        name,
-        description,
-        artist: card.artist || 'Unknown',
-        fullImageUri: imageUris.small,
-        artImageUri: imageUris.art_crop,
+        frontFace: getFrontFace(card),
+        backFace: getBackFace(card),
         setCode: card.set.toUpperCase(),
         cardNumber: card.collector_number,
-        manaValue: card.cmc,
-        pips,
     };
 };
 
@@ -51,25 +77,12 @@ export const fullCardToSpell = (card: ScryfallCard): Card => {
         throw new Error(`fullCardToSpell is not compatible with type line ${card.type_line}`);
     }
 
-    const imageUris = getImageUris(card);
-
-    const name = card.card_faces ? card.card_faces[0].name : card.name;
-    const pips = card.card_faces ? card.card_faces[0].mana_cost : card.mana_cost as string;
-    const description = card.card_faces
-        ? card.card_faces.map(face => face.oracle_text).join('\n')
-        : card.oracle_text;
-
     return {
         id: card.id,
-        name,
-        description,
-        artist: card.artist || 'Unknown',
-        fullImageUri: imageUris.small,
-        artImageUri: imageUris.art_crop,
+        frontFace: getFrontFace(card),
+        backFace: getBackFace(card),
         setCode: card.set.toUpperCase(),
         cardNumber: card.collector_number,
-        manaValue: card.cmc,
-        pips,
     };
 };
 
@@ -78,23 +91,11 @@ export const fullCardToLand = (card: ScryfallCard): Card => {
         throw new Error(`fullCardToLand is not compatible with type line ${card.type_line}`);
     }
 
-    const imageUris = getImageUris(card);
-
-    const name = card.card_faces ? card.card_faces[0].name : card.name;
-    const description = card.card_faces
-        ? card.card_faces.map(face => face.oracle_text).join('\n')
-        : card.oracle_text;
-
     return {
         id: card.id,
-        name,
-        description,
-        artist: card.artist || 'Unknown',
-        fullImageUri: imageUris.small,
-        artImageUri: imageUris.art_crop,
+        frontFace: getFrontFace(card),
+        backFace: getBackFace(card),
         setCode: card.set.toUpperCase(),
         cardNumber: card.collector_number,
-        manaValue: card.cmc,
-        pips: '',
     };
 };

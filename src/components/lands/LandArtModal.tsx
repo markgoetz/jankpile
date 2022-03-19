@@ -20,7 +20,7 @@ const LandArtModal: React.FC<Props> = ({ isOpen, color, options, onSelect, onClo
             <ul className="o-full-grid">
                 {options.map(option => (
                     <li key={option.id}>
-                        <img src={option.fullImageUri} alt={option.setCode} />
+                        <img src={option.frontFace.fullImageUri} alt={option.setCode} />
                     </li>
                 ))}
             </ul>

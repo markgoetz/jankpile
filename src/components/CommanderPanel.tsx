@@ -39,7 +39,7 @@ const CommanderPanel: React.FC = () => {
                 <div className="o-split o-split--v-center">
                     <div className="o-h-list o-h-list--baseline">
                         <Heading size="large"><h2>Commander</h2></Heading>
-                        {(commander != null && <Heading size="small"><span>{commander.name}</span></Heading>)}
+                        {(commander != null && <Heading size="small"><span>{commander.frontFace.name}</span></Heading>)}
                     </div>
                     {(isEditVisible && <Button onClick={onEditClick}>Edit</Button>)}
                 </div>
@@ -61,11 +61,11 @@ const CommanderPanel: React.FC = () => {
                             </ul>
                         </div>
                         {commander != null && (
-                            <ParagraphList text={commander.description ?? ''} />
+                            <ParagraphList text={commander.frontFace.description ?? ''} />
                         )}
                         <Button disabled={commander == null} onClick={onConfirmClick}>
                             {commander == null && 'No commander selected'}
-                            {commander != null && `Select ${commander.name}`}
+                            {commander != null && `Select ${commander.frontFace.name}`}
                         </Button>
                     </div>
                 </LoadingWrapper>

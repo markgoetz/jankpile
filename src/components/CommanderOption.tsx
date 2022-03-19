@@ -17,9 +17,9 @@ const CommanderOption: React.FC<Props> = ({ card, isSelected, onSelect }) => {
 
     return (
         <button type="button" className={className} onClick={onSelect}>
-            <img src={card.artImageUri} alt={card.name} width={250} height={183} />
-            <span className="c-commander-option__name">{card.name}</span>
-            <span className="c-commander-option__artist">art by {card.artist}</span>
+            <img src={card.frontFace.artImageUri} alt={card.frontFace.name} width={250} height={183} />
+            <span className="c-commander-option__name">{card.frontFace.name}</span>
+            <span className="c-commander-option__artist">art by {card.frontFace.artist}</span>
         </button>
     );
 };

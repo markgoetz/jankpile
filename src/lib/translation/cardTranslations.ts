@@ -2,7 +2,7 @@ import Card from "../../definitions/Card";
 import Color from "../../definitions/Color";
 
 export const cardToArena = (card: Card, count = 1): string => {
-    return `${count} ${card.name} (${card.setCode}) ${card.cardNumber}`;
+    return `${count} ${card.frontFace.name} (${card.setCode}) ${card.cardNumber}`;
 };
 
 type DeckToArenaParams = {

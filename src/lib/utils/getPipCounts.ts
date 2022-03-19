@@ -22,7 +22,7 @@ const getPipCounts = (cards: Card[]) => {
         (pips, card) => {
             Object.entries(colorMatchers).forEach(
                 ([color, matcher]) => {
-                    const matches = card.pips.match(matcher);
+                    const matches = card.frontFace.pips.match(matcher);
                     if (matches != null) {
                         pips[color as Color] += matches.length;
                     }

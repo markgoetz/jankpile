@@ -42,11 +42,11 @@ type Props = {
 };
 
 const CommanderDescription: React.FC<Props> = ({ commander, onSearch }) => {
-    const descriptionLines = commander?.description?.split('\n') ?? [];
+    const descriptionLines = commander?.frontFace.description?.split('\n') ?? [];
 
     return (
         <div className="o-h-list o-h-list--x2">
-            <div><img src={commander?.fullImageUri} alt={commander?.name} /></div>
+            <div><img src={commander?.frontFace.fullImageUri} alt={commander?.frontFace.name} /></div>
             <div className="o-content-container">
                 <div>
                     {descriptionLines.map(

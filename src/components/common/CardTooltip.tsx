@@ -14,10 +14,10 @@ const CardTooltip: React.FC<Props> = ({ option, onClose }) => {
         <span className="c-card-tooltip">
             <span className="c-card-tooltip__layout">
                 <span className="c-card-tooltip__image">
-                    <img src={option.fullImageUri} alt={option.name} width={146} height={204} />
+                    <img src={option.frontFace.fullImageUri} alt={option.frontFace.name} width={146} height={204} />
                 </span>
                 <span className="c-card-tooltip__description">
-                    <ParagraphList text={option.description ?? ''} />
+                    <ParagraphList text={option.frontFace.description ?? ''} />
                 </span>
                 <span className="c-card-tooltip__close">
                     <button type="button" onClick={onClose}>

@@ -22,7 +22,7 @@ const CardOption: React.FC<Props> = ({ option, onToggle, disabled, isSelected, i
     return (
         <div className={className}>
             <button type="button" onClick={onToggle} disabled={disabled}>
-                <img src={option.fullImageUri} alt={option.name} width={146} height={204} />
+                <img src={option.frontFace.fullImageUri} alt={option.frontFace.name} width={146} height={204} />
             </button>
             <button type="button" className="c-card-option__icon" onClick={openFocus} />
             <span className={clsx('c-card-option__frame', { 'c-card-option__frame--selected': isSelected })} />

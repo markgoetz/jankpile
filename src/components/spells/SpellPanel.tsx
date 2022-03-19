@@ -86,7 +86,7 @@ const SpellPanel: React.FC = () => {
     );
 
     const sortedSpells = [...spells];
-    sortedSpells.sort((a, b) => a.name > b.name ? 1 : -1);
+    sortedSpells.sort((a, b) => a.frontFace.name > b.frontFace.name ? 1 : -1);
 
     return (
         <div className="c-panel">

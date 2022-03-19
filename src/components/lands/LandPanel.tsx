@@ -58,7 +58,7 @@ const LandPanel: React.FC = () => {
     const pipCounts = getPipCounts(deck);
 
     const sortedNonBasics = [...nonBasics];
-    sortedNonBasics.sort((a, b) => a.name > b.name ? 1 : -1);
+    sortedNonBasics.sort((a, b) => a.frontFace.name > b.frontFace.name ? 1 : -1);
 
     return (
         <>
@@ -111,7 +111,7 @@ const LandPanel: React.FC = () => {
                                 {sortedNonBasics.map(land => (
                                     <li key={land.id}>
                                         <DeleteItem onDelete={() => onToggleOption(land)}>
-                                            {land.name}
+                                            {land.frontFace.name}
                                         </DeleteItem>
                                     </li>
                                 ))}
