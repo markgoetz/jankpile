@@ -8,7 +8,7 @@ import Button from '../common/Button';
 import Heading from '../common/Heading';
 import LoadingWrapper from '../common/LoadingWrapper';
 import PanelHeading from '../PanelHeading';
-import CommanderFace from './CommanderFace';
+import FullCardFace from '../common/FullCardFace';
 
 const CommanderPanel: React.FC = () => {
     const options = useSelector(selectCommanderOptions);
@@ -62,8 +62,8 @@ const CommanderPanel: React.FC = () => {
                         </div>
                         {commander != null && (
                             <div className="o-two-columns">
-                                <CommanderFace face={commander.frontFace} />
-                                {commander.backFace != null && <CommanderFace face={commander.backFace} />}
+                                <FullCardFace face={commander.frontFace} />
+                                {commander.backFace != null && <FullCardFace face={commander.backFace} />}
                             </div>
                         )}
                         <Button disabled={commander == null} onClick={onConfirmClick}>
