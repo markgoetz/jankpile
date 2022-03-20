@@ -61,7 +61,10 @@ const CommanderPanel: React.FC = () => {
                             </ul>
                         </div>
                         {commander != null && (
-                            <ParagraphList text={commander.frontFace.description ?? ''} />
+                            <>
+                                <ParagraphList text={commander.frontFace.description ?? ''} />
+                                <ParagraphList text={commander.backFace?.description ?? ''} />
+                            </>
                         )}
                         <Button disabled={commander == null} onClick={onConfirmClick}>
                             {commander == null && 'No commander selected'}

@@ -18,6 +18,8 @@ const getFrontFace = (card: ScryfallCard): CardFace => {
             artImageUri: cardFace.image_uris.art_crop,
             manaValue: cardFace.cmc,
             pips: cardFace.mana_cost,
+            power: cardFace.power,
+            toughness: cardFace.toughness,
         }
     }
 
@@ -33,6 +35,8 @@ const getFrontFace = (card: ScryfallCard): CardFace => {
         artImageUri: card.image_uris.art_crop,
         manaValue: card.cmc,
         pips: card.mana_cost as string,
+        power: card.power,
+        toughness: card.toughness,
     }
 };
 
@@ -52,6 +56,8 @@ const getBackFace = (card: ScryfallCard): CardFace | undefined => {
             artImageUri: cardFace.image_uris.art_crop,
             manaValue: cardFace.cmc,
             pips: cardFace.mana_cost,
+            power: cardFace.power,
+            toughness: cardFace.toughness,
         }
     }
 

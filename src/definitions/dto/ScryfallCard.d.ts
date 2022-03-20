@@ -38,11 +38,11 @@ type CardFace = {
     object: 'card_face',
     oracle_id?: string,
     oracle_text?: string,
-    power?: number,
+    power?: string,
     printed_name?: string,
     printed_text?: string,
     printed_type_line?: string,
-    toughness?: number,
+    toughness?: string,
     type_line?: string,
     watermark?: string,
 }

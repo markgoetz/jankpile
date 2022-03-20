@@ -6,6 +6,8 @@ type CardFace = {
     artImageUri: string,
     manaValue: number,
     pips: string,
+    power?: string,
+    toughness?: string,
 };
 
 export default CardFace;
