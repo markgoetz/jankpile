@@ -1,14 +1,14 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Card from '../definitions/Card';
-import { selectCommander, selectCommanderOptions, selectCommanderStatus, setCommander } from '../redux-modules/commander';
-import { jumpToCommander, nextStep, selectIsCommander, selectIsAfterCommander } from '../redux-modules/steps';
-import CommanderOption from './CommanderOption';
-import Button from './common/Button';
-import Heading from './common/Heading';
-import LoadingWrapper from './common/LoadingWrapper';
-import ParagraphList from './common/ParagraphList';
-import PanelHeading from './PanelHeading';
+import Card from '../../definitions/Card';
+import { selectCommander, selectCommanderOptions, selectCommanderStatus, setCommander } from '../../redux-modules/commander';
+import { jumpToCommander, nextStep, selectIsCommander, selectIsAfterCommander } from '../../redux-modules/steps';
+import CommanderOption from '../CommanderOption';
+import Button from '../common/Button';
+import Heading from '../common/Heading';
+import LoadingWrapper from '../common/LoadingWrapper';
+import PanelHeading from '../PanelHeading';
+import CommanderFace from './CommanderFace';
 
 const CommanderPanel: React.FC = () => {
     const options = useSelector(selectCommanderOptions);
@@ -61,10 +61,10 @@ const CommanderPanel: React.FC = () => {
                             </ul>
                         </div>
                         {commander != null && (
-                            <>
-                                <ParagraphList text={commander.frontFace.description ?? ''} />
-                                <ParagraphList text={commander.backFace?.description ?? ''} />
-                            </>
+                            <div className="o-two-columns">
+                                <CommanderFace face={commander.frontFace} />
+                                {commander.backFace != null && <CommanderFace face={commander.backFace} />}
+                            </div>
                         )}
                         <Button disabled={commander == null} onClick={onConfirmClick}>
                             {commander == null && 'No commander selected'}

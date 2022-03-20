@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import IdentityPanel from './components/IdentityPanel';
-import CommanderPanel from './components/CommanderPanel';
+import CommanderPanel from './components/commander/CommanderPanel';
 import SpellPanel from './components/spells/SpellPanel';
 import LandPanel from './components/lands/LandPanel';
 import store from './redux-modules/store';
