@@ -18,6 +18,7 @@ const CommanderFace: React.FC<Props> = ({ face }) => {
                 <p>{face.pips}</p>
                 <ParagraphList text={face.description ?? ''} />
                 {(face.power != null && face.toughness != null) && <p>({face.power}/{face.toughness})</p>}
+                {(face.loyalty != null) && <p>Starting loyalty: {face.loyalty}</p>}
             </div>
         </div>
     )

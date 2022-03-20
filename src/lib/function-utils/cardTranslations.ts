@@ -20,6 +20,7 @@ const getFrontFace = (card: ScryfallCard): CardFace => {
             pips: cardFace.mana_cost,
             power: cardFace.power,
             toughness: cardFace.toughness,
+            loyalty: cardFace.loyalty,
         }
     }
 
@@ -37,6 +38,7 @@ const getFrontFace = (card: ScryfallCard): CardFace => {
         pips: card.mana_cost as string,
         power: card.power,
         toughness: card.toughness,
+        loyalty: card.loyalty,
     }
 };
 
@@ -58,6 +60,7 @@ const getBackFace = (card: ScryfallCard): CardFace | undefined => {
             pips: cardFace.mana_cost,
             power: cardFace.power,
             toughness: cardFace.toughness,
+            loyalty: cardFace.loyalty,
         }
     }
 

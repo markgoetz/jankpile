@@ -8,6 +8,7 @@ type CardFace = {
     pips: string,
     power?: string,
     toughness?: string,
+    loyalty?: string,
 };
 
 export default CardFace;
