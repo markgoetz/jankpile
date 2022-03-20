@@ -11,7 +11,9 @@ const CommanderFace: React.FC<Props> = ({ face }) => {
     return (
         <div>
             <Heading size="small"><h3>{face.name}</h3></Heading>
+            <p>{face.pips}</p>
             <ParagraphList text={face.description ?? ''} />
+            {(face.power != null && face.toughness != null) && <p>({face.power}/{face.toughness})</p>}
         </div>
     )
 };
