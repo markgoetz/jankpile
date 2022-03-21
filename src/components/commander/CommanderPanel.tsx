@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import Card from '../../definitions/Card';
 import { selectCommander, selectCommanderOptions, selectCommanderStatus, setCommander } from '../../redux-modules/commander';
 import { jumpToCommander, nextStep, selectIsCommander, selectIsAfterCommander } from '../../redux-modules/steps';
-import CommanderOption from '../CommanderOption';
 import Button from '../common/Button';
 import Heading from '../common/Heading';
 import LoadingWrapper from '../common/LoadingWrapper';
 import PanelHeading from '../PanelHeading';
 import FullCardFace from '../common/FullCardFace';
+import CommanderList from './CommanderList';
 
 const CommanderPanel: React.FC = () => {
     const options = useSelector(selectCommanderOptions);
@@ -47,19 +47,11 @@ const CommanderPanel: React.FC = () => {
             {isPanelOpen && (
                 <LoadingWrapper status={commanderStatus}>
                     <div className="c-panel__bd">
-                        <div className="o-horizontal-scroll">
-                            <ul className="o-h-list">
-                                {options.map(option => (
-                                    <li key={option.id}>
-                                        <CommanderOption
-                                            card={option}
-                                            isSelected={option.id === commander?.id}
-                                            onSelect={() => onCommanderClick(option)}
-                                        />
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                        <CommanderList
+                            options={options}
+                            onCommanderClick={onCommanderClick}
+                            commanderId={commander?.id}
+                        />
                         {commander != null && (
                             <div className="o-two-columns">
                                 <FullCardFace face={commander.frontFace} />
