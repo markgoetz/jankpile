@@ -7,7 +7,7 @@ type Props = {
     face: CardFace,
 };
 
-const CommanderFace: React.FC<Props> = ({ face }) => {
+const FullCardFace: React.FC<Props> = ({ face }) => {
     return (
         <div className="o-h-list">
             <div>
@@ -24,4 +24,4 @@ const CommanderFace: React.FC<Props> = ({ face }) => {
     )
 };
 
-export default CommanderFace;
+export default FullCardFace;
