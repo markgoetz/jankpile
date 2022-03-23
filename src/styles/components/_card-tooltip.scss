@@ -8,36 +8,5 @@
     z-index: $zindex-overlay;
     border: .4rem solid $color-highlight;
     border-radius: .4rem;
-}
-
-.c-card-tooltip__layout {
-    display: grid;
-    grid-template-areas:
-        'image description close'
-        'button description null';
-    grid-template-columns: auto 30rem auto;
-    grid-template-rows: 20.7rem auto;
-}
-
-.c-card-tooltip__image {
-    grid-area: image;
-}
-
-.c-card-tooltip__description {
-    grid-area: description;
-    text-align: left;
-    margin-left: $base-grid-size;
-    color: $color-black;
-    font-family: $font-body;
-}
-
-.c-card-tooltip__button {
-    grid-area: button;
-    display: grid;
-    justify-content: stretch;
-    align-items: flex-start;
-}
-
-.c-card-tooltip__close {
-    grid-area: close;
+    width: 46rem;
 }

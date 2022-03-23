@@ -26,7 +26,14 @@ const CardOption: React.FC<Props> = ({ option, onToggle, disabled, isSelected, i
             </button>
             <button type="button" className="c-card-option__icon" onClick={openFocus} />
             <span className={clsx('c-card-option__frame', { 'c-card-option__frame--selected': isSelected })} />
-            {isFocusOpen && <CardTooltip option={option} onClose={closeFocus} />}
+            {isFocusOpen && (
+                <CardTooltip
+                    option={option}
+                    onClose={closeFocus}
+                    onToggle={onToggle}
+                    isSelected={isSelected}
+                />
+            )}
         </div>
     );
 };

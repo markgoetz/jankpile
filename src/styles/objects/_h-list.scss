@@ -6,6 +6,10 @@
     margin-left: $base-grid-size;
 }
 
+.o-h-list--top {
+    align-items: flex-start;
+}
+
 .o-h-list--baseline {
     align-items: baseline;
 }
