@@ -4,7 +4,6 @@ type CardFace = {
     artist: string,
     fullImageUri: string,
     artImageUri: string,
-    manaValue: number,
     pips: string,
     power?: string,
     toughness?: string,

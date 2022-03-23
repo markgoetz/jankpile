@@ -3,7 +3,7 @@ import Card from "../../definitions/Card";
 const getManaValues = (deck: Card[], max: number) => {
     return deck.reduce(
         (prevDeck, card) => {
-            const manaValue = Math.min(card.frontFace.manaValue, max);
+            const manaValue = Math.min(card.manaValue, max);
 
             if (prevDeck[manaValue] != null) {
                 prevDeck[manaValue]++;

@@ -4,6 +4,7 @@ type Card = {
     id: string,
     frontFace: CardFace,
     backFace?: CardFace,
+    manaValue: number,
     setCode: string,
     cardNumber: string,
 };

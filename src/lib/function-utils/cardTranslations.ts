@@ -16,7 +16,6 @@ const getFrontFace = (card: ScryfallCard): CardFace => {
             artist: cardFace.artist,
             fullImageUri: cardFace.image_uris.small,
             artImageUri: cardFace.image_uris.art_crop,
-            manaValue: cardFace.cmc,
             pips: cardFace.mana_cost,
             power: cardFace.power,
             toughness: cardFace.toughness,
@@ -34,7 +33,6 @@ const getFrontFace = (card: ScryfallCard): CardFace => {
         artist: card.artist ?? 'Unknown',
         fullImageUri: card.image_uris.small,
         artImageUri: card.image_uris.art_crop,
-        manaValue: card.cmc,
         pips: card.mana_cost as string,
         power: card.power,
         toughness: card.toughness,
@@ -56,7 +54,6 @@ const getBackFace = (card: ScryfallCard): CardFace | undefined => {
             artist: cardFace.artist,
             fullImageUri: cardFace.image_uris.small,
             artImageUri: cardFace.image_uris.art_crop,
-            manaValue: cardFace.cmc,
             pips: cardFace.mana_cost,
             power: cardFace.power,
             toughness: cardFace.toughness,
@@ -78,6 +75,7 @@ export const fullCardToCommander = (card: ScryfallCard): Card => {
         backFace: getBackFace(card),
         setCode: card.set.toUpperCase(),
         cardNumber: card.collector_number,
+        manaValue: card.cmc,
     };
 };
 
@@ -92,6 +90,7 @@ export const fullCardToSpell = (card: ScryfallCard): Card => {
         backFace: getBackFace(card),
         setCode: card.set.toUpperCase(),
         cardNumber: card.collector_number,
+        manaValue: card.cmc,
     };
 };
 
@@ -106,5 +105,6 @@ export const fullCardToLand = (card: ScryfallCard): Card => {
         backFace: getBackFace(card),
         setCode: card.set.toUpperCase(),
         cardNumber: card.collector_number,
+        manaValue: card.cmc,
     };
 };
