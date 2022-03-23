@@ -1,6 +1,5 @@
 import React from 'react';
-import Button from './Button';
-import X_SVG from '../../assets/images/x.svg';
+import X_SVG from '../../assets/images/x-brown.svg';
 
 type Props = {
     onDelete: () => void,
@@ -8,11 +7,11 @@ type Props = {
 
 const DeleteItem: React.FC<Props> = ({ children, onDelete }) => {
     return (
-        <div className="o-split o-split--v-center">
-            <span>{children}</span>
-            <Button onClick={onDelete} shape="square">
+        <div className="o-h-list o-h-list--center">
+            <button type="button" onClick={onDelete}>
                 <img src={X_SVG} width={22} height={22} alt="Delete" />
-            </Button>
+            </button>
+            <span>{children}</span>
         </div>
     )
 };
