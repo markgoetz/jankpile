@@ -47,7 +47,12 @@ const LandArtModal: React.FC<Props> = ({ isOpen, color, options, selectedOption,
                     <li key={option.id}>
                         <div className="c-card-option">
                             <button type="button" onClick={() => setSelectedCard(option)}>
-                                <img src={option.frontFace.fullImageUri} alt={option.setCode} />
+                                <img
+                                    src={option.frontFace.fullImageUri}
+                                    alt={option.setCode}
+                                    width={146}
+                                    height={204}
+                                />
                             </button>
                             <span className={clsx('c-card-option__frame', { 'c-card-option__frame--selected': option.id === selectedCard?.id })} />
                         </div>
