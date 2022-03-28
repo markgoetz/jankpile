@@ -91,6 +91,10 @@ const landSlice = createSlice({
 
             state.basics[color].count = Math.floor(count);
         },
+        setBasicArt: (state, action: PayloadAction<{ color: Color, art: Card }>) => {
+            const { color, art } = action.payload;
+            state.basics[color].selectedArt = art;
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(fetchCommanders.pending, (state) => {
@@ -125,7 +129,7 @@ const landSlice = createSlice({
 
 export default landSlice;
 
-export const { toggleNonBasic, setBasicCount } = landSlice.actions;
+export const { toggleNonBasic, setBasicCount, setBasicArt } = landSlice.actions;
 
 export const selectNonBasicOptions = (state: RootState) => state.lands.nonbasics.options;
 export const selectNonBasicLands = (state: RootState) => state.lands.nonbasics.lands;

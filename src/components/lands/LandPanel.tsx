@@ -5,7 +5,7 @@ import Color from '../../definitions/Color';
 import { SINGULAR_LAND_NAMES, PLURAL_LAND_NAMES } from '../../lib/consts';
 import getPipCounts from '../../lib/utils/getPipCounts';
 import { selectColors } from '../../redux-modules/identity';
-import { selectBasicLandCounts, selectLandArtByColor, selectNonBasicLands, selectNonBasicOptions, selectNonBasicStatus, setBasicCount, toggleNonBasic, selectLandArtOptions } from '../../redux-modules/lands';
+import { selectBasicLandCounts, selectLandArtByColor, selectNonBasicLands, selectNonBasicOptions, selectNonBasicStatus, setBasicCount, toggleNonBasic, selectLandArtOptions, setBasicArt } from '../../redux-modules/lands';
 import { selectIsLands } from '../../redux-modules/steps';
 import { selectAllCards } from '../../redux-modules/store';
 import CardOption from '../common/CardOption';
@@ -50,6 +50,17 @@ const LandPanel: React.FC = () => {
             setSelectedColor(null);
         },
         []
+    );
+
+    const onArtSelect = useCallback(
+        (art: Card) => {
+            if (selectedColor == null) {
+                return;
+            }
+            dispatch(setBasicArt({ color: selectedColor, art }));
+            setSelectedColor(null);
+        },
+        [dispatch, selectedColor],
     );
 
     const basicLandTotal = Object.values(basicLandCounts).reduce((prev, colorCount) => prev + colorCount, 0);
@@ -126,7 +137,7 @@ const LandPanel: React.FC = () => {
                 color={selectedColor ?? Color.WHITE}
                 isOpen={selectedColor != null}
                 options={landArtOptions[selectedColor ?? Color.WHITE]}
-                onSelect={() => {}}
+                onSelect={onArtSelect}
                 selectedOption={landArtByColor[selectedColor ?? Color.WHITE]}
             />
         </>
