@@ -15,6 +15,8 @@ import LoadingWrapper from '../common/LoadingWrapper';
 import PanelHeading from '../PanelHeading';
 import BasicLandForm from './BasicLandForm';
 import LandArtModal from './LandArtModal';
+import MINUS_SVG from '../../assets/images/minus.svg';
+import PLUS_SVG from '../../assets/images/plus.svg';
 
 const LandPanel: React.FC = () => {
     const dispatch = useDispatch();
@@ -61,6 +63,23 @@ const LandPanel: React.FC = () => {
             setSelectedColor(null);
         },
         [dispatch, selectedColor],
+    );
+
+    const onAddBasicLand = useCallback(
+        (color: Color) => {
+            dispatch(setBasicCount({ color, count: basicLandCounts[color] + 1 }));
+        },
+        [basicLandCounts, dispatch],
+    );
+
+    const onSubtractBasicLand = useCallback(
+        (color: Color) => {
+            if (basicLandCounts[color] === 0) {
+                return;
+            }
+            dispatch(setBasicCount({ color, count: basicLandCounts[color] - 1 }));
+        },
+        [basicLandCounts, dispatch],
     );
 
     const basicLandTotal = Object.values(basicLandCounts).reduce((prev, colorCount) => prev + colorCount, 0);
@@ -116,8 +135,20 @@ const LandPanel: React.FC = () => {
                             <ul>
                                 {colors.map(color => (
                                     <li key={color}>
-                                        {basicLandCounts[color] > 1 && `${basicLandCounts[color]} ${PLURAL_LAND_NAMES[color]}`}
-                                        {basicLandCounts[color] === 1 && `${basicLandCounts[color]} ${SINGULAR_LAND_NAMES[color]}`}
+                                        {basicLandCounts[color] > 0 && (
+                                            <div className="o-h-list o-h-list--center">
+                                                <button type="button" onClick={() => onAddBasicLand(color)}>
+                                                    <img src={PLUS_SVG} width={22} height={22} alt="Add 1 land" />
+                                                </button>
+                                                <button type="button" onClick={() => onSubtractBasicLand(color)}>
+                                                    <img src={MINUS_SVG} width={22} height={22} alt="Subtract 1 land" />
+                                                </button>
+                                                <span>
+                                                    {basicLandCounts[color] > 1 && `${basicLandCounts[color]} ${PLURAL_LAND_NAMES[color]}`}
+                                                    {basicLandCounts[color] === 1 && `${basicLandCounts[color]} ${SINGULAR_LAND_NAMES[color]}`}
+                                                </span>
+                                            </div>
+                                        )}
                                     </li>
                                 ))}
                                 {sortedNonBasics.map(land => (
