@@ -135,20 +135,20 @@ const LandPanel: React.FC = () => {
                             <ul>
                                 {colors.map(color => (
                                     <li key={color}>
-                                        {basicLandCounts[color] > 0 && (
-                                            <div className="o-h-list o-h-list--center">
-                                                <button type="button" onClick={() => onAddBasicLand(color)}>
-                                                    <img src={PLUS_SVG} width={22} height={22} alt="Add 1 land" />
-                                                </button>
+                                        <div className="o-h-list o-h-list--center">
+                                            <button type="button" onClick={() => onAddBasicLand(color)}>
+                                                <img src={PLUS_SVG} width={22} height={22} alt="Add 1 land" />
+                                            </button>
+                                            {basicLandCounts[color] > 0 && (
                                                 <button type="button" onClick={() => onSubtractBasicLand(color)}>
                                                     <img src={MINUS_SVG} width={22} height={22} alt="Subtract 1 land" />
                                                 </button>
-                                                <span>
-                                                    {basicLandCounts[color] > 1 && `${basicLandCounts[color]} ${PLURAL_LAND_NAMES[color]}`}
-                                                    {basicLandCounts[color] === 1 && `${basicLandCounts[color]} ${SINGULAR_LAND_NAMES[color]}`}
-                                                </span>
-                                            </div>
-                                        )}
+                                            )}
+                                            <span>
+                                                {basicLandCounts[color] !== 1 && `${basicLandCounts[color]} ${PLURAL_LAND_NAMES[color]}`}
+                                                {basicLandCounts[color] === 1 && `${basicLandCounts[color]} ${SINGULAR_LAND_NAMES[color]}`}
+                                            </span>
+                                        </div>
                                     </li>
                                 ))}
                                 {sortedNonBasics.map(land => (
