@@ -13,7 +13,7 @@ const SelectedSpellList: React.FC<Props> = ({ spells, onToggleOption }) => {
     return (
         <>
             <div className="o-h-list o-h-list--center">
-                <Heading size="medium"><h3>Current Deck</h3></Heading>
+                <Heading size="medium" tag="h3">Current Deck</Heading>
                 <button type="button">
                     <ManaValueChart spells={spells} />
                 </button>

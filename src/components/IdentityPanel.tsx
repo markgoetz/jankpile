@@ -71,7 +71,7 @@ const IdentityPanel: React.FC = () => {
             <div className="o-split o-split--v-center">
                 <div className="o-h-list o-h-list--x4">
                     <div className="o-h-list o-h-list--x2 o-h-list--center">
-                        <Heading size="large"><h2>Format</h2></Heading>
+                        <Heading size="large" tag="h2">Format</Heading>
                         <Selector
                             name="format"
                             options={formatOptions}
@@ -80,7 +80,7 @@ const IdentityPanel: React.FC = () => {
                         />
                     </div>
                     <div className="o-h-list o-h-list--x2 o-h-list--center">
-                        <Heading size="large"><h2>Colors</h2></Heading>
+                        <Heading size="large" tag="h2">Colors</Heading>
                         <div>
                             <ImageCheckboxGroup
                                 className="o-h-list"

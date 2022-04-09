@@ -25,7 +25,7 @@ const ExportModal: React.FC<Props> = ({ isOpen, onClose }) => {
 
     return (
         <Modal isOpen={isOpen} onClose={onClose} size="small">
-            <Heading size="large">Export to Arena</Heading>
+            <Heading size="large" tag="h1">Export to Arena</Heading>
             <textarea value={value} readOnly className="c-textarea u-width--100-pct" rows={40} />
         </Modal>
     );

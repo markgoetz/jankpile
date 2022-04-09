@@ -95,13 +95,13 @@ const LandPanel: React.FC = () => {
         <>
             <PanelHeading>
                 <div className="o-h-list o-h-list--baseline">
-                    <Heading size="large"><h2>Lands</h2></Heading>
-                    {(landTotal > 0 && <Heading size="small"><span>({landTotal})</span></Heading>)}
+                    <Heading tag="h2" size="large">Lands</Heading>
+                    {(landTotal > 0 && <Heading tag="span" size="small">({landTotal})</Heading>)}
                 </div>
             </PanelHeading>
             {isPanelOpen && (
                 <div className="c-panel__bd">
-                    <Heading size="medium"><h3>Basic Lands</h3></Heading>
+                    <Heading tag="h3" size="medium">Basic Lands</Heading>
                     <BasicLandForm
                         colors={colors}
                         pipCounts={pipCounts}
@@ -111,7 +111,7 @@ const LandPanel: React.FC = () => {
                     />
                     <div className="o-sidebar-layout">
                         <div>
-                            <Heading size="medium"><h3>Non-Basic Lands</h3></Heading>
+                            <Heading tag="h3" size="medium">Non-Basic Lands</Heading>
                             <LoadingWrapper status={landStatus}>
                                 <ul className="o-full-grid">
                                     {nonBasicOptions.map(option => (
@@ -131,7 +131,7 @@ const LandPanel: React.FC = () => {
                             </LoadingWrapper>
                         </div>
                         <aside>
-                            <Heading size="medium"><h3>Current Deck</h3></Heading>
+                            <Heading tag="h3" size="medium">Current Deck</Heading>
                             <ul>
                                 {colors.map(color => (
                                     <li key={color}>

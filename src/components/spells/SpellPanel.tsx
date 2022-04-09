@@ -93,15 +93,15 @@ const SpellPanel: React.FC = () => {
             <PanelHeading>
                 <div className="o-split o-split--v-center">
                     <div className="o-h-list o-h-list--baseline">
-                        <Heading size="large"><h2>Spells</h2></Heading>
-                        {(spells.length > 0 && <Heading size="small"><span>({spells.length})</span></Heading>)}
+                        <Heading tag="h2" size="large">Spells</Heading>
+                        {(spells.length > 0 && <Heading size="small" tag="span">({spells.length})</Heading>)}
                     </div>
                     {(isEditVisible && <Button onClick={onEditClick}>Edit</Button>)}
                 </div>
             </PanelHeading>
             {isPanelOpen && (
                 <div className="c-panel__bd">
-                    <Heading size="medium"><h3>Commander Description</h3></Heading>
+                    <Heading tag="h3" size="medium">Commander Description</Heading>
                     {commander != null && <CommanderDescription commander={commander} onSearch={onCommanderSearch} />}
                     <QueryForm currentQuery={params.query ?? ''} onSearch={onSearch} />
                     <div className="o-sidebar-layout">

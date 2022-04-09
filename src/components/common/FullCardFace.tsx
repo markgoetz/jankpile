@@ -14,7 +14,7 @@ const FullCardFace: React.FC<Props> = ({ face }) => {
                 <img src={face.fullImageUri} alt={face.name} width={146} height={204} />
             </div>
             <div>
-                <Heading size="small"><h3>{face.name}</h3></Heading>
+                <Heading size="small" tag="h3">{face.name}</Heading>
                 <p>{face.pips}</p>
                 <ParagraphList text={face.description ?? ''} />
                 {(face.power != null && face.toughness != null) && <p>({face.power}/{face.toughness})</p>}

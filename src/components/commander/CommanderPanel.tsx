@@ -38,8 +38,8 @@ const CommanderPanel: React.FC = () => {
             <PanelHeading>
                 <div className="o-split o-split--v-center">
                     <div className="o-h-list o-h-list--baseline">
-                        <Heading size="large"><h2>Commander</h2></Heading>
-                        {(commander != null && <Heading size="small"><span>{commander.frontFace.name}</span></Heading>)}
+                        <Heading size="large" tag="h2">Commander</Heading>
+                        {(commander != null && <Heading size="small" tag="span">{commander.frontFace.name}</Heading>)}
                     </div>
                     {(isEditVisible && <Button onClick={onEditClick}>Edit</Button>)}
                 </div>
