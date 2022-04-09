@@ -6,7 +6,8 @@ const getFrontFace = (card: ScryfallCard): CardFace => {
     if (card.card_faces != null) {
         const cardFace = card.card_faces[0];
 
-        if (cardFace.image_uris == null) {
+        const imageUris = cardFace.image_uris ?? card.image_uris;
+        if (imageUris == null) {
             throw new Error('Card does not have any image URIs');
         }
 
@@ -14,8 +15,8 @@ const getFrontFace = (card: ScryfallCard): CardFace => {
             name: cardFace.name,
             description: cardFace.oracle_text,
             artist: cardFace.artist,
-            fullImageUri: cardFace.image_uris.small,
-            artImageUri: cardFace.image_uris.art_crop,
+            fullImageUri: imageUris.small,
+            artImageUri: imageUris.art_crop,
             pips: cardFace.mana_cost,
             power: cardFace.power,
             toughness: cardFace.toughness,
@@ -44,7 +45,8 @@ const getBackFace = (card: ScryfallCard): CardFace | undefined => {
     if (card.card_faces != null) {
         const cardFace = card.card_faces[1];
 
-        if (cardFace.image_uris == null) {
+        const imageUris = cardFace.image_uris ?? card.image_uris;
+        if (imageUris== null) {
             throw new Error('Card does not have any image URIs');
         }
 
@@ -52,8 +54,8 @@ const getBackFace = (card: ScryfallCard): CardFace | undefined => {
             name: cardFace.name,
             description: cardFace.oracle_text,
             artist: cardFace.artist,
-            fullImageUri: cardFace.image_uris.small,
-            artImageUri: cardFace.image_uris.art_crop,
+            fullImageUri: imageUris.small,
+            artImageUri: imageUris.art_crop,
             pips: cardFace.mana_cost,
             power: cardFace.power,
             toughness: cardFace.toughness,
