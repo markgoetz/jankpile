@@ -102,8 +102,11 @@ const SpellPanel: React.FC = () => {
             {isPanelOpen && (
                 <div className="c-panel__bd">
                     <Heading tag="h3" size="medium">Commander Description</Heading>
+                    <div className="u-vr" />
                     {commander != null && <CommanderDescription commander={commander} onSearch={onCommanderSearch} />}
+                    <div className="u-vr u-vr--x2" />
                     <QueryForm currentQuery={params.query ?? ''} onSearch={onSearch} />
+                    <div className="u-vr u-vr--x2" />
                     <div className="o-sidebar-layout">
                         <div>
                              <LoadingWrapper status={spellStatus}>

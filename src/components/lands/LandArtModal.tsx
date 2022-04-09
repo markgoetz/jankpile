@@ -42,6 +42,7 @@ const LandArtModal: React.FC<Props> = ({ isOpen, color, options, selectedOption,
     return (
         <Modal isOpen={isOpen} onClose={onClose} size="large">
             <Heading size="large" tag="span">Select {SINGULAR_LAND_NAMES[color]} Art</Heading>
+            <div className="u-vr u-vr--x2" />
             <ul className="o-full-grid">
                 {options.map(option => (
                     <li key={option.id}>

@@ -15,6 +15,7 @@ const FullCardFace: React.FC<Props> = ({ face }) => {
             </div>
             <div>
                 <Heading size="small" tag="h3">{face.name}</Heading>
+                <div className="u-vr" />
                 <p>{face.pips}</p>
                 <ParagraphList text={face.description ?? ''} />
                 {(face.power != null && face.toughness != null) && <p>({face.power}/{face.toughness})</p>}

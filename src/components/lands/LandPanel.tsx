@@ -102,6 +102,7 @@ const LandPanel: React.FC = () => {
             {isPanelOpen && (
                 <div className="c-panel__bd">
                     <Heading tag="h3" size="medium">Basic Lands</Heading>
+                    <div className="u-vr" />
                     <BasicLandForm
                         colors={colors}
                         pipCounts={pipCounts}
@@ -109,9 +110,11 @@ const LandPanel: React.FC = () => {
                         onInputChange={onInputChange}
                         onArtModalOpen={setSelectedColor}
                     />
+                    <div className="u-vr u-vr--x4" />
                     <div className="o-sidebar-layout">
                         <div>
                             <Heading tag="h3" size="medium">Non-Basic Lands</Heading>
+                            <div className="u-vr" />
                             <LoadingWrapper status={landStatus}>
                                 <ul className="o-full-grid">
                                     {nonBasicOptions.map(option => (
@@ -132,6 +135,7 @@ const LandPanel: React.FC = () => {
                         </div>
                         <aside>
                             <Heading tag="h3" size="medium">Current Deck</Heading>
+                            <div className="u-vr" />
                             <ul>
                                 {colors.map(color => (
                                     <li key={color}>
