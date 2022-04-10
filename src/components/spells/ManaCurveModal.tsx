@@ -23,7 +23,7 @@ const ManaCurveModal: React.FC<Props> = ({ isOpen, onClose, spells }) => {
             <Heading tag="h1" size="large">Mana Curve</Heading>
             <div className="u-vr--x4" />
             <div className="u-center">
-                <table className="c-table u-txt--color-black">
+                <table className="c-table u-txt--color-primary u-txt--20">
                     <tbody>
                         <tr>
                             <th scope="row" className="c-table__cell u-txt--align-right">Creatures</th>
@@ -38,16 +38,18 @@ const ManaCurveModal: React.FC<Props> = ({ isOpen, onClose, spells }) => {
             </div>
             <div className="u-vr--x2" />
             <div className="u-center">
-                <table className="c-table u-txt--color-black">
+                <table className="c-table u-txt--color-primary u-txt--20">
                     <tbody>
                         {Object.keys(manaValues).map(
                             value => (
                                 <tr key={value}>
                                     <td className="c-table__cell u-txt--align-right">Cost {value}</td>
-                                    <td className="c-table__cell u-txt--align-left">{manaValues[Number(value)]}</td>
+                                    <td className="c-table__cell u-txt--align-left">
+                                        {manaValues[Number(value)]}
+                                    </td>
                                 </tr>
                             )
-                            )}
+                        )}
                     </tbody>
                 </table>
             </div>

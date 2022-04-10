@@ -13,7 +13,7 @@ const DeleteItem: React.FC<Props> = ({ children, onDelete }) => {
             </button>
             <span>{children}</span>
         </div>
-    )
+    );
 };
 
 export default DeleteItem;
