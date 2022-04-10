@@ -1,5 +1,6 @@
 type CardFace = {
     name: string,
+    type: string,
     description?: string,
     artist: string,
     fullImageUri: string,

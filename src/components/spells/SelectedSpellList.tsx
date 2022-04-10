@@ -7,14 +7,15 @@ import ManaValueChart from '../common/ManaValueChart';
 type Props = {
     spells: Card[],
     onToggleOption: (card: Card) => void,
+    onChartClick: () => void,
 };
 
-const SelectedSpellList: React.FC<Props> = ({ spells, onToggleOption }) => {
+const SelectedSpellList: React.FC<Props> = ({ spells, onToggleOption, onChartClick }) => {
     return (
         <>
             <div className="o-h-list o-h-list--center">
                 <Heading size="medium" tag="h3">Current Deck</Heading>
-                <button type="button">
+                <button type="button" onClick={onChartClick}>
                     <ManaValueChart spells={spells} />
                 </button>
             </div>

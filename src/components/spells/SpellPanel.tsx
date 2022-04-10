@@ -15,6 +15,7 @@ import QueryForm from './QueryForm';
 import SpellGrid from './SpellGrid';
 import CommanderDescription from './CommanderDescription';
 import SelectedSpellList from './SelectedSpellList';
+import ManaCurveModal from './ManaCurveModal';
 
 type SearchParams = Omit<SpellQueryParams, 'identity'>;
 
@@ -31,6 +32,7 @@ const SpellPanel: React.FC = () => {
     const totalPages = useSelector(selectTotalSpellPages);
 
     const [params, setParams] = useState<SearchParams>({ page: 0 });
+    const [isCurveModalOpen, setIsCurveModalOpen] = useState(false);
 
     useDeepCompareEffect(
         () => {
@@ -128,9 +130,18 @@ const SpellPanel: React.FC = () => {
                             <Button onClick={onConfirmClick}>Continue to Lands</Button>
                         </div>
                         <aside>
-                            <SelectedSpellList spells={sortedSpells} onToggleOption={onToggleOption} />
+                            <SelectedSpellList
+                                spells={sortedSpells}
+                                onToggleOption={onToggleOption}
+                                onChartClick={() => setIsCurveModalOpen(true)}
+                            />
                         </aside>
                     </div>
+                    <ManaCurveModal
+                        isOpen={isCurveModalOpen}
+                        onClose={() => setIsCurveModalOpen(false)}
+                        spells={sortedSpells}
+                    />
                 </div>
             )}
         </div>

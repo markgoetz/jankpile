@@ -13,6 +13,7 @@ const getFrontFace = (card: ScryfallCard): CardFace => {
 
         return {
             name: cardFace.name,
+            type: cardFace.type_line ?? '',
             description: cardFace.oracle_text,
             artist: cardFace.artist,
             fullImageUri: imageUris.small,
@@ -30,6 +31,7 @@ const getFrontFace = (card: ScryfallCard): CardFace => {
 
     return {
         name: card.name,
+        type: card.type_line,
         description: card.oracle_text,
         artist: card.artist ?? 'Unknown',
         fullImageUri: card.image_uris.small,
@@ -52,6 +54,7 @@ const getBackFace = (card: ScryfallCard): CardFace | undefined => {
 
         return {
             name: cardFace.name,
+            type: cardFace.type_line ?? '',
             description: cardFace.oracle_text,
             artist: cardFace.artist,
             fullImageUri: imageUris.small,
