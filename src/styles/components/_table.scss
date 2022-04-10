@@ -2,6 +2,14 @@
     display: table;
 }
 
+.c-table--full-width {
+    width: 100%;
+}
+
 .c-table__cell {
     padding: .2rem $base-grid-size;
+}
+
+.c-table__cell--full-width {
+    width: 100%;
 }

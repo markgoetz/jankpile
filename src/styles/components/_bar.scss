@@ -1,0 +1,14 @@
+.c-bar {
+    display: inline-block;
+    width: 100%;
+}
+
+.c-bar__inner {
+    height: 100%;
+    display: inline-block;
+    background-color: $color-primary;
+}
+
+.c-bar__inner--highlight {
+    background-color: $color-highlight;
+}
