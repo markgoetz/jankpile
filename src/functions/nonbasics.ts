@@ -9,8 +9,21 @@ const handler: Handler = async(event, context) => {
 
     const colorString = parseColors(params);
     const format = parseFormat(params);
+    const query = params.q ?? '';
 
-    const cardQuery = `id<=${colorString}+f:${format}+t:land+-t:basic+game:arena`;
+    const queryPieces = [
+        `id<=${colorString}`,
+        `f:${format}`,
+        't:land',
+        '-t:basic',
+        'game:arena',
+    ];
+
+    if (query.trim() !== '') {
+        queryPieces.push(`(o:${query} OR name:${query})`);
+    }
+
+    const cardQuery = queryPieces.join('+');
 
     try {
         const response = await axios.get(getEndpoint(cardQuery)) as AxiosResponse<ScryfallList>;
