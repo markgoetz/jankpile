@@ -61,11 +61,16 @@ export const fetchBasicLandArt = createAsyncThunk(
     }
 );
 
+type FetchNonBasicLandParams = {
+    identity: Identity,
+    query: string,
+};
+
 export const fetchNonBasicLands = createAsyncThunk(
     'spells/fetchNonBasicLands',
-    async (identity: Identity) => {
-        const { colors, format } = identity;
-        const response = await getNonBasicLands(colors, format);
+    async (params: FetchNonBasicLandParams) => {
+        const { colors, format } = params.identity;
+        const response = await getNonBasicLands(colors, format, params.query);
         return response;
     }
 );

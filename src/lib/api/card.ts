@@ -51,7 +51,7 @@ export const getBasicLandArt = async (color: Color, isSnow: Boolean): Promise<Ca
     return response.data;
 };
 
-export const getNonBasicLands = async (colors: Color[], format: Format): Promise<Card[]> => {
-    const response = await axios.get(`${ENDPOINTS.NONBASICS}?colors=${colors.join(',')}&format=${format}`);
+export const getNonBasicLands = async (colors: Color[], format: Format, query: string): Promise<Card[]> => {
+    const response = await axios.get(`${ENDPOINTS.NONBASICS}?colors=${colors.join(',')}&format=${format}&q=${query}`);
     return response.data;
 };
