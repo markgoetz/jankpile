@@ -17,6 +17,7 @@ import BasicLandForm from './BasicLandForm';
 import LandArtModal from './LandArtModal';
 import MINUS_SVG from '../../assets/images/minus.svg';
 import PLUS_SVG from '../../assets/images/plus.svg';
+import LandSearchForm from './LandSearchForm';
 
 const LandPanel: React.FC = () => {
     const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const LandPanel: React.FC = () => {
 
     const [selectedColor, setSelectedColor] = useState<Color | null>(null);
     const [landFocusId, setLandFocusId] = useState<string | null>();
+    const [query, setQuery] = useState('');
 
     const onToggleOption = useCallback(
         (option: Card) => {
@@ -116,6 +118,8 @@ const LandPanel: React.FC = () => {
                             <Heading tag="h3" size="medium">Non-Basic Lands</Heading>
                             <div className="u-vr" />
                             <LoadingWrapper status={landStatus}>
+                                <LandSearchForm searchQuery={query} onQuery={setQuery} />
+                                <div className="u-vr--x2" />
                                 <ul className="o-full-grid">
                                     {nonBasicOptions.map(option => (
                                         <li key={option.id}>
