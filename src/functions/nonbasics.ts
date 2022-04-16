@@ -30,6 +30,11 @@ const handler: Handler = async(event, context) => {
         const parsedResponse = response.data.data.map(fullCardToLand);
         return createResponse(200, parsedResponse);
     } catch (e) {
+        const err = e as Error;
+
+        if (err.message === 'Request failed with status code 404') {
+            return createResponse(200, []);
+        }
         return createResponse(500, e);
     }
 };

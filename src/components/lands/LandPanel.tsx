@@ -1,11 +1,12 @@
 import React, { useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import useDeepCompareEffect from 'use-deep-compare-effect';
 import Card from '../../definitions/Card';
 import Color from '../../definitions/Color';
 import { SINGULAR_LAND_NAMES, PLURAL_LAND_NAMES } from '../../lib/consts';
 import getPipCounts from '../../lib/utils/getPipCounts';
-import { selectColors } from '../../redux-modules/identity';
-import { selectBasicLandCounts, selectLandArtByColor, selectNonBasicLands, selectNonBasicOptions, selectNonBasicStatus, setBasicCount, toggleNonBasic, selectLandArtOptions, setBasicArt } from '../../redux-modules/lands';
+import { selectColors, selectFormat } from '../../redux-modules/identity';
+import { selectBasicLandCounts, selectLandArtByColor, selectNonBasicLands, selectNonBasicOptions, selectNonBasicStatus, setBasicCount, toggleNonBasic, selectLandArtOptions, setBasicArt, fetchNonBasicLands } from '../../redux-modules/lands';
 import { selectIsLands } from '../../redux-modules/steps';
 import { selectAllCards } from '../../redux-modules/store';
 import CardOption from '../common/CardOption';
@@ -21,6 +22,7 @@ import LandSearchForm from './LandSearchForm';
 
 const LandPanel: React.FC = () => {
     const dispatch = useDispatch();
+    const format = useSelector(selectFormat);
     const colors = useSelector(selectColors);
     const basicLandCounts = useSelector(selectBasicLandCounts);
     const deck = useSelector(selectAllCards);
@@ -34,6 +36,14 @@ const LandPanel: React.FC = () => {
     const [selectedColor, setSelectedColor] = useState<Color | null>(null);
     const [landFocusId, setLandFocusId] = useState<string | null>();
     const [query, setQuery] = useState('');
+
+    useDeepCompareEffect(
+        () => {
+            const identity = { format, colors };
+            dispatch(fetchNonBasicLands({ identity, query }));
+        },
+        [dispatch, format, colors, query]
+    );
 
     const onToggleOption = useCallback(
         (option: Card) => {
