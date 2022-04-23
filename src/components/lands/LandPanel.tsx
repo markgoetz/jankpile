@@ -3,21 +3,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 import Card from '../../definitions/Card';
 import Color from '../../definitions/Color';
-import { SINGULAR_LAND_NAMES, PLURAL_LAND_NAMES } from '../../lib/consts';
 import getPipCounts from '../../lib/utils/getPipCounts';
 import { selectColors, selectFormat } from '../../redux-modules/identity';
 import { selectBasicLandCounts, selectLandArtByColor, selectNonBasicLands, selectNonBasicOptions, selectNonBasicStatus, setBasicCount, toggleNonBasic, selectLandArtOptions, setBasicArt, fetchNonBasicLands } from '../../redux-modules/lands';
 import { selectIsLands } from '../../redux-modules/steps';
 import { selectAllCards } from '../../redux-modules/store';
 import CardOption from '../common/CardOption';
-import DeleteItem from '../common/DeleteItem';
 import Heading from '../common/Heading';
 import LoadingWrapper from '../common/LoadingWrapper';
 import PanelHeading from '../PanelHeading';
 import BasicLandForm from './BasicLandForm';
+import CurrentLands from './CurrentLands';
 import LandArtModal from './LandArtModal';
-import MINUS_SVG from '../../assets/images/minus.svg';
-import PLUS_SVG from '../../assets/images/plus.svg';
 import LandSearchForm from './LandSearchForm';
 
 const LandPanel: React.FC = () => {
@@ -148,35 +145,14 @@ const LandPanel: React.FC = () => {
                             </LoadingWrapper>
                         </div>
                         <aside>
-                            <Heading tag="h3" size="medium">Current Deck</Heading>
-                            <div className="u-vr" />
-                            <ul>
-                                {colors.map(color => (
-                                    <li key={color}>
-                                        <div className="o-h-list o-h-list--center">
-                                            <button type="button" onClick={() => onAddBasicLand(color)}>
-                                                <img src={PLUS_SVG} width={22} height={22} alt="Add 1 land" />
-                                            </button>
-                                            {basicLandCounts[color] > 0 && (
-                                                <button type="button" onClick={() => onSubtractBasicLand(color)}>
-                                                    <img src={MINUS_SVG} width={22} height={22} alt="Subtract 1 land" />
-                                                </button>
-                                            )}
-                                            <span>
-                                                {basicLandCounts[color] !== 1 && `${basicLandCounts[color]} ${PLURAL_LAND_NAMES[color]}`}
-                                                {basicLandCounts[color] === 1 && `${basicLandCounts[color]} ${SINGULAR_LAND_NAMES[color]}`}
-                                            </span>
-                                        </div>
-                                    </li>
-                                ))}
-                                {sortedNonBasics.map(land => (
-                                    <li key={land.id}>
-                                        <DeleteItem onDelete={() => onToggleOption(land)}>
-                                            {land.frontFace.name}
-                                        </DeleteItem>
-                                    </li>
-                                ))}
-                            </ul>
+                            <CurrentLands
+                                colors={colors}
+                                basicLandCounts={basicLandCounts}
+                                nonBasics={sortedNonBasics}
+                                onAddBasicLand={onAddBasicLand}
+                                onSubtractBasicLand={onSubtractBasicLand}
+                                onToggleOption={onToggleOption}
+                            />
                         </aside>
                     </div>
                 </div>
