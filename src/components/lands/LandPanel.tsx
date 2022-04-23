@@ -33,6 +33,7 @@ const LandPanel: React.FC = () => {
     const [selectedColor, setSelectedColor] = useState<Color | null>(null);
     const [landFocusId, setLandFocusId] = useState<string | null>();
     const [query, setQuery] = useState('');
+    const [isSnow, setIsSnow] = useState(false);
 
     useDeepCompareEffect(
         () => {
@@ -114,9 +115,11 @@ const LandPanel: React.FC = () => {
                     <div className="u-vr" />
                     <BasicLandForm
                         colors={colors}
+                        isSnow={isSnow}
                         pipCounts={pipCounts}
                         basicLandCounts={basicLandCounts}
                         onInputChange={onInputChange}
+                        onIsSnowToggle={setIsSnow}
                         onArtModalOpen={setSelectedColor}
                     />
                     <div className="u-vr u-vr--x4" />
