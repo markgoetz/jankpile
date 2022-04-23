@@ -1,4 +1,38 @@
 .c-checkbox {
     display: flex;
+    align-items: center;
 }
 
+.c-checkbox__label {
+    font-size: 2.4rem;
+    font-family: $font-heading;
+    color: $color-black;
+    margin-left: $base-grid-size;
+}
+
+.c-checkbox__input {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: auto;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+}
+
+.c-checkbox__icon {
+    border-radius: .2rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    border: solid 1px $color-primary;
+    background-color: $color-white;
+}
+
+.c-checkbox__input:checked ~ .c-checkbox__icon {
+    background-color: $color-primary;
+    background-image: url('../../assets/images/check.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
