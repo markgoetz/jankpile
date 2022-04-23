@@ -5,7 +5,7 @@ import Card from '../../definitions/Card';
 import Color from '../../definitions/Color';
 import getPipCounts from '../../lib/utils/getPipCounts';
 import { selectColors, selectFormat } from '../../redux-modules/identity';
-import { selectBasicLandCounts, selectLandArtByColor, selectNonBasicLands, selectNonBasicOptions, selectNonBasicStatus, setBasicCount, toggleNonBasic, selectLandArtOptions, setBasicArt, fetchNonBasicLands } from '../../redux-modules/lands';
+import { selectBasicLandCounts, selectLandArtByColor, selectNonBasicLands, selectNonBasicOptions, selectNonBasicStatus, setBasicCount, toggleNonBasic, selectLandArtOptions, setBasicArt, fetchBasicLandArt, fetchNonBasicLands } from '../../redux-modules/lands';
 import { selectIsLands } from '../../redux-modules/steps';
 import { selectAllCards } from '../../redux-modules/store';
 import CardOption from '../common/CardOption';
@@ -41,6 +41,15 @@ const LandPanel: React.FC = () => {
             dispatch(fetchNonBasicLands({ identity, query }));
         },
         [dispatch, format, colors, query]
+    );
+
+    useDeepCompareEffect(
+        () => {
+            colors.forEach(
+                color => dispatch(fetchBasicLandArt({ color, isSnow }))
+            );
+        },
+        [dispatch, colors, isSnow],
     );
 
     const onToggleOption = useCallback(
