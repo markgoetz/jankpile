@@ -38,7 +38,7 @@ const Main: React.FC = () => {
             }
         },
         [currentStep]
-    )
+    );
 
     return (
         <React.Fragment>
