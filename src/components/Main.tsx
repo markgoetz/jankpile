@@ -21,7 +21,6 @@ const Main: React.FC = () => {
             <section ref={landRef}><LandPanel /></section>
             <section><Footer onExportClick={() => setIsExportModalOpen(true)} /></section>
             <ExportModal isOpen={isExportModalOpen} onClose={() => { setIsExportModalOpen(false); }} />
-
         </React.Fragment>
     );
 };
