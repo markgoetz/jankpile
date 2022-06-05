@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "./store";
 
-enum Step {
+export enum Step {
     IDENTITY,
     COMMANDER,
     SPELLS,
@@ -36,6 +36,7 @@ const stepSlice = createSlice({
     }
 });
 
+export const selectStep = (state: RootState) => state.steps.step;
 export const selectIsIdentity = (state: RootState) => state.steps.step === Step.IDENTITY;
 export const selectIsCommander = (state: RootState) => state.steps.step === Step.COMMANDER;
 export const selectIsSpells = (state: RootState) => state.steps.step === Step.SPELLS;
