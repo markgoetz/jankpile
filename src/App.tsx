@@ -21,10 +21,9 @@ const App: React.FC = () => {
                     <section><CommanderPanel /></section>
                     <section><SpellPanel /></section>
                     <section><LandPanel /></section>
-                    <section><Footer /></section>
+                    <section><Footer onExportClick={() => setIsExportModalOpen(true)} /></section>
                 </main>
             </div>
-            <button type="button" onClick={() => { setIsExportModalOpen(true);}}>open me</button>
             <ExportModal isOpen={isExportModalOpen} onClose={() => { setIsExportModalOpen(false); }} />
         </Provider>
     );
