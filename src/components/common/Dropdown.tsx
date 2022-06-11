@@ -19,7 +19,7 @@ const Dropdown: React.FC<Props> = ({ options, value, onSelect }) => {
     return (
         <select value={value} onChange={onChange} className="c-dropdown">
             {options.map(option => (
-                <option value={option.value}>{option.label}</option>
+                <option key={option.value} value={option.value}>{option.label}</option>
             ))}
         </select>
     );

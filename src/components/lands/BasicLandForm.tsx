@@ -2,9 +2,11 @@ import React from 'react';
 import Color from '../../definitions/Color';
 import Checkbox from '../common/Checkbox';
 import BasicLandRow from './BasicLandRow';
+import ColorlessLandRow from './ColorlessLandRow';
 
 type Props = {
     colors: Color[],
+    colorlessLandColor: Color,
     isSnow: boolean,
     pipCounts: Record<Color, number>,
     basicLandCounts: Record<Color, number>,
@@ -15,6 +17,7 @@ type Props = {
 
 const BasicLandForm: React.FC<Props> = ({
     colors,
+    colorlessLandColor,
     isSnow,
     pipCounts,
     basicLandCounts,
@@ -47,6 +50,17 @@ const BasicLandForm: React.FC<Props> = ({
                         />
                     </li>
                 ))}
+                {colors.length === 0 && (
+                    <li>
+                        <ColorlessLandRow
+                            color={colorlessLandColor}
+                            basicCount={basicLandCounts[colorlessLandColor]}
+                            onBasicChange={(count) => onInputChange(colorlessLandColor, count)}
+                            onArtSelect={() => onArtModalOpen(colorlessLandColor)}
+                            onColorChange={() => {}}
+                        />
+                    </li>
+                )}
             </ul>
         </div>
     );

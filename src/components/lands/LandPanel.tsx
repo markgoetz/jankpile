@@ -5,7 +5,7 @@ import Card from '../../definitions/Card';
 import Color from '../../definitions/Color';
 import getPipCounts from '../../lib/utils/getPipCounts';
 import { selectColors, selectFormat } from '../../redux-modules/identity';
-import { selectBasicLandCounts, selectLandArtByColor, selectNonBasicLands, selectNonBasicOptions, selectNonBasicStatus, setBasicCount, toggleNonBasic, selectLandArtOptions, setBasicArt, fetchBasicLandArt, fetchNonBasicLands } from '../../redux-modules/lands';
+import { selectBasicLandCounts, selectColorlessLandColor, selectLandArtByColor, selectNonBasicLands, selectNonBasicOptions, selectNonBasicStatus, setBasicCount, toggleNonBasic, selectLandArtOptions, setBasicArt, fetchBasicLandArt, fetchNonBasicLands } from '../../redux-modules/lands';
 import { selectIsLands } from '../../redux-modules/steps';
 import { selectAllCards } from '../../redux-modules/store';
 import CardOption from '../common/CardOption';
@@ -29,6 +29,7 @@ const LandPanel: React.FC = () => {
     const landStatus = useSelector(selectNonBasicStatus);
     const landArtOptions = useSelector(selectLandArtOptions);
     const landArtByColor = useSelector(selectLandArtByColor);
+    const colorlessLandColor = useSelector(selectColorlessLandColor);
 
     const [selectedColor, setSelectedColor] = useState<Color | null>(null);
     const [landFocusId, setLandFocusId] = useState<string | null>();
@@ -124,6 +125,7 @@ const LandPanel: React.FC = () => {
                     <div className="u-vr" />
                     <BasicLandForm
                         colors={colors}
+                        colorlessLandColor={colorlessLandColor}
                         isSnow={isSnow}
                         pipCounts={pipCounts}
                         basicLandCounts={basicLandCounts}

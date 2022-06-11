@@ -23,6 +23,7 @@ export type LandState = {
     nonbasics: NonBasicState,
     basicArtStatus: NetworkStatus,
     nonbasicStatus: NetworkStatus,
+    colorlessLandColor: Color,
 };
 
 const initialBasicState: BasicState = {
@@ -45,6 +46,7 @@ const initialState: LandState = {
     },
     basicArtStatus: 'idle',
     nonbasicStatus: 'idle',
+    colorlessLandColor: Color.WHITE,
 };
 
 type FetchBasicLandArtParams = {
@@ -136,6 +138,7 @@ export default landSlice;
 
 export const { toggleNonBasic, setBasicCount, setBasicArt } = landSlice.actions;
 
+export const selectColorlessLandColor = (state: RootState) => state.lands.colorlessLandColor;
 export const selectNonBasicOptions = (state: RootState) => state.lands.nonbasics.options;
 export const selectNonBasicLands = (state: RootState) => state.lands.nonbasics.lands;
 export const selectNonBasicStatus = (state: RootState) => state.lands.nonbasicStatus;
