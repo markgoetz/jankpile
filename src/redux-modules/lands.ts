@@ -102,15 +102,18 @@ const landSlice = createSlice({
             const { color, art } = action.payload;
             state.basics[color].selectedArt = art;
         },
+        setColorlessLandColor: (state, action: PayloadAction<{ color: Color }>) => {
+            state.colorlessLandColor = action.payload.color;
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(fetchCommanders.pending, (state) => {
             state.basics = {
-                [Color.WHITE]: {...initialBasicState},
-                [Color.BLUE]: {...initialBasicState},
-                [Color.BLACK]: {...initialBasicState},
-                [Color.RED]: {...initialBasicState},
-                [Color.GREEN]: {...initialBasicState},
+                [Color.WHITE]: { ...state.basics.W, count: 0 },
+                [Color.BLUE]: { ...state.basics.U, count: 0 },
+                [Color.BLACK]: { ...state.basics.B, count: 0 },
+                [Color.RED]: { ...state.basics.R, count: 0 },
+                [Color.GREEN]: { ...state.basics.G, count: 0 },
             };
             state.nonbasics = {
                 options: [],
@@ -136,7 +139,7 @@ const landSlice = createSlice({
 
 export default landSlice;
 
-export const { toggleNonBasic, setBasicCount, setBasicArt } = landSlice.actions;
+export const { toggleNonBasic, setBasicCount, setBasicArt, setColorlessLandColor } = landSlice.actions;
 
 export const selectColorlessLandColor = (state: RootState) => state.lands.colorlessLandColor;
 export const selectNonBasicOptions = (state: RootState) => state.lands.nonbasics.options;

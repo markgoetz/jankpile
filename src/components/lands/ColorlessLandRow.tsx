@@ -38,13 +38,17 @@ const ColorlessLandRow: React.FC<Props> = ({ color, onColorChange, basicCount, o
         onBasicChange(Number(e.target.value));
     };
 
+    const onSelectChange = (value: string) => {
+        onColorChange(value as Color);
+    };
+
     return (
         <div className="c-basic-land-row">
             <div className="c-basic-land-row__icon">
                 <img src={ICONS_BY_COLOR[color]} alt="" width={44} height={44} />
             </div>
             <div className="c-basic-land-row__name">
-                <Dropdown value={color} options={OPTIONS} onSelect={() => {}} />
+                <Dropdown value={color} options={OPTIONS} onSelect={onSelectChange} />
             </div>
             <div className="c-basic-land-row__field">
                 <input

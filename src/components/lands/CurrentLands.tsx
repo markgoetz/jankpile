@@ -9,6 +9,7 @@ import Card from '../../definitions/Card';
 
 type Props = {
     colors: Color[],
+    colorlessLandColor: Color,
     basicLandCounts: Record<Color, number>,
     nonBasics: Card[],
     onAddBasicLand: (color: Color) => void,
@@ -18,6 +19,7 @@ type Props = {
 
 const CurrentLands: React.FC<Props> = ({
     colors,
+    colorlessLandColor,
     basicLandCounts,
     nonBasics,
     onAddBasicLand,
@@ -47,6 +49,24 @@ const CurrentLands: React.FC<Props> = ({
                         </div>
                     </li>
                 ))}
+                {colors.length === 0 && (
+                    <li key={colorlessLandColor}>
+                        <div className="o-h-list o-h-list--center">
+                            <button type="button" onClick={() => onAddBasicLand(colorlessLandColor)}>
+                                <img src={PLUS_SVG} width={22} height={22} alt="Add 1 land" />
+                            </button>
+                            {basicLandCounts[colorlessLandColor] > 0 && (
+                                <button type="button" onClick={() => onSubtractBasicLand(colorlessLandColor)}>
+                                    <img src={MINUS_SVG} width={22} height={22} alt="Subtract 1 land" />
+                                </button>
+                            )}
+                            <span>
+                                {basicLandCounts[colorlessLandColor] !== 1 && `${basicLandCounts[colorlessLandColor]} ${PLURAL_LAND_NAMES[colorlessLandColor]}`}
+                                {basicLandCounts[colorlessLandColor] === 1 && `${basicLandCounts[colorlessLandColor]} ${SINGULAR_LAND_NAMES[colorlessLandColor]}`}
+                            </span>
+                        </div>
+                    </li>
+                )}
                 {nonBasics.map(land => (
                     <li key={land.id}>
                         <DeleteItem onDelete={() => onToggleOption(land)}>

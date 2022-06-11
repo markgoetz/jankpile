@@ -1,11 +1,11 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 import Card from '../../definitions/Card';
 import Color from '../../definitions/Color';
 import getPipCounts from '../../lib/utils/getPipCounts';
 import { selectColors, selectFormat } from '../../redux-modules/identity';
-import { selectBasicLandCounts, selectColorlessLandColor, selectLandArtByColor, selectNonBasicLands, selectNonBasicOptions, selectNonBasicStatus, setBasicCount, toggleNonBasic, selectLandArtOptions, setBasicArt, fetchBasicLandArt, fetchNonBasicLands } from '../../redux-modules/lands';
+import { selectBasicLandCounts, selectColorlessLandColor, selectLandArtByColor, selectNonBasicLands, selectNonBasicOptions, selectNonBasicStatus, setBasicCount, toggleNonBasic, selectLandArtOptions, setBasicArt, fetchBasicLandArt, fetchNonBasicLands, setColorlessLandColor } from '../../redux-modules/lands';
 import { selectIsLands } from '../../redux-modules/steps';
 import { selectAllCards } from '../../redux-modules/store';
 import CardOption from '../common/CardOption';
@@ -51,6 +51,13 @@ const LandPanel: React.FC = () => {
             );
         },
         [dispatch, colors, isSnow],
+    );
+
+    useEffect(
+        () => {
+            dispatch(fetchBasicLandArt({ color: colorlessLandColor, isSnow }))
+        },
+        [dispatch, colorlessLandColor, isSnow]
     );
 
     const onToggleOption = useCallback(
@@ -102,6 +109,13 @@ const LandPanel: React.FC = () => {
         [basicLandCounts, dispatch],
     );
 
+    const onColorlessLandColorChange = useCallback(
+        (color: Color) => {
+            dispatch(setColorlessLandColor({ color }));
+        },
+        [dispatch]
+    );
+
     const basicLandTotal = Object.values(basicLandCounts).reduce((prev, colorCount) => prev + colorCount, 0);
     const nonBasicLandTotal = nonBasics.length;
     const landTotal = basicLandTotal + nonBasicLandTotal;
@@ -126,6 +140,7 @@ const LandPanel: React.FC = () => {
                     <BasicLandForm
                         colors={colors}
                         colorlessLandColor={colorlessLandColor}
+                        onColorlessLandColorChange={onColorlessLandColorChange}
                         isSnow={isSnow}
                         pipCounts={pipCounts}
                         basicLandCounts={basicLandCounts}
@@ -161,6 +176,7 @@ const LandPanel: React.FC = () => {
                         <aside>
                             <CurrentLands
                                 colors={colors}
+                                colorlessLandColor={colorlessLandColor}
                                 basicLandCounts={basicLandCounts}
                                 nonBasics={sortedNonBasics}
                                 onAddBasicLand={onAddBasicLand}

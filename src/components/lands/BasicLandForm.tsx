@@ -7,6 +7,7 @@ import ColorlessLandRow from './ColorlessLandRow';
 type Props = {
     colors: Color[],
     colorlessLandColor: Color,
+    onColorlessLandColorChange: (color: Color) => void,
     isSnow: boolean,
     pipCounts: Record<Color, number>,
     basicLandCounts: Record<Color, number>,
@@ -18,6 +19,7 @@ type Props = {
 const BasicLandForm: React.FC<Props> = ({
     colors,
     colorlessLandColor,
+    onColorlessLandColorChange,
     isSnow,
     pipCounts,
     basicLandCounts,
@@ -57,7 +59,7 @@ const BasicLandForm: React.FC<Props> = ({
                             basicCount={basicLandCounts[colorlessLandColor]}
                             onBasicChange={(count) => onInputChange(colorlessLandColor, count)}
                             onArtSelect={() => onArtModalOpen(colorlessLandColor)}
-                            onColorChange={() => {}}
+                            onColorChange={onColorlessLandColorChange}
                         />
                     </li>
                 )}
