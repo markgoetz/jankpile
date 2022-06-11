@@ -103,6 +103,7 @@ const landSlice = createSlice({
             state.basics[color].selectedArt = art;
         },
         setColorlessLandColor: (state, action: PayloadAction<{ color: Color }>) => {
+            state.basics[state.colorlessLandColor].count = 0;
             state.colorlessLandColor = action.payload.color;
         },
     },
