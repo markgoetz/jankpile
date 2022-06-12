@@ -17,6 +17,7 @@ import BasicLandForm from './BasicLandForm';
 import CurrentLands from './CurrentLands';
 import LandArtModal from './LandArtModal';
 import LandSearchForm from './LandSearchForm';
+import NoLandsMessage from './NoLandsMessage';
 
 const LandPanel: React.FC = () => {
     const dispatch = useDispatch();
@@ -162,9 +163,10 @@ const LandPanel: React.FC = () => {
                         <div>
                             <Heading tag="h3" size="medium">Non-Basic Lands</Heading>
                             <div className="u-vr" />
+                            <LandSearchForm searchQuery={query} onQuery={setQuery} />
                             <LoadingWrapper status={landStatus}>
-                                <LandSearchForm searchQuery={query} onQuery={setQuery} />
                                 <div className="u-vr--x2" />
+                                {nonBasicOptions.length === 0 && (<NoLandsMessage />)}
                                 <ul className="o-full-grid">
                                     {nonBasicOptions.map(option => (
                                         <li key={option.id}>

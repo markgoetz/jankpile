@@ -16,6 +16,7 @@ import SpellGrid from './SpellGrid';
 import CommanderDescription from './CommanderDescription';
 import SelectedSpellList from './SelectedSpellList';
 import ManaCurveModal from './ManaCurveModal';
+import NoSpellsMessage from './NoSpellsMessage';
 
 type SearchParams = Omit<SpellQueryParams, 'identity'>;
 
@@ -112,6 +113,7 @@ const SpellPanel: React.FC = () => {
                     <div className="o-sidebar-layout">
                         <div>
                              <LoadingWrapper status={spellStatus}>
+                                {options.length === 0 && <NoSpellsMessage />}
                                 <SpellGrid
                                     options={options}
                                     onToggleOption={onToggleOption}
