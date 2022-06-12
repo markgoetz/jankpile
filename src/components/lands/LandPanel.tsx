@@ -42,6 +42,7 @@ const LandPanel: React.FC = () => {
     useEffect(
         () => {
             setIsSnow(false);
+            setQuery('');
         },
         [commander?.id]
     );
