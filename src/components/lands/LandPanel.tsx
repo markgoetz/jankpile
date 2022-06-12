@@ -4,6 +4,7 @@ import useDeepCompareEffect from 'use-deep-compare-effect';
 import Card from '../../definitions/Card';
 import Color from '../../definitions/Color';
 import getPipCounts from '../../lib/utils/getPipCounts';
+import { selectCommander } from '../../redux-modules/commander';
 import { selectColors, selectFormat } from '../../redux-modules/identity';
 import { selectBasicLandCounts, selectColorlessLandColor, selectLandArtByColor, selectNonBasicLands, selectNonBasicOptions, selectNonBasicStatus, setBasicCount, toggleNonBasic, selectLandArtOptions, setBasicArt, fetchBasicLandArt, fetchNonBasicLands, setColorlessLandColor } from '../../redux-modules/lands';
 import { selectIsLands } from '../../redux-modules/steps';
@@ -30,11 +31,19 @@ const LandPanel: React.FC = () => {
     const landArtOptions = useSelector(selectLandArtOptions);
     const landArtByColor = useSelector(selectLandArtByColor);
     const colorlessLandColor = useSelector(selectColorlessLandColor);
+    const commander = useSelector(selectCommander);
 
     const [selectedColor, setSelectedColor] = useState<Color | null>(null);
     const [landFocusId, setLandFocusId] = useState<string | null>();
     const [query, setQuery] = useState('');
     const [isSnow, setIsSnow] = useState(false);
+
+    useEffect(
+        () => {
+            setIsSnow(false);
+        },
+        [commander?.id]
+    );
 
     useDeepCompareEffect(
         () => {
