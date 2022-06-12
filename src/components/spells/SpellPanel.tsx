@@ -43,13 +43,6 @@ const SpellPanel: React.FC = () => {
 
     useDeepCompareEffect(
         () => {
-            setParams({ ...params, page: 0 });
-        },
-        [colors, format],
-    );
-
-    useDeepCompareEffect(
-        () => {
             const identity = { colors, format };
             dispatch(fetchSpells({ identity, ...params }));
         },
