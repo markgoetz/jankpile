@@ -10,6 +10,7 @@ type Props = {
     colorlessLandColor: Color,
     basicLandCounts: Record<Color, number>,
     nonBasics: Card[],
+    isSnow: boolean,
     onAddBasicLand: (color: Color) => void,
     onSubtractBasicLand: (color: Color) => void,
     onToggleOption: (card: Card) => void,
@@ -20,6 +21,7 @@ const CurrentLands: React.FC<Props> = ({
     colorlessLandColor,
     basicLandCounts,
     nonBasics,
+    isSnow,
     onAddBasicLand,
     onSubtractBasicLand,
     onToggleOption,
@@ -34,6 +36,7 @@ const CurrentLands: React.FC<Props> = ({
                         <CurrentBasicLand
                             count={basicLandCounts[color]}
                             color={color}
+                            isSnow={isSnow}
                             onAdd={() => onAddBasicLand(color)}
                             onSubtract={() => onSubtractBasicLand(color)}
                         />
@@ -44,6 +47,7 @@ const CurrentLands: React.FC<Props> = ({
                         <CurrentBasicLand
                             count={basicLandCounts[colorlessLandColor]}
                             color={colorlessLandColor}
+                            isSnow={isSnow}
                             onAdd={() => onAddBasicLand(colorlessLandColor)}
                             onSubtract={() => onSubtractBasicLand(colorlessLandColor)}
                         />

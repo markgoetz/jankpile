@@ -191,6 +191,7 @@ const LandPanel: React.FC = () => {
                                 colorlessLandColor={colorlessLandColor}
                                 basicLandCounts={basicLandCounts}
                                 nonBasics={sortedNonBasics}
+                                isSnow={isSnow}
                                 onAddBasicLand={onAddBasicLand}
                                 onSubtractBasicLand={onSubtractBasicLand}
                                 onToggleOption={onToggleOption}
