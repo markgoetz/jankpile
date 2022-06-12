@@ -3,7 +3,7 @@
 }
 
 @for $i from 2 through 4 {
-    .u-paddding--x#{$i} {
+    .u-padding--x#{$i} {
         padding: $base-grid-size * $i;
     }
 };

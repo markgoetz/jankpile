@@ -9,6 +9,7 @@ import LoadingWrapper from '../common/LoadingWrapper';
 import PanelHeading from '../PanelHeading';
 import FullCardFace from '../common/FullCardFace';
 import CommanderList from './CommanderList';
+import NoCommandersMessage from './NoCommandersMessage';
 
 const CommanderPanel: React.FC = () => {
     const options = useSelector(selectCommanderOptions);
@@ -47,6 +48,7 @@ const CommanderPanel: React.FC = () => {
             {isPanelOpen && (
                 <LoadingWrapper status={commanderStatus}>
                     <div className="c-panel__bd">
+                        {options.length === 0 && (<NoCommandersMessage />)}
                         <CommanderList
                             options={options}
                             onCommanderClick={onCommanderClick}
@@ -58,10 +60,12 @@ const CommanderPanel: React.FC = () => {
                                 {commander.backFace != null && <FullCardFace face={commander.backFace} />}
                             </div>
                         )}
-                        <Button disabled={commander == null} onClick={onConfirmClick}>
-                            {commander == null && 'No commander selected'}
-                            {commander != null && `Select ${commander.frontFace.name}`}
-                        </Button>
+                        {options.length > 0 && (
+                            <Button disabled={commander == null} onClick={onConfirmClick}>
+                                {commander == null && 'No commander selected'}
+                                {commander != null && `Select ${commander.frontFace.name}`}
+                            </Button>
+                        )}
                     </div>
                 </LoadingWrapper>
             )}
