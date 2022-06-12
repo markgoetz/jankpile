@@ -47,7 +47,7 @@ const BasicLandInputRow: React.FC<Props> = ({ color, basicCount, pipCount, pipSu
             </div>
             <div className="c-basic-land-row__field">
                 <input
-                    className="c-input"
+                    className="c-input c-input--small"
                     value={basicCount}
                     type="number"
                     inputMode="numeric"
