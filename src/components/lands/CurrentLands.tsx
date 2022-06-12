@@ -2,10 +2,8 @@ import React from 'react';
 import Color from '../../definitions/Color';
 import DeleteItem from '../common/DeleteItem';
 import Heading from '../common/Heading';
-import { SINGULAR_LAND_NAMES, PLURAL_LAND_NAMES } from '../../lib/consts';
-import MINUS_SVG from '../../assets/images/minus.svg';
-import PLUS_SVG from '../../assets/images/plus.svg';
 import Card from '../../definitions/Card';
+import CurrentBasicLand from './CurrentBasicLand';
 
 type Props = {
     colors: Color[],
@@ -33,38 +31,22 @@ const CurrentLands: React.FC<Props> = ({
             <ul>
                 {colors.map(color => (
                     <li key={color}>
-                        <div className="o-h-list o-h-list--center">
-                            <button type="button" onClick={() => onAddBasicLand(color)}>
-                                <img src={PLUS_SVG} width={22} height={22} alt="Add 1 land" />
-                            </button>
-                            {basicLandCounts[color] > 0 && (
-                                <button type="button" onClick={() => onSubtractBasicLand(color)}>
-                                    <img src={MINUS_SVG} width={22} height={22} alt="Subtract 1 land" />
-                                </button>
-                            )}
-                            <span>
-                                {basicLandCounts[color] !== 1 && `${basicLandCounts[color]} ${PLURAL_LAND_NAMES[color]}`}
-                                {basicLandCounts[color] === 1 && `${basicLandCounts[color]} ${SINGULAR_LAND_NAMES[color]}`}
-                            </span>
-                        </div>
+                        <CurrentBasicLand
+                            count={basicLandCounts[color]}
+                            color={color}
+                            onAdd={() => onAddBasicLand(color)}
+                            onSubtract={() => onSubtractBasicLand(color)}
+                        />
                     </li>
                 ))}
                 {colors.length === 0 && (
                     <li key={colorlessLandColor}>
-                        <div className="o-h-list o-h-list--center">
-                            <button type="button" onClick={() => onAddBasicLand(colorlessLandColor)}>
-                                <img src={PLUS_SVG} width={22} height={22} alt="Add 1 land" />
-                            </button>
-                            {basicLandCounts[colorlessLandColor] > 0 && (
-                                <button type="button" onClick={() => onSubtractBasicLand(colorlessLandColor)}>
-                                    <img src={MINUS_SVG} width={22} height={22} alt="Subtract 1 land" />
-                                </button>
-                            )}
-                            <span>
-                                {basicLandCounts[colorlessLandColor] !== 1 && `${basicLandCounts[colorlessLandColor]} ${PLURAL_LAND_NAMES[colorlessLandColor]}`}
-                                {basicLandCounts[colorlessLandColor] === 1 && `${basicLandCounts[colorlessLandColor]} ${SINGULAR_LAND_NAMES[colorlessLandColor]}`}
-                            </span>
-                        </div>
+                        <CurrentBasicLand
+                            count={basicLandCounts[colorlessLandColor]}
+                            color={colorlessLandColor}
+                            onAdd={() => onAddBasicLand(colorlessLandColor)}
+                            onSubtract={() => onSubtractBasicLand(colorlessLandColor)}
+                        />
                     </li>
                 )}
                 {nonBasics.map(land => (

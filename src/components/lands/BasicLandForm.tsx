@@ -1,8 +1,8 @@
 import React from 'react';
 import Color from '../../definitions/Color';
 import Checkbox from '../common/Checkbox';
-import BasicLandRow from './BasicLandRow';
-import ColorlessLandRow from './ColorlessLandRow';
+import BasicLandInputRow from './BasicLandInputRow';
+import ColorlessLandInputRow from './ColorlessLandInputRow';
 
 type Props = {
     colors: Color[],
@@ -42,7 +42,7 @@ const BasicLandForm: React.FC<Props> = ({
             <ul className="o-v-list o-v-list--x2">
                 {colors.map(color => (
                     <li key={color}>
-                        <BasicLandRow
+                        <BasicLandInputRow
                             color={color}
                             pipCount={pipCounts[color]}
                             pipSum={pipSum}
@@ -54,7 +54,7 @@ const BasicLandForm: React.FC<Props> = ({
                 ))}
                 {colors.length === 0 && (
                     <li>
-                        <ColorlessLandRow
+                        <ColorlessLandInputRow
                             color={colorlessLandColor}
                             basicCount={basicLandCounts[colorlessLandColor]}
                             onBasicChange={(count) => onInputChange(colorlessLandColor, count)}

@@ -1,12 +1,13 @@
 import React from 'react';
 import Color from '../../definitions/Color';
+import Button from '../common/Button';
+import Dropdown, { Option } from '../common/Dropdown';
 import { PLURAL_LAND_NAMES } from '../../lib/consts';
 import W_SVG from '../../assets/images/W.svg';
 import U_SVG from '../../assets/images/U.svg';
 import B_SVG from '../../assets/images/B.svg';
 import R_SVG from '../../assets/images/R.svg';
 import G_SVG from '../../assets/images/G.svg';
-import Button from '../common/Button';
 
 const ICONS_BY_COLOR = {
     [Color.WHITE]: W_SVG,
@@ -16,18 +17,29 @@ const ICONS_BY_COLOR = {
     [Color.GREEN]: G_SVG,
 };
 
+const OPTIONS: Option[] = [
+    { label: PLURAL_LAND_NAMES.W, value: Color.WHITE },
+    { label: PLURAL_LAND_NAMES.U, value: Color.BLUE },
+    { label: PLURAL_LAND_NAMES.B, value: Color.BLACK },
+    { label: PLURAL_LAND_NAMES.R, value: Color.RED },
+    { label: PLURAL_LAND_NAMES.G, value: Color.GREEN },
+];
+
 type Props = {
     color: Color,
-    pipCount: number,
-    pipSum: number,
+    onColorChange: (color: Color) => void,
     basicCount: number,
     onBasicChange: (count: number) => void,
     onArtSelect: () => void,
 };
 
-const BasicLandRow: React.FC<Props> = ({ color, basicCount, pipCount, pipSum, onBasicChange, onArtSelect }) => {
+const ColorlessLandInputRow: React.FC<Props> = ({ color, onColorChange, basicCount, onBasicChange, onArtSelect }) => {
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         onBasicChange(Number(e.target.value));
+    };
+
+    const onSelectChange = (value: string) => {
+        onColorChange(value as Color);
     };
 
     return (
@@ -36,14 +48,7 @@ const BasicLandRow: React.FC<Props> = ({ color, basicCount, pipCount, pipSum, on
                 <img src={ICONS_BY_COLOR[color]} alt="" width={44} height={44} />
             </div>
             <div className="c-basic-land-row__name">
-                <span className="u-txt--heading u-txt--bold u-txt--24">
-                    {PLURAL_LAND_NAMES[color]}
-                </span>
-            </div>
-            <div className="c-basic-land-row__pips">
-                <span className="u-txt--16">
-                    Pips x {pipCount} ({Math.round(100 * pipCount / pipSum)}%)
-                </span>
+                <Dropdown value={color} options={OPTIONS} onSelect={onSelectChange} />
             </div>
             <div className="c-basic-land-row__field">
                 <input
@@ -62,4 +67,4 @@ const BasicLandRow: React.FC<Props> = ({ color, basicCount, pipCount, pipSum, on
     );
 };
 
-export default BasicLandRow;
+export default ColorlessLandInputRow;
