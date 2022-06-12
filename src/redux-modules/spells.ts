@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Card from '../definitions/Card';
 import NetworkStatus from '../definitions/NetworkStatus';
 import { getSpells, SpellQueryParams } from '../lib/api/card';
-import { fetchCommanders } from './commander';
+import { fetchCommanders, setCommander } from './commander';
 import { RootState } from './store';
 
 export type SpellState = {
@@ -45,6 +45,9 @@ const spellSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(fetchCommanders.pending, (state) => {
             state.options = [];
+            state.spells = [];
+            state.page = 0;
+        }).addCase(setCommander, (state) => {
             state.spells = [];
             state.page = 0;
         }).addCase(fetchSpells.pending, (state) => {
