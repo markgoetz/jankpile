@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 import Card from '../../definitions/Card';
@@ -33,6 +33,13 @@ const SpellPanel: React.FC = () => {
 
     const [params, setParams] = useState<SearchParams>({ page: 0 });
     const [isCurveModalOpen, setIsCurveModalOpen] = useState(false);
+
+    useEffect(
+        () => {
+            setParams({ page: 0 });
+        },
+        [commander?.id]
+    );
 
     useDeepCompareEffect(
         () => {
