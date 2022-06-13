@@ -21,9 +21,9 @@ const Header: React.FC = () => {
                     </div>
                 </div>
                 <div className="o-h-list o-h-list--x3">
-                    <div role="contentinfo" className="u-txt--20 u-txt--heading u-txt--color-highlight">
+                    <div role="contentinfo" className="u-txt--20 u-txt--heading u-txt--color-highlight u-txt--align-right">
                         <p>by Mark Goetz, © {new Date().getFullYear()}</p>
-                        <p>All card art © {new Date().getFullYear()} Wizards of the Coast</p>
+                        <p>Card art © {new Date().getFullYear()} Wizards of the Coast</p>
                         <p>Mana symbols © MTG Wiki</p>
                     </div>
                     <div>
