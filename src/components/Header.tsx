@@ -20,10 +20,17 @@ const Header: React.FC = () => {
                         </p>
                     </div>
                 </div>
-                <div role="contentinfo" className="u-txt--20 u-txt--heading u-txt--color-highlight">
-                    <p>by Mark Goetz, © {new Date().getFullYear()}</p>
-                    <p>All card art © {new Date().getFullYear()} Wizards of the Coast</p>
-                    <p>Mana symbols © MTG Wiki</p>
+                <div className="o-h-list o-h-list--x3">
+                    <div role="contentinfo" className="u-txt--20 u-txt--heading u-txt--color-highlight">
+                        <p>by Mark Goetz, © {new Date().getFullYear()}</p>
+                        <p>All card art © {new Date().getFullYear()} Wizards of the Coast</p>
+                        <p>Mana symbols © MTG Wiki</p>
+                    </div>
+                    <div>
+                        <a href="https://www.buymeacoffee.com/jankpile" target="_blank" rel="noreferrer">
+                            <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width={217} height={60} alt="Buy Me A Coffee" />
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
