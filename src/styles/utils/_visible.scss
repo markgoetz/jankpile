@@ -1,0 +1,10 @@
+.u-visible--sm {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .5s linear, visibility .5s linear;
+
+    @media screen and (min-width: 1024px) {
+        visibility: hidden;
+        opacity: 0;
+    }
+}

@@ -7,6 +7,7 @@ import SpellPanel from './spells/SpellPanel';
 import LandPanel from './lands/LandPanel';
 import ExportModal from './ExportModal';
 import { selectStep, Step } from '../redux-modules/steps';
+import MobileNotice from './MobileNotice';
 
 const Main: React.FC = () => {
     const [isExportModalOpen, setIsExportModalOpen] = useState(false);
@@ -48,6 +49,7 @@ const Main: React.FC = () => {
             <section ref={landRef}><LandPanel /></section>
             <section><Footer onExportClick={() => setIsExportModalOpen(true)} /></section>
             <ExportModal isOpen={isExportModalOpen} onClose={() => { setIsExportModalOpen(false); }} />
+            <MobileNotice />
         </React.Fragment>
     );
 };
