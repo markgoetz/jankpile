@@ -98,7 +98,7 @@ const IdentityPanel: React.FC = () => {
                         </div>
                     </div>
                 </div>
-                <Button onClick={onSearchClick}>Find Commanders</Button>
+                <Button onClick={onSearchClick}>Search</Button>
             </div>
         </PanelHeading>
     );
