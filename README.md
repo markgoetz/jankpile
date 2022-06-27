@@ -33,7 +33,6 @@ Here is a quick description of each of the top-level folders in the `src` folder
 * `lib` - utility functions used by both the client-side app and the serverless functions.
 * `redux-modules` - the Redux slices, organized according to the Ducks pattern.
 * `styles` - all CSS styles used by the application.  CSS should follow the [BEM](http://getbem.com/) and [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/) methodologies.
-* 
 
 ## Contributing
 
