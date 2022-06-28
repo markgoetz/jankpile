@@ -27,6 +27,7 @@
   },
   "scripts": {
     "dev": "netlify dev",
+    "start": "react-scripts start",
     "build": "react-scripts build"
   },
   "eslintConfig": {
