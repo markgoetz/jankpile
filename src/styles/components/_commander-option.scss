@@ -1,12 +1,24 @@
 .c-commander-option {
     border: 0;
     padding: 0;
-    background-color: $color-black;
-    color: $color-white;
+    background-color: rgb(51 38 1 / 17%);
+    color: $color-black;
+    width: 250px;
+    padding: 16px;
+    border-radius: 12px;
+    width: 250px;
+    text-align: left;
+
+    img {
+        width: 100%;
+        border-radius: 10px;
+        height: auto;
+    }
 }
 
 .c-commander-option--selected {
     background-color: $color-primary;
+    color: $color-white;
 }
 
 .c-commander-option__name {
