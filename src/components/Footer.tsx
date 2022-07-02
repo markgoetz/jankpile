@@ -1,29 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { selectAllCards } from '../redux-modules/store';
-import { selectFormat } from '../redux-modules/identity';
-import { CARD_COUNT_BY_FORMAT } from '../lib/consts';
-import Button from './common/Button';
 
-type Props = {
-    onExportClick: () => void,
-};
-
-const Footer: React.FC<Props> = ({ onExportClick }) => {
-    const allCards = useSelector(selectAllCards);
-    const format = useSelector(selectFormat);
-    const cardCount = CARD_COUNT_BY_FORMAT[format];
-
+const Footer: React.FC = () => {
     return (
         <div className="c-footer">
-            <div className="c-form">
-                <div className="o-h-list o-h-list--x2 o-h-list--center">
-                    <span className="u-txt--24 u-txt--heading u-txt--weight-black u-txt--color-black">
-                        Total cards: {allCards.length}/{cardCount}
-                    </span>
-                    <Button type="button" disabled={allCards.length !== cardCount} onClick={onExportClick}>
-                        Export to Arena
-                    </Button>
+            <div className="o-split">
+                <div role="contentinfo" className="u-txt--20 u-txt--heading u-txt--color-highlight">
+                    <p>by Mark Goetz, © {new Date().getFullYear()}</p>
+                    <p>Card art © {new Date().getFullYear()} Wizards of the Coast</p>
+                    <p>Mana symbols © MTG Wiki</p>
+                </div>
+                <div>
+                    <a href="https://www.buymeacoffee.com/jankpile" target="_blank" rel="noreferrer">
+                        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" width={217} height={60} alt="Buy Me A Coffee" />
+                    </a>
                 </div>
             </div>
         </div>

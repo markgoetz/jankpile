@@ -1,0 +1,11 @@
+@mixin bpSmall() {
+    @media only screen and (min-width: $viewport-small) {
+        @content;
+    }
+}
+
+@mixin bpMedium() {
+    @media only screen and (min-width: $viewport-medium) {
+        @content;
+    }
+}
