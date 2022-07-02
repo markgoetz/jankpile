@@ -1,18 +1,26 @@
-.o-split > * + * {
+.o-split {
+    display: flex;
+    justify-content: space-between;
+}
+
+.o-split--v-center {
+    align-items: center;
+}
+
+.o-split--wrap {
+    flex-direction: column;
+}
+
+.o-split--wrap > * + * {
     margin-top: $base-grid-size;
 }
 
 @include bpSmall() {
-    .o-split {
-        display: flex;
-        justify-content: space-between;
+    .o-split--wrap {
+        flex-direction: row;
     }
-
-    .o-split--v-center {
-        align-items: center;
-    }
-
-    .o-split > * + * {
+    
+    .o-split--wrap > * + * {
         margin-top: 0;
     }
 }

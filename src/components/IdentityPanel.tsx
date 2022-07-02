@@ -18,6 +18,7 @@ import U_SVG from '../assets/images/U.svg';
 import B_SVG from '../assets/images/B.svg';
 import R_SVG from '../assets/images/R.svg';
 import G_SVG from '../assets/images/G.svg';
+import ResponsiveDropdown from './common/ResponsiveDropdown';
 
 const IdentityPanel: React.FC = () => {
     const colorsFromStore = useSelector(selectColors);
@@ -70,17 +71,15 @@ const IdentityPanel: React.FC = () => {
         <PanelHeading>
             <div className="o-split o-split--v-center">
                 <div className="o-h-list o-h-list--x4">
-                    <div className="o-h-list o-h-list--x2 o-h-list--center">
-                        <Heading size="large" tag="h2">Format</Heading>
+                    <ResponsiveDropdown trigger={<Heading size="large" tag="h2">Format</Heading>}>
                         <Selector
                             name="format"
                             options={formatOptions}
                             onChange={onFormatChange}
                             selectedValue={format}
                         />
-                    </div>
-                    <div className="o-h-list o-h-list--x2 o-h-list--center">
-                        <Heading size="large" tag="h2">Colors</Heading>
+                    </ResponsiveDropdown>
+                    <ResponsiveDropdown trigger={<Heading size="large" tag="h2">Colors</Heading>}>
                         <div>
                             <ImageCheckboxGroup
                                 className="o-h-list"
@@ -96,7 +95,7 @@ const IdentityPanel: React.FC = () => {
                                 onChange={(value) => toggleColor(value as Color)}
                             />
                         </div>
-                    </div>
+                    </ResponsiveDropdown>
                 </div>
                 <Button onClick={onSearchClick}>Search</Button>
             </div>

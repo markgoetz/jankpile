@@ -1,0 +1,30 @@
+.c-responsive-dropdown {
+    position: relative;
+}
+
+.c-responsive-dropdown__children {
+    background-color: $color-mid-end;
+    padding: $base-grid-size * 2;
+    position: absolute;
+    top: 100%;
+    display: none;
+}
+
+.c-responsive-dropdown__children--open {
+    display: block;
+}
+
+@include bpMedium() {
+    .c-responsive-dropdown {
+        position: static;
+        display: flex;
+    }
+
+    .c-responsive-dropdown__children {
+        position: static;
+        padding: 0;
+        display: block;
+        background-color: transparent;
+        margin-left: $base-grid-size * 2;
+    }
+}
