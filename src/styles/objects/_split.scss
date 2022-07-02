@@ -1,8 +1,18 @@
-.o-split {
-    display: flex;
-    justify-content: space-between;
+.o-split > * + * {
+    margin-top: $base-grid-size;
 }
 
-.o-split--v-center {
-    align-items: center;
+@include bpSmall() {
+    .o-split {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .o-split--v-center {
+        align-items: center;
+    }
+
+    .o-split > * + * {
+        margin-top: 0;
+    }
 }
