@@ -42,23 +42,25 @@ const QueryForm: React.FC<Props> = ({ currentQuery, onSearch }) => {
 
     return (
         <form onSubmit={onSubmit} className="c-form">
-            <div className="o-h-list">
+            <div className="o-h-list o-h-list--wrap">
                 <input type="search" className="c-input" value={query} onChange={onQueryChange} />
-                <ImageCheckboxGroup
-                    className='o-h-list'
-                    name='manavalue'
-                    options={[
-                        { value: '1', label: '1', imageUrl: MANAVALUE_1_SVG, imageWidth: 44, imageHeight: 44 },
-                        { value: '2', label: '2', imageUrl: MANAVALUE_2_SVG, imageWidth: 44, imageHeight: 44 },
-                        { value: '3', label: '3', imageUrl: MANAVALUE_3_SVG, imageWidth: 44, imageHeight: 44 },
-                        { value: '4', label: '4', imageUrl: MANAVALUE_4_SVG, imageWidth: 44, imageHeight: 44 },
-                        { value: '5', label: '5', imageUrl: MANAVALUE_5_SVG, imageWidth: 44, imageHeight: 44 },
-                        { value: '6', label: '6', imageUrl: MANAVALUE_6_SVG, imageWidth: 44, imageHeight: 44 },
-                        { value: '7', label: '7', imageUrl: MANAVALUE_7_SVG, imageWidth: 44, imageHeight: 44 },
-                    ]}
-                    selected={manaValues}
-                    onChange={value => toggleValue(value)}
-                />
+                <div className="o-horizontal-scroll">
+                    <ImageCheckboxGroup
+                        className='o-h-list'
+                        name='manavalue'
+                        options={[
+                            { value: '1', label: '1', imageUrl: MANAVALUE_1_SVG, imageWidth: 44, imageHeight: 44 },
+                            { value: '2', label: '2', imageUrl: MANAVALUE_2_SVG, imageWidth: 44, imageHeight: 44 },
+                            { value: '3', label: '3', imageUrl: MANAVALUE_3_SVG, imageWidth: 44, imageHeight: 44 },
+                            { value: '4', label: '4', imageUrl: MANAVALUE_4_SVG, imageWidth: 44, imageHeight: 44 },
+                            { value: '5', label: '5', imageUrl: MANAVALUE_5_SVG, imageWidth: 44, imageHeight: 44 },
+                            { value: '6', label: '6', imageUrl: MANAVALUE_6_SVG, imageWidth: 44, imageHeight: 44 },
+                            { value: '7', label: '7', imageUrl: MANAVALUE_7_SVG, imageWidth: 44, imageHeight: 44 },
+                        ]}
+                        selected={manaValues}
+                        onChange={value => toggleValue(value)}
+                    />
+                </div>
                 <Button type="submit">Search</Button>
             </div>
         </form>
