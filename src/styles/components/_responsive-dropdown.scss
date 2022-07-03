@@ -11,13 +11,13 @@
     padding: $base-grid-size * 2;
     position: absolute;
     top: 100%;
-    display: none;
+    visibility: hidden;
     z-index: $zindex-dropdown;
     width: 100vw;
 }
 
 .c-responsive-dropdown__children--open {
-    display: block;
+    visibility: visible;
 }
 
 @include bpMedium() {

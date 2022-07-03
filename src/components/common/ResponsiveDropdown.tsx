@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 type Props = {
     trigger: React.ReactNode,
@@ -7,6 +7,18 @@ type Props = {
 
 const ResponsiveDropdown: React.FC<Props> = ({ trigger, children }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [left, setLeft] = useState(0);
+    const childrenRef: React.MutableRefObject<HTMLDivElement | null> = useRef(null);
+
+    useEffect(
+        () => {
+            if (childrenRef.current != null && left === 0) {
+                setLeft(-childrenRef.current.getBoundingClientRect().left);
+            }
+        },
+        [left]
+    );
+
     const childrenClassName = clsx(
         'c-responsive-dropdown__children',
         { 'c-responsive-dropdown__children--open': isOpen }
@@ -21,7 +33,7 @@ const ResponsiveDropdown: React.FC<Props> = ({ trigger, children }) => {
             >
                 {trigger}
             </button>
-            <div className={childrenClassName}>
+            <div className={childrenClassName} ref={childrenRef} style={{ left }}>
                 {children}
             </div>
         </div>
