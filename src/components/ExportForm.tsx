@@ -16,8 +16,8 @@ const ExportForm: React.FC<Props> = ({ onExportClick }) => {
 
     return (
         <div className="c-form">
-            <div className="o-h-list o-h-list--x2 o-h-list--center">
-                <span className="u-txt--24 u-txt--heading u-txt--weight-black u-txt--color-black">
+            <div className="o-h-list o-h-list--x2 o-h-list--center o-h-list--right">
+                <span className="u-txt--20 u-txt--24@sm u-txt--heading u-txt--weight-black u-txt--color-black">
                     Total cards: {allCards.length}/{cardCount}
                 </span>
                 <Button type="button" disabled={allCards.length !== cardCount} onClick={onExportClick}>

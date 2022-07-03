@@ -38,6 +38,10 @@
     align-items: center;
 }
 
+.o-h-list--right {
+    justify-content: flex-end;
+}
+
 @for $i from 2 through 4 {
     .o-h-list--x#{$i} > * + * {
         margin-left: $base-grid-size * $i;
