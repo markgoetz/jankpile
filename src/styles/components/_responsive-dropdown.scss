@@ -1,5 +1,9 @@
 .c-responsive-dropdown {
     position: relative;
+    background-image: url('../../assets/images/triangle-down.svg');
+    background-repeat: no-repeat;
+    background-position: right 50%;
+    padding-right: 1rem;
 }
 
 .c-responsive-dropdown__children {
@@ -8,6 +12,8 @@
     position: absolute;
     top: 100%;
     display: none;
+    z-index: $zindex-dropdown;
+    width: 100vw;
 }
 
 .c-responsive-dropdown__children--open {
@@ -18,6 +24,8 @@
     .c-responsive-dropdown {
         position: static;
         display: flex;
+        background-image: none;
+        padding-right: 0;
     }
 
     .c-responsive-dropdown__children {
@@ -26,5 +34,7 @@
         display: block;
         background-color: transparent;
         margin-left: $base-grid-size * 2;
+        z-index: 0;
+        width: auto;
     }
 }

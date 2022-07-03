@@ -13,9 +13,9 @@ const Heading: React.FC<Props> = ({ size, children, tag }) => {
         'u-txt--color-primary',
         'u-txt--weight-black',
         {
-            'u-txt--36': size === 'large',
-            'u-txt--24': size === 'medium',
-            'u-txt--20': size === 'small',
+            'u-txt--24 u-txt--36@sm': size === 'large',
+            'u-txt--20 u-txt--24@sm': size === 'medium',
+            'u-txt--16 u-txt--20@sm': size === 'small',
         }
     );
 
