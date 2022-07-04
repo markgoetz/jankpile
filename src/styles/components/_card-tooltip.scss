@@ -1,12 +1,25 @@
 .c-card-tooltip {
     display: flex;
-    position: absolute;
     padding: $base-grid-size;
-    top: -$base-grid-size - .4rem;
-    left: -$base-grid-size - .4rem;
     background-color: $color-mid-start;
-    z-index: $zindex-overlay;
-    border: .4rem solid $color-highlight;
-    border-radius: .4rem;
-    width: 46rem;
+    z-index: $zindex-modal;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100vw;
+
+    @include bpSmall() {
+        position: absolute;
+        top: -$base-grid-size - .4rem;
+        left: -$base-grid-size - .4rem;
+        bottom: unset;
+        right: unset;
+        z-index: $zindex-overlay;
+        border: .4rem solid $color-highlight;
+        border-radius: .4rem;
+        width: 46rem;
+        max-width: none;
+    }
 }

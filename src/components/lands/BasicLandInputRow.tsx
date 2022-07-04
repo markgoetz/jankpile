@@ -33,10 +33,10 @@ const BasicLandInputRow: React.FC<Props> = ({ color, basicCount, pipCount, pipSu
     return (
         <div className="c-basic-land-row">
             <div className="c-basic-land-row__icon">
-                <img src={ICONS_BY_COLOR[color]} alt="" width={44} height={44} />
+                <img src={ICONS_BY_COLOR[color]} alt="" />
             </div>
             <div className="c-basic-land-row__name">
-                <span className="u-txt--heading u-txt--bold u-txt--24">
+                <span className="u-txt--heading u-txt--bold u-txt--20 u-txt--24@sm">
                     {PLURAL_LAND_NAMES[color]}
                 </span>
             </div>
