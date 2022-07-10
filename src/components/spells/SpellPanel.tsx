@@ -129,7 +129,6 @@ const SpellPanel: React.FC = () => {
                                     {params.page < totalPages - 1 && (<Button variation="secondary" onClick={onNextPageClick}>Next Page</Button>)}
                                 </span>
                             </div>
-                            <Button onClick={onConfirmClick}>Continue to Lands</Button>
                         </div>
                         <aside>
                             <SelectedSpellList
@@ -138,6 +137,9 @@ const SpellPanel: React.FC = () => {
                                 onChartClick={() => setIsCurveModalOpen(true)}
                             />
                         </aside>
+                        <div>
+                            <Button onClick={onConfirmClick}>Continue to Lands</Button>
+                        </div>
                     </div>
                     <ManaCurveModal
                         isOpen={isCurveModalOpen}
