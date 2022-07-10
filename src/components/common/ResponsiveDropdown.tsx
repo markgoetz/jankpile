@@ -11,7 +11,6 @@ const ResponsiveDropdown: React.FC<Props> = ({ trigger, children }) => {
 
     const childrenRef = useAlignToLeftEdgeOfViewport<HTMLDivElement>();
 
-
     const childrenClassName = clsx(
         'c-responsive-dropdown__children',
         { 'c-responsive-dropdown__children--open': isOpen }

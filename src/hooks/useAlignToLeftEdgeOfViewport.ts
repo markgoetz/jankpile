@@ -7,7 +7,7 @@ const useAlignToLeftEdgeOfViewport = <T extends HTMLElement>(): React.MutableRef
         if (ref.current != null ) {
             const { current } = ref;
 
-            const prevLeft = parseInt(current.style.left, 10);
+            const prevLeft = current.style.left ? parseInt(current.style.left, 10) : 0;
             const left = -(current.getBoundingClientRect().left - prevLeft);
             current.style.left = `${left}px`;
         }

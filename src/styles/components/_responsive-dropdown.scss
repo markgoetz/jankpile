@@ -4,6 +4,11 @@
     background-repeat: no-repeat;
     background-position: right 50%;
     padding-right: 1rem;
+    border-radius: .4rem;
+}
+
+.c-responsive-dropdown:hover {
+    background-color: $color-mid-end;
 }
 
 .c-responsive-dropdown__children {
@@ -26,6 +31,10 @@
         display: flex;
         background-image: none;
         padding-right: 0;
+    }
+
+    .c-responsive-dropdown:hover {
+        background-color: transparent;
     }
 
     .c-responsive-dropdown__children {
