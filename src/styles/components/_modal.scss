@@ -14,7 +14,7 @@
 
 .c-modal__body {
     background-color: $color-white;
-    border: solid .4rem $color-highlight;
+    position: relative;
     padding: $base-grid-size * 2;
     position: fixed;
     overflow: auto;
@@ -26,6 +26,7 @@
     max-width: 100vw;
     
     @include bpSmall() {
+        border: solid .4rem $color-highlight;
         padding: $base-grid-size * 4;
         top: 50%;
         left: 50%;
@@ -41,5 +42,16 @@
 .c-modal__body--large {
     @include bpSmall() {
         width: 90vw;
+    }
+}
+
+.c-modal__icon {
+    position: absolute;
+    top: $base-grid-size * 2;
+    right: $base-grid-size * 2;
+
+    @include bpSmall() {
+        top: $base-grid-size * 4;
+        right: $base-grid-size * 4;
     }
 }
