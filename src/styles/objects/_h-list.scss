@@ -2,8 +2,28 @@
     display: flex;
 }
 
+.o-h-list--wrap {
+    flex-direction: column;
+}
+
 .o-h-list > * + * {
     margin-left: $base-grid-size;
+}
+
+.o-h-list--wrap > * + * {
+    margin-left: 0;
+    margin-top: $base-grid-size;
+}
+
+@include bpSmall() {
+    .o-h-list--wrap {
+        flex-direction: row;
+    }
+
+    .o-h-list--wrap > * + * {
+        margin-left: $base-grid-size;
+        margin-top: 0;
+    }
 }
 
 .o-h-list--top {
@@ -16,6 +36,10 @@
 
 .o-h-list--center {
     align-items: center;
+}
+
+.o-h-list--right {
+    justify-content: flex-end;
 }
 
 @for $i from 2 through 4 {

@@ -6,12 +6,30 @@
     font-size: 2rem;
 }
 
+.u-txt--20\@sm {
+    @include bpSmall() {
+        font-size: 2rem;
+    }
+}
+
 .u-txt--24 {
     font-size: 2.4rem;
 }
 
+.u-txt--24\@sm {
+    @include bpSmall() {
+        font-size: 2.4rem;
+    }
+}
+
 .u-txt--36 {
     font-size: 3.6rem;
+}
+
+.u-txt--36\@sm {
+    @include bpSmall() {
+        font-size: 3.6rem;
+    }
 }
 
 .u-txt--50 {

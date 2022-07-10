@@ -1,15 +1,31 @@
 .c-basic-land-row {
     display: grid;
-    grid-template-areas:
-        'icon name field action'
-        'icon pips field action';
-    grid-template-columns: 4.4rem 12rem 5.6rem auto;
     column-gap: $base-grid-size;
     align-items: center;
+
+    grid-template-areas:
+        'name field action'
+        'pips field action'
+        'icon icon icon';
+
+    grid-template-columns: 12rem 5.6rem auto;
+
+    @include bpSmall() {
+        grid-template-areas:
+            'icon name field action'
+            'icon pips field action';
+
+        grid-template-columns: 4.4rem 12rem 5.6rem auto;
+    }
 }
 
 .c-basic-land-row__icon {
-    grid-area: icon;
+    display: none;
+
+    @include bpSmall() {
+        display: block;
+        grid-area: icon;
+    }
 }
 
 .c-basic-land-row__name {

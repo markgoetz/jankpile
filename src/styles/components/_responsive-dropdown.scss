@@ -1,0 +1,50 @@
+.c-responsive-dropdown {
+    position: relative;
+    background-image: url('../../assets/images/triangle-down.svg');
+    background-repeat: no-repeat;
+    background-position: right 50%;
+    padding-right: 1rem;
+    border-radius: .4rem;
+}
+
+.c-responsive-dropdown:hover {
+    background-color: $color-mid-end;
+}
+
+.c-responsive-dropdown__children {
+    background-color: $color-mid-end;
+    padding: $base-grid-size * 2;
+    position: absolute;
+    top: 100%;
+    visibility: hidden;
+    z-index: $zindex-dropdown;
+    width: 100vw;
+}
+
+.c-responsive-dropdown__children--open {
+    visibility: visible;
+}
+
+@include bpMedium() {
+    .c-responsive-dropdown {
+        position: static;
+        display: flex;
+        background-image: none;
+        padding-right: 0;
+    }
+
+    .c-responsive-dropdown:hover {
+        background-color: transparent;
+    }
+
+    .c-responsive-dropdown__children {
+        position: static;
+        padding: 0;
+        display: block;
+        visibility: visible;
+        background-color: transparent;
+        margin-left: $base-grid-size * 2;
+        z-index: 0;
+        width: auto;
+    }
+}

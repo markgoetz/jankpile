@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import Footer from './Footer';
+import ExportForm from './ExportForm';
 import IdentityPanel from './IdentityPanel';
 import CommanderPanel from './commander/CommanderPanel';
 import SpellPanel from './spells/SpellPanel';
 import LandPanel from './lands/LandPanel';
 import ExportModal from './ExportModal';
 import { selectStep, Step } from '../redux-modules/steps';
-import MobileNotice from './MobileNotice';
 
 const Main: React.FC = () => {
     const [isExportModalOpen, setIsExportModalOpen] = useState(false);
@@ -47,9 +46,8 @@ const Main: React.FC = () => {
             <section ref={commanderRef}><CommanderPanel /></section>
             <section ref={spellRef}><SpellPanel /></section>
             <section ref={landRef}><LandPanel /></section>
-            <section><Footer onExportClick={() => setIsExportModalOpen(true)} /></section>
+            <section><ExportForm onExportClick={() => setIsExportModalOpen(true)} /></section>
             <ExportModal isOpen={isExportModalOpen} onClose={() => { setIsExportModalOpen(false); }} />
-            <MobileNotice />
         </React.Fragment>
     );
 };

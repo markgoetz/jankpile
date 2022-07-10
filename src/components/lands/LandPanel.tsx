@@ -168,7 +168,7 @@ const LandPanel: React.FC = () => {
                             <LoadingWrapper status={landStatus}>
                                 <div className="u-vr--x2" />
                                 {nonBasicOptions.length === 0 && (<NoLandsMessage />)}
-                                <ul className="o-full-grid">
+                                <ul className="o-full-grid o-full-grid--list@sm">
                                     {nonBasicOptions.map(option => (
                                         <li key={option.id}>
                                             <CardOption

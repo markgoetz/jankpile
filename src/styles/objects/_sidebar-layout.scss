@@ -1,5 +1,9 @@
 .o-sidebar-layout {
     display: grid;
-    grid-template-columns: 1fr 30rem;
     gap: $base-grid-size * 2;
+    grid-template-columns: 1fr;
+
+    @include bpSmall() {
+        grid-template-columns: 1fr 30rem;
+    }
 }

@@ -6,3 +6,21 @@
 .o-split--v-center {
     align-items: center;
 }
+
+.o-split--wrap {
+    flex-direction: column;
+}
+
+.o-split--wrap > * + * {
+    margin-top: $base-grid-size;
+}
+
+@include bpSmall() {
+    .o-split--wrap {
+        flex-direction: row;
+    }
+    
+    .o-split--wrap > * + * {
+        margin-top: 0;
+    }
+}

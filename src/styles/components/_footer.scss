@@ -1,6 +1,4 @@
 .c-footer {
-    position: fixed;
-    right: $base-grid-size;
-    bottom: $base-grid-size;
-    z-index: $zindex-footer;
+    background-color: $color-black;
+    padding: $base-grid-size * 2;
 }

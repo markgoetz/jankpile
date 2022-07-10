@@ -13,6 +13,7 @@ $button-depth: .4rem;
 }
 
 .c-selector__option__label {
+    white-space: nowrap;
     display: inline-block;
     padding: $base-grid-size $base-grid-size * 2;
     font-family: $font-heading;

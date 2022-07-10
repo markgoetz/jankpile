@@ -13,7 +13,7 @@ const SpellGrid: React.FC<Props> = ({ spells, options, onToggleOption, commander
     const [spellFocusId, setSpellFocusId] = useState<string | null>(null);
 
     return (
-        <ul className="o-full-grid u-vr--x2">
+        <ul className="o-full-grid o-full-grid--list@sm u-vr--x2">
             {options.map(option => (
                 <li key={option.id}>
                     <CardOption

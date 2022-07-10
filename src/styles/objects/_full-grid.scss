@@ -1,5 +1,18 @@
 .o-full-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     gap: $base-grid-size;
+    flex-wrap: wrap;
+}
+
+.o-full-grid--list\@sm {
+    display: flex;
+    flex-direction: column;
+    gap: $base-grid-size;
+    align-items: stretch;
+
+    @include bpSmall() {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }

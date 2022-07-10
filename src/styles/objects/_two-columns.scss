@@ -1,5 +1,11 @@
 .o-two-columns {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: $base-grid-size * 2;
+    grid-template-columns: 1fr;
+    row-gap: $base-grid-size * 2;
+
+    @include bpSmall() {
+        grid-template-columns: 1fr 1fr;
+        column-gap: $base-grid-size * 2;
+        row-gap: 0;
+    }
 }
