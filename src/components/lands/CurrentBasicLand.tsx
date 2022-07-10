@@ -22,7 +22,7 @@ const CurrentBasicLand: React.FC<Props> = ({ count, color, isSnow, onAdd, onSubt
                 <img src={PLUS_SVG} width={22} height={22} alt="Add 1 land" />
             </button>
             {count > 0 && (
-                <button type="button" onClick={() => onSubtract}>
+                <button type="button" onClick={() => onSubtract()}>
                     <img src={MINUS_SVG} width={22} height={22} alt="Subtract 1 land" />
                 </button>
             )}
