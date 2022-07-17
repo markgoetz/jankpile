@@ -17,3 +17,5 @@ export const parseColors = (params: Record<string, string | undefined>) => {
 
 const API_ENDPOINT = 'https://api.scryfall.com/cards/search?q=';
 export const getEndpoint = (query: string, page: number = 1) => `${API_ENDPOINT}${query}&page=${page}`;
+
+export const SET_ENDPOINT = 'https://api.scryfall.com/sets'

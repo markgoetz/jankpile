@@ -11,6 +11,7 @@ import FullCardFace from '../common/FullCardFace';
 import CommanderList from './CommanderList';
 import NoCommandersMessage from './NoCommandersMessage';
 import getUniqueValues from '../../lib/utils/getUniqueValues';
+import { selectSetNames } from '../../redux-modules/sets';
 
 const CommanderPanel: React.FC = () => {
     const options = useSelector(selectCommanderOptions);
@@ -18,6 +19,7 @@ const CommanderPanel: React.FC = () => {
     const isPanelOpen = useSelector(selectIsCommander);
     const isEditVisible = useSelector(selectIsAfterCommander);
     const commanderStatus = useSelector(selectCommanderStatus);
+    const setNames = useSelector(selectSetNames);
     const dispatch = useDispatch();
 
     const [selectedSet, setSelectedSet] = useState('0');
@@ -66,11 +68,15 @@ const CommanderPanel: React.FC = () => {
             {isPanelOpen && (
                 <LoadingWrapper status={commanderStatus}>
                     <div className="c-panel__bd">
-                        <div className="o-h-list o-h-list--center">
+                        <div className="o-h-list o-h-list--center o-h-list--wrap">
                             <span>Show commanders from:</span>
                             <select className="c-input" onChange={onSetChange}>
                                 <option value="0">All sets</option>
-                                {sets.map(set => <option key={set}>{set}</option>)}
+                                {sets.map(set => (
+                                    <option key={set} value={set}>
+                                        {setNames[set]} ({set})
+                                    </option>
+                                ))}
                             </select>
                         </div>
                         <div className="u-vr" />

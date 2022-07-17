@@ -4,6 +4,7 @@ import ScryfallList from '../definitions/dto/ScryfallList';
 import { createResponse, getEndpoint, parseColors, parseFormat } from '../lib/function-utils/helpers';
 import { fullCardToSpell } from '../lib/function-utils/cardTranslations';
 import CardResponse from '../definitions/CardResponse';
+import ScryfallCard from '../definitions/dto/ScryfallCard';
 
 const API_RESULTS = 175;
 const PAGE_RESULTS = 25;
@@ -39,13 +40,13 @@ const handler: Handler = async(event, context) => {
     const cardQuery = queryPieces.join('+');
 
     try {
-        const response = await axios.get(getEndpoint(cardQuery, serverPage)) as AxiosResponse<ScryfallList>;
+        const response = await axios.get(getEndpoint(cardQuery, serverPage)) as AxiosResponse<ScryfallList<ScryfallCard>>;
         const parsedCards = response.data.data.map(fullCardToSpell);
         const splicedCards = parsedCards.splice(clientSplice * PAGE_RESULTS, PAGE_RESULTS);
 
         const responseToReturn: CardResponse = {
             cards: splicedCards,
-            totalPages: response.data.total_cards / PAGE_RESULTS,
+            totalPages: response.data.total_cards ?? 0 / PAGE_RESULTS,
         };
 
         return createResponse(200, responseToReturn);
