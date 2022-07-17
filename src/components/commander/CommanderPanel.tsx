@@ -70,7 +70,7 @@ const CommanderPanel: React.FC = () => {
             {isPanelOpen && (
                 <LoadingWrapper status={commanderStatus}>
                     <div className="c-panel__bd">
-                        <div className="o-h-list o-h-list--center">
+                        <div className="o-h-list o-h-list--center o-h-list--wrap">
                             <span>Show commanders from:</span>
                             <select className="c-input" onChange={onSetChange}>
                                 <option value="0">All sets</option>
