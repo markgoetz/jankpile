@@ -27,6 +27,7 @@ export const ENDPOINTS = {
     SPELLS: '/api/spells',
     NONBASICS: '/api/nonbasics',
     BASIC_ART: '/api/basics',
+    SETS: '/api/sets',
 };
 
 export const STOPWORD_LIST = [

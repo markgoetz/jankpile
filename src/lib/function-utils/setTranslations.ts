@@ -6,7 +6,7 @@ export const setListToNameMap = (list: ScryfallList<ScryfallSet>): Record<string
         (prev: Record<string, string>, current: ScryfallSet) => {
             return {
                 ...prev,
-                [current.code]: current.name,
+                [current.code.toUpperCase()]: current.name,
             };
         },
         {} as Record<string, string>,

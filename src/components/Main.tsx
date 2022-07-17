@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ExportForm from './ExportForm';
 import IdentityPanel from './IdentityPanel';
 import CommanderPanel from './commander/CommanderPanel';
@@ -7,6 +7,7 @@ import SpellPanel from './spells/SpellPanel';
 import LandPanel from './lands/LandPanel';
 import ExportModal from './ExportModal';
 import { selectStep, Step } from '../redux-modules/steps';
+import { fetchSetNames } from '../redux-modules/sets';
 
 const Main: React.FC = () => {
     const [isExportModalOpen, setIsExportModalOpen] = useState(false);
@@ -14,7 +15,15 @@ const Main: React.FC = () => {
     const commanderRef = useRef<HTMLElement>(null);
     const spellRef = useRef<HTMLElement>(null);
     const landRef = useRef<HTMLElement>(null);
-    const currentStep = useSelector(selectStep)
+    const currentStep = useSelector(selectStep);
+    const dispatch = useDispatch();
+
+    useEffect(
+        () => {
+            dispatch(fetchSetNames());
+        },
+        [dispatch],
+    );
 
     useEffect(
         () => {

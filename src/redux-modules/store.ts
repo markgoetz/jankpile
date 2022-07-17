@@ -3,6 +3,7 @@ import Card from '../definitions/Card';
 import commanderSlice from './commander';
 import identitySlice from './identity';
 import landSlice from './lands';
+import setSlice from './sets';
 import spellSlice from './spells';
 import stepSlice from './steps';
 
@@ -13,6 +14,7 @@ const store = configureStore({
         commander: commanderSlice.reducer,
         spells: spellSlice.reducer,
         lands: landSlice.reducer,
+        sets: setSlice.reducer,
     },
 });
 
