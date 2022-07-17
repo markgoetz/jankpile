@@ -53,8 +53,6 @@ const CommanderPanel: React.FC = () => {
     const commandersFromSelectedSet = (selectedSet === '0')
         ? options
         : options.filter(option => option.setCode === selectedSet);
-    
-    console.log(setNames);
 
     return (
         <div className="c-panel">
