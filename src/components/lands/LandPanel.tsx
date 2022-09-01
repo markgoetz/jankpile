@@ -47,6 +47,15 @@ const LandPanel: React.FC = () => {
         [commander?.id]
     );
 
+    useEffect(
+        () => {
+            if (format === 'brawl') {
+                setIsSnow(false);
+            }
+        },
+        [format]
+    );
+
     useDeepCompareEffect(
         () => {
             const identity = { format, colors };
@@ -151,6 +160,7 @@ const LandPanel: React.FC = () => {
                     <BasicLandForm
                         colors={colors}
                         colorlessLandColor={colorlessLandColor}
+                        format={format}
                         onColorlessLandColorChange={onColorlessLandColorChange}
                         isSnow={isSnow}
                         pipCounts={pipCounts}
