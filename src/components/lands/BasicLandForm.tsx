@@ -1,11 +1,13 @@
 import React from 'react';
 import Color from '../../definitions/Color';
+import Format from '../../definitions/Format';
 import Checkbox from '../common/Checkbox';
 import BasicLandInputRow from './BasicLandInputRow';
 import ColorlessLandInputRow from './ColorlessLandInputRow';
 
 type Props = {
     colors: Color[],
+    format: Format,
     colorlessLandColor: Color,
     onColorlessLandColorChange: (color: Color) => void,
     isSnow: boolean,
@@ -18,6 +20,7 @@ type Props = {
 
 const BasicLandForm: React.FC<Props> = ({
     colors,
+    format,
     colorlessLandColor,
     onColorlessLandColorChange,
     isSnow,
@@ -31,14 +34,18 @@ const BasicLandForm: React.FC<Props> = ({
 
     return (
         <div className="c-form">
-            <Checkbox
-                name="is-snow"
-                value="yes"
-                label="Snow Lands"
-                checked={isSnow}
-                onToggle={onIsSnowToggle}
-            />
-            <div className="u-vr u-vr--x2" />
+            {format === 'historic' && (
+                <>
+                    <Checkbox
+                        name="is-snow"
+                        value="yes"
+                        label="Snow Lands"
+                        checked={isSnow}
+                        onToggle={onIsSnowToggle}
+                    />
+                    <div className="u-vr u-vr--x2" />
+                </>
+            )}
             <ul className="o-v-list o-v-list--x2">
                 {colors.map(color => (
                     <li key={color}>
