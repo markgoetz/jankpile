@@ -16,7 +16,7 @@ const getFrontFace = (card: ScryfallCard): CardFace => {
             type: cardFace.type_line ?? '',
             description: cardFace.oracle_text,
             artist: cardFace.artist,
-            fullImageUri: imageUris.small,
+            fullImageUri: imageUris.normal,
             artImageUri: imageUris.art_crop,
             pips: cardFace.mana_cost,
             power: cardFace.power,
@@ -34,7 +34,7 @@ const getFrontFace = (card: ScryfallCard): CardFace => {
         type: card.type_line,
         description: card.oracle_text,
         artist: card.artist ?? 'Unknown',
-        fullImageUri: card.image_uris.small,
+        fullImageUri: card.image_uris.normal,
         artImageUri: card.image_uris.art_crop,
         pips: card.mana_cost as string,
         power: card.power,
@@ -48,7 +48,7 @@ const getBackFace = (card: ScryfallCard): CardFace | undefined => {
         const cardFace = card.card_faces[1];
 
         const imageUris = cardFace.image_uris ?? card.image_uris;
-        if (imageUris== null) {
+        if (imageUris == null) {
             throw new Error('Card does not have any image URIs');
         }
 
